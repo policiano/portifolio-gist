@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,8 @@
 		357B2FCE24CFC3E100813529 /* GistDigest+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FCC24CFC3BA00813529 /* GistDigest+Fixtures.swift */; };
 		357B2FD124CFC41100813529 /* GetPublicGistsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FD024CFC41100813529 /* GetPublicGistsUseCase.swift */; };
 		357B2FD424CFC46A00813529 /* GistsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FD324CFC46A00813529 /* GistsRepository.swift */; };
+		357B2FD724CFC9B400813529 /* MoyaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FD624CFC9B400813529 /* MoyaDataSource.swift */; };
+		357B2FDC24CFCEB000813529 /* MoyaDataSourcingSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FDB24CFCEB000813529 /* MoyaDataSourcingSpy.swift */; };
 		B5614D648C79C28A12BAEBDD /* Pods_GistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA0A6B33EE9DFD8970FF46 /* Pods_GistTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		357B2FCC24CFC3BA00813529 /* GistDigest+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigest+Fixtures.swift"; sourceTree = "<group>"; };
 		357B2FD024CFC41100813529 /* GetPublicGistsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPublicGistsUseCase.swift; sourceTree = "<group>"; };
 		357B2FD324CFC46A00813529 /* GistsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsRepository.swift; sourceTree = "<group>"; };
+		357B2FD624CFC9B400813529 /* MoyaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaDataSource.swift; sourceTree = "<group>"; };
+		357B2FDB24CFCEB000813529 /* MoyaDataSourcingSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaDataSourcingSpy.swift; sourceTree = "<group>"; };
 		7958A52B76F6B18A6EF72CA2 /* Pods-Gist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.debug.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.debug.xcconfig"; sourceTree = "<group>"; };
 		84923CC397DA36C9406967BE /* Pods-Gist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.release.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.release.xcconfig"; sourceTree = "<group>"; };
 		A10A29F416BCF6BC9A8B2009 /* Pods-GistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistTests.release.xcconfig"; path = "Target Support Files/Pods-GistTests/Pods-GistTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 		3549C29524CF93C300CE94D0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				357B2FD924CFCE9000813529 /* Tests */,
+				357B2FD824CFCE8900813529 /* Sources */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -360,6 +366,38 @@
 			path = Respository;
 			sourceTree = "<group>";
 		};
+		357B2FD524CFC9A100813529 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				357B2FD624CFC9B400813529 /* MoyaDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		357B2FD824CFCE8900813529 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				357B2FD524CFC9A100813529 /* DataSource */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		357B2FD924CFCE9000813529 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				357B2FDA24CFCE9700813529 /* Doubles */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		357B2FDA24CFCE9700813529 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				357B2FDB24CFCEB000813529 /* MoyaDataSourcingSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
 		35C3B43F17A6339659E94C0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +432,7 @@
 				3549C25924CF900600CE94D0 /* Sources */,
 				3549C25A24CF900600CE94D0 /* Frameworks */,
 				3549C25B24CF900600CE94D0 /* Resources */,
+				89B09021D8EB3EACE1701712 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -431,6 +470,7 @@
 				3549C27C24CF900800CE94D0 /* Sources */,
 				3549C27D24CF900800CE94D0 /* Frameworks */,
 				3549C27E24CF900800CE94D0 /* Resources */,
+				0B15E9580482F3C87CB0F8D7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -512,6 +552,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0B15E9580482F3C87CB0F8D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gist-GistUITests/Pods-Gist-GistUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gist-GistUITests/Pods-Gist-GistUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gist-GistUITests/Pods-Gist-GistUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		35A3D43C58FD325297B54EEA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -556,6 +613,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		89B09021D8EB3EACE1701712 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gist/Pods-Gist-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gist/Pods-Gist-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gist/Pods-Gist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C61532F85481092ADE136C81 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -588,6 +662,7 @@
 				3549C2A524CFAB4000CE94D0 /* BaseViewController.swift in Sources */,
 				3549C29C24CF943800CE94D0 /* DiscoverTableViewController.swift in Sources */,
 				357B2FD424CFC46A00813529 /* GistsRepository.swift in Sources */,
+				357B2FD724CFC9B400813529 /* MoyaDataSource.swift in Sources */,
 				3549C2A224CFAAB700CE94D0 /* GistViewController.swift in Sources */,
 				3549C26124CF900600CE94D0 /* AppDelegate.swift in Sources */,
 				356EAA3924CFB4E100D20FE5 /* GistDigest.swift in Sources */,
@@ -602,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				357B2FDC24CFCEB000813529 /* MoyaDataSourcingSpy.swift in Sources */,
 				357B2FCE24CFC3E100813529 /* GistDigest+Fixtures.swift in Sources */,
 				357B2FC724CFBFDB00813529 /* ErrorDummy.swift in Sources */,
 				357B2FCA24CFC37600813529 /* GistsRepositorySpy.swift in Sources */,
