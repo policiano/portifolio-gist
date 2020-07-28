@@ -28,8 +28,8 @@ extension GistDigestResponse {
 
 extension GistDigestResponse {
     struct Owner: Codable {
-        let login: String? //"login": "octocat",
-        let avatarUrl: String? //"avatar_url": "https://github.com/images/error/octocat_happy.gif",
+        let login: String?
+        let avatarUrl: String?
 
         enum CodingKeys: String, CodingKey {
             case login
