@@ -31,6 +31,8 @@
 		357B2FDC24CFCEB000813529 /* MoyaDataSourcingSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FDB24CFCEB000813529 /* MoyaDataSourcingSpy.swift */; };
 		357B2FE224CFD29700813529 /* GistDigestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FE124CFD29700813529 /* GistDigestResponse.swift */; };
 		357B2FE624CFD4C300813529 /* GistDigestResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FE424CFD4B700813529 /* GistDigestResponseTests.swift */; };
+		357B2FE924CFDB8C00813529 /* GistsTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FE824CFDB8C00813529 /* GistsTargetType.swift */; };
+		357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FEA24CFDD3E00813529 /* PublicGistsRequest.swift */; };
 		B5614D648C79C28A12BAEBDD /* Pods_GistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA0A6B33EE9DFD8970FF46 /* Pods_GistTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		357B2FDB24CFCEB000813529 /* MoyaDataSourcingSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaDataSourcingSpy.swift; sourceTree = "<group>"; };
 		357B2FE124CFD29700813529 /* GistDigestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestResponse.swift; sourceTree = "<group>"; };
 		357B2FE424CFD4B700813529 /* GistDigestResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestResponseTests.swift; sourceTree = "<group>"; };
+		357B2FE824CFDB8C00813529 /* GistsTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsTargetType.swift; sourceTree = "<group>"; };
+		357B2FEA24CFDD3E00813529 /* PublicGistsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGistsRequest.swift; sourceTree = "<group>"; };
 		7958A52B76F6B18A6EF72CA2 /* Pods-Gist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.debug.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.debug.xcconfig"; sourceTree = "<group>"; };
 		84923CC397DA36C9406967BE /* Pods-Gist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.release.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.release.xcconfig"; sourceTree = "<group>"; };
 		A10A29F416BCF6BC9A8B2009 /* Pods-GistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistTests.release.xcconfig"; path = "Target Support Files/Pods-GistTests/Pods-GistTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -381,6 +385,7 @@
 		357B2FD824CFCE8900813529 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				357B2FE724CFDB6A00813529 /* Requests */,
 				357B2FE024CFD28700813529 /* Responses */,
 				357B2FD524CFC9A100813529 /* DataSource */,
 			);
@@ -418,6 +423,15 @@
 				357B2FE424CFD4B700813529 /* GistDigestResponseTests.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		357B2FE724CFDB6A00813529 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				357B2FE824CFDB8C00813529 /* GistsTargetType.swift */,
+				357B2FEA24CFDD3E00813529 /* PublicGistsRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		35C3B43F17A6339659E94C0D /* Frameworks */ = {
@@ -683,12 +697,14 @@
 			files = (
 				3549C2A524CFAB4000CE94D0 /* BaseViewController.swift in Sources */,
 				357B2FE224CFD29700813529 /* GistDigestResponse.swift in Sources */,
+				357B2FE924CFDB8C00813529 /* GistsTargetType.swift in Sources */,
 				3549C29C24CF943800CE94D0 /* DiscoverTableViewController.swift in Sources */,
 				357B2FD424CFC46A00813529 /* GistsRepository.swift in Sources */,
 				357B2FD724CFC9B400813529 /* MoyaDataSource.swift in Sources */,
 				3549C2A224CFAAB700CE94D0 /* GistViewController.swift in Sources */,
 				3549C26124CF900600CE94D0 /* AppDelegate.swift in Sources */,
 				356EAA3924CFB4E100D20FE5 /* GistDigest.swift in Sources */,
+				357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */,
 				357B2FD124CFC41100813529 /* GetPublicGistsUseCase.swift in Sources */,
 				3549C29F24CFA99D00CE94D0 /* SplitViewController.swift in Sources */,
 				357B2FC424CFBE5A00813529 /* Result.swift in Sources */,
