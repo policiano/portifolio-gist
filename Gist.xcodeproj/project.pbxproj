@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B197E23E128CCC8A57D4E47 /* Pods_Gist_GistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89A8EA6E9A8E9088FF542B2 /* Pods_Gist_GistUITests.framework */; };
 		3396C4429BA49883D01AEF96 /* Pods_Gist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DB341F8D40F254A166745 /* Pods_Gist.framework */; };
+		3504A89624D07CBC00202678 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A89424D07CA400202678 /* File.swift */; };
 		3549C26124CF900600CE94D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C26024CF900600CE94D0 /* AppDelegate.swift */; };
 		3549C26C24CF900700CE94D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3549C26B24CF900700CE94D0 /* Assets.xcassets */; };
 		3549C26F24CF900700CE94D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3549C26D24CF900700CE94D0 /* LaunchScreen.storyboard */; };
@@ -36,7 +37,6 @@
 		357B2FEE24CFDF3600813529 /* MoyaGistsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FED24CFDF3600813529 /* MoyaGistsRepository.swift */; };
 		357B2FF024CFE71F00813529 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FEF24CFE71F00813529 /* Functional.swift */; };
 		357B2FF324CFF40300813529 /* GistDigest+Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FF224CFF40300813529 /* GistDigest+Mappers.swift */; };
-		357B2FF624D06DE100813529 /* GistDigestFileMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FF524D06DE100813529 /* GistDigestFileMapperTests.swift */; };
 		B5614D648C79C28A12BAEBDD /* Pods_GistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA0A6B33EE9DFD8970FF46 /* Pods_GistTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3504A89424D07CA400202678 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3549C25D24CF900600CE94D0 /* Gist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549C26024CF900600CE94D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3549C26B24CF900700CE94D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		357B2FED24CFDF3600813529 /* MoyaGistsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsRepository.swift; sourceTree = "<group>"; };
 		357B2FEF24CFE71F00813529 /* Functional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 		357B2FF224CFF40300813529 /* GistDigest+Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigest+Mappers.swift"; sourceTree = "<group>"; };
-		357B2FF524D06DE100813529 /* GistDigestFileMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestFileMapperTests.swift; sourceTree = "<group>"; };
 		7958A52B76F6B18A6EF72CA2 /* Pods-Gist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.debug.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.debug.xcconfig"; sourceTree = "<group>"; };
 		84923CC397DA36C9406967BE /* Pods-Gist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.release.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.release.xcconfig"; sourceTree = "<group>"; };
 		A10A29F416BCF6BC9A8B2009 /* Pods-GistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistTests.release.xcconfig"; path = "Target Support Files/Pods-GistTests/Pods-GistTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -465,7 +465,7 @@
 		357B2FF424D06DB600813529 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
-				357B2FF524D06DE100813529 /* GistDigestFileMapperTests.swift */,
+				3504A89424D07CA400202678 /* File.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -756,11 +756,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				357B2FDC24CFCEB000813529 /* MoyaDataSourcingSpy.swift in Sources */,
-				357B2FF624D06DE100813529 /* GistDigestFileMapperTests.swift in Sources */,
 				357B2FCE24CFC3E100813529 /* GistDigest+Fixtures.swift in Sources */,
 				357B2FC724CFBFDB00813529 /* ErrorDummy.swift in Sources */,
 				357B2FCA24CFC37600813529 /* GistsRepositorySpy.swift in Sources */,
 				357B2FE624CFD4C300813529 /* GistDigestResponseTests.swift in Sources */,
+				3504A89624D07CBC00202678 /* File.swift in Sources */,
 				357B2FBB24CFB78200813529 /* GistDigestTests.swift in Sources */,
 				357B2FC224CFBD2700813529 /* GetPublicGistsUseCaseTests.swift in Sources */,
 			);

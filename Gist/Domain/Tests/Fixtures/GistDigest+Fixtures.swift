@@ -21,10 +21,16 @@ extension GistDigest.Owner {
 
 extension GistDigest {
     public static func fixture(
+        id: String = .anyValue,
         description: String? = .anyValue,
         owner: Owner = .fixture(),
         files: [File] = []
     ) -> Self {
-        .init(description: description, owner: owner, files: files)
+        .init(
+            id: id,
+            description: description,
+            owner: owner,
+            files: files
+        )
     }
 }

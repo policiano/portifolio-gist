@@ -26,6 +26,7 @@ final class GistDigestTests: XCTestCase {
     }
 
     func test_gistDigestInit_shouldAssignTheProperValues() {
+        let expectedId = String.anyValue
         let expectedFileName = String.anyValue
         let expectedFileType = String.anyValue
         let expectedOwnerName = String.anyValue
@@ -34,7 +35,7 @@ final class GistDigestTests: XCTestCase {
         let expectedFiles = [GistDigest.File(name: expectedFileName, type: expectedFileType)]
         let owner = GistDigest.Owner(name: expectedOwnerName, avatarUrl: expectedOwnerUrl)
 
-        let sut = GistDigest(description: expectedDescription, owner: owner, files: expectedFiles)
+        let sut = GistDigest(id: expectedId, description: expectedDescription, owner: owner, files: expectedFiles)
 
         XCTAssertNotNil(sut.files.first)
         XCTAssertEqual(sut.files.count, expectedFiles.count)
@@ -43,5 +44,6 @@ final class GistDigestTests: XCTestCase {
         XCTAssertEqual(sut.owner.name, expectedOwnerName)
         XCTAssertEqual(sut.owner.avatarUrl, expectedOwnerUrl)
         XCTAssertEqual(sut.description, expectedDescription)
+        XCTAssertEqual(sut.id, expectedId)
     }
 }

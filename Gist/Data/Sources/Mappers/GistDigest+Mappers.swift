@@ -3,12 +3,18 @@ import Foundation
 extension GistDigest {
     init?(response: GistDigestResponse) {
         let files = response.files.map()
-        guard let owner = Owner(response: response.owner),
+        guard let id = response.id,
+            let owner = Owner(response: response.owner),
             !files.isEmpty else {
                 return nil
         }
 
-        self.init(description: response.description, owner: owner, files: files)
+        self.init(
+            id: id,
+            description: response.description,
+            owner: owner,
+            files: files
+        )
     }
 }
 

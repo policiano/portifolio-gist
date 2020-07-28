@@ -27,6 +27,7 @@ final class GistDigestResponseTests: XCTestCase {
     func test_onDecoding_withValidJson_shouldParseTheObject() {
         let json = """
         {
+            "id": "aa5a315d61ae9438b18d",
             "non-expected": null,
             "description": "Hello World Examples",
             "files": {
