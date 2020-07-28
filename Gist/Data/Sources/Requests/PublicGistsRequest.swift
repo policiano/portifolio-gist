@@ -9,7 +9,7 @@ public final class PublicGistsRequest: GistsTargetType {
     }
 
     public override var path: String {
-        "public"
+        "/public"
     }
 
     public override var task: Task {

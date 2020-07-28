@@ -3,7 +3,7 @@ import Moya
 
 public class GistsTargetType: TargetType {
     public var baseURL: URL {
-        URL(string: "https://api.github.com/gists/")!
+        URL(string: "\(URLs.baseUrl)/gists")!
     }
 
     public var headers: [String: String]? {
