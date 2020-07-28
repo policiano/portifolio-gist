@@ -6,7 +6,7 @@ def presentation_pods
 end
 
 def data_pods
-
+  pod 'Moya', '~> 14.0'
 end
 
 def tests_pods
