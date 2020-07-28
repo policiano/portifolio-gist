@@ -1,24 +1,24 @@
 import Foundation
 import Moya
 
-class GistsTargetType: TargetType {
-    var baseURL: URL {
+public class GistsTargetType: TargetType {
+    public var baseURL: URL {
         URL(string: "https://api.github.com/gists/")!
     }
 
-    var headers: [String: String]? {
+    public var headers: [String: String]? {
         ["Accept": "application/vnd.github.v3+json"]
     }
 
-    var path: String { "" }
+    public var path: String { "" }
 
-    var method: Moya.Method { .get }
+    public var method: Moya.Method { .get }
 
-    var sampleData: Data { Data() }
+    public var sampleData: Data { Data() }
 
-    var task: Task { .requestPlain }
+    public var task: Task { .requestPlain }
 
-    var validationType: ValidationType {
+    public var validationType: ValidationType {
         return .successAndRedirectCodes
     }
 }

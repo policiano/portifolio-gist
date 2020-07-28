@@ -33,6 +33,7 @@
 		357B2FE624CFD4C300813529 /* GistDigestResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FE424CFD4B700813529 /* GistDigestResponseTests.swift */; };
 		357B2FE924CFDB8C00813529 /* GistsTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FE824CFDB8C00813529 /* GistsTargetType.swift */; };
 		357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FEA24CFDD3E00813529 /* PublicGistsRequest.swift */; };
+		357B2FEE24CFDF3600813529 /* MoyaGistsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FED24CFDF3600813529 /* MoyaGistsRepository.swift */; };
 		B5614D648C79C28A12BAEBDD /* Pods_GistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA0A6B33EE9DFD8970FF46 /* Pods_GistTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		357B2FE424CFD4B700813529 /* GistDigestResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestResponseTests.swift; sourceTree = "<group>"; };
 		357B2FE824CFDB8C00813529 /* GistsTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsTargetType.swift; sourceTree = "<group>"; };
 		357B2FEA24CFDD3E00813529 /* PublicGistsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGistsRequest.swift; sourceTree = "<group>"; };
+		357B2FED24CFDF3600813529 /* MoyaGistsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsRepository.swift; sourceTree = "<group>"; };
 		7958A52B76F6B18A6EF72CA2 /* Pods-Gist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.debug.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.debug.xcconfig"; sourceTree = "<group>"; };
 		84923CC397DA36C9406967BE /* Pods-Gist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.release.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.release.xcconfig"; sourceTree = "<group>"; };
 		A10A29F416BCF6BC9A8B2009 /* Pods-GistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistTests.release.xcconfig"; path = "Target Support Files/Pods-GistTests/Pods-GistTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 		357B2FD824CFCE8900813529 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				357B2FEC24CFDF2000813529 /* Repository */,
 				357B2FE724CFDB6A00813529 /* Requests */,
 				357B2FE024CFD28700813529 /* Responses */,
 				357B2FD524CFC9A100813529 /* DataSource */,
@@ -432,6 +435,14 @@
 				357B2FEA24CFDD3E00813529 /* PublicGistsRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		357B2FEC24CFDF2000813529 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				357B2FED24CFDF3600813529 /* MoyaGistsRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		35C3B43F17A6339659E94C0D /* Frameworks */ = {
@@ -709,6 +720,7 @@
 				3549C29F24CFA99D00CE94D0 /* SplitViewController.swift in Sources */,
 				357B2FC424CFBE5A00813529 /* Result.swift in Sources */,
 				357B2FBE24CFB84400813529 /* Random.swift in Sources */,
+				357B2FEE24CFDF3600813529 /* MoyaGistsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

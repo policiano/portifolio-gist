@@ -1,11 +1,17 @@
 import UIKit
 
 public final class DiscoverTableViewController: BaseTableViewController {
+    let repository = MoyaGistsRepository()
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
 
         title = "Discover"
+
+        repository.getPublicGists {
+            print($0)
+        }
     }
 
     private func registerCells() {
