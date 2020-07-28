@@ -15,6 +15,8 @@ final class GetPublicGistsUseCaseTests: XCTestCase {
             actualResult = $0
         }
 
+        XCTAssertTrue(repositorySpy.getPublicGistsCalled)
+        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 0)
         XCTAssertEqual(actualResult?.error?.asErrorDummy, expectedError)
     }
 
@@ -28,6 +30,8 @@ final class GetPublicGistsUseCaseTests: XCTestCase {
             actualValues = $0.value
         }
 
+        XCTAssertTrue(repositorySpy.getPublicGistsCalled)
+        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 0)
         XCTAssertEqual(actualValues?.count, expectedValues.count)
         XCTAssertEqual(actualValues?.first?.description, gist.description)
         XCTAssertEqual(actualValues?.first?.owner.name, gist.owner.name)

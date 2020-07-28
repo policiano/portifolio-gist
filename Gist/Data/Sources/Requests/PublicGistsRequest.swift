@@ -2,7 +2,7 @@ import Foundation
 import Moya
 
 public final class PublicGistsRequest: GistsTargetType {
-    private let page: Int
+    public let page: Int
 
     public init(page: Int) {
         self.page = page

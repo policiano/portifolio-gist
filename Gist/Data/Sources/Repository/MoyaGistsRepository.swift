@@ -7,10 +7,12 @@ public final class MoyaGistsRepository {
         self.dataSource = dataSource
     }
 }
+
 extension MoyaGistsRepository: GistsRepository {
 
-    public func getPublicGists(completion: @escaping (Result<[GistDigest]>) -> Void) {
-        let request = PublicGistsRequest(page: 0)
+    public func getPublicGists(page: Int, completion: @escaping (Result<[GistDigest]>) -> Void) {
+        let request = PublicGistsRequest(page: page)
+
         dataSource.request(request) { (result: Result<[GistDigestResponse]>) in
             switch result {
             case .success(let responseList):

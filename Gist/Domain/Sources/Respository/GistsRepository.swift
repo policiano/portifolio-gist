@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol GistsRepository {
-    func getPublicGists(completion: @escaping (Result<[GistDigest]>) -> Void)
+    func getPublicGists(page: Int, completion: @escaping (Result<[GistDigest]>) -> Void)
 }
