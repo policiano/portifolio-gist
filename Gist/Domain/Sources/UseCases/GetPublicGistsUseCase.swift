@@ -14,6 +14,6 @@ public final class GetPublicGists {
 
 extension GetPublicGists: GetPublicGistsUseCase {
     public func execute(completion: @escaping (Result<[GistDigest]>) -> Void) {
-        repository.getPublicGists(completion: completion)
+        repository.getPublicGists(page: 0, completion: completion)
     }
 }

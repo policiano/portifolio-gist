@@ -1,21 +1,18 @@
 import Foundation
 import Moya
 
-public protocol MoyaDataSourcing {
-    associatedtype Target
-    func request<T: Codable>(_ target: Target, completion: @escaping (Result<T>) -> Void)
-}
-
-public final class MoyaDataSource<TargetType: Moya.TargetType>: MoyaProvider<TargetType>, MoyaDataSourcing {
-    public typealias Target = TargetType
+public class MoyaDataSource<Target: TargetType> {
     private var cancellable: Cancellable?
+    private let provider: MoyaProvider<Target>
 
-    public init() { }
+    public init(provider: MoyaProvider<Target> = .init()) {
+        self.provider = provider
+    }
 
-    public func request<T>(_ target: TargetType, completion: @escaping (Result<T>) -> Void) where T : Decodable, T : Encodable {
+    public func request<T>(_ target: Target, completion: @escaping (Result<T>) -> Void) where T : Decodable, T : Encodable {
         cancellable?.cancel()
         
-        cancellable = request(target, callbackQueue: .global(), progress: nil) { response in
+        cancellable = provider.request(target) { response in
             switch response {
             case .success(let response):
                 do {
