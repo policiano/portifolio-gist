@@ -7,7 +7,7 @@ extension GistDigestResponse {
         id: String? = .anyValue,
         description: String? = .anyValue,
         owner: Owner? = .anyValue,
-        files: [String: File] = [:]
+        files: [String: File] = [.anyValue: .anyValue]
     ) -> Self {
         .init(
             id: id,
@@ -18,7 +18,7 @@ extension GistDigestResponse {
     }
 }
 
-extension GistDigestResponse.File {
+extension GistDigestResponse.File: Random {
     static func fixture(
         filename: String? = .anyValue,
         type: String? = .anyValue
@@ -27,6 +27,10 @@ extension GistDigestResponse.File {
             filename: filename,
             type: type
         )
+    }
+
+    public static var anyValue: GistDigestResponse.File {
+        .fixture()
     }
 }
 
@@ -39,5 +43,9 @@ extension GistDigestResponse.Owner {
             login: login,
             avatarUrl: avatarUrl
         )
+    }
+
+    public static var anyValue: GistDigestResponse.Owner {
+        .fixture()
     }
 }
