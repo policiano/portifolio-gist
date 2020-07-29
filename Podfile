@@ -2,7 +2,8 @@
 # platform :ios, '9.0'
 
 def presentation_pods
-
+  pod 'Anchorage'
+  pod 'Kingfisher', '~> 5.0'
 end
 
 def data_pods

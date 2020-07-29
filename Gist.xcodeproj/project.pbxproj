@@ -15,6 +15,9 @@
 		3504A89E24D0824B00202678 /* PublicGistsRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A89D24D0824B00202678 /* PublicGistsRequestTests.swift */; };
 		3504A8A224D0D03100202678 /* MoyaGistsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8A024D0CE6D00202678 /* MoyaGistsRepositoryTests.swift */; };
 		3504A8A524D0D33700202678 /* GistDigestResponse+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8A424D0D33700202678 /* GistDigestResponse+Fixtures.swift */; };
+		3504A8A924D0FED200202678 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8A824D0FED200202678 /* CustomViewController.swift */; };
+		3504A8AB24D100DF00202678 /* StackViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8AA24D100DF00202678 /* StackViewBuilder.swift */; };
+		3504A8AD24D1039B00202678 /* GistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8AC24D1039B00202678 /* GistView.swift */; };
 		3549C26124CF900600CE94D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C26024CF900600CE94D0 /* AppDelegate.swift */; };
 		3549C26C24CF900700CE94D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3549C26B24CF900700CE94D0 /* Assets.xcassets */; };
 		3549C26F24CF900700CE94D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3549C26D24CF900700CE94D0 /* LaunchScreen.storyboard */; };
@@ -68,6 +71,9 @@
 		3504A89D24D0824B00202678 /* PublicGistsRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGistsRequestTests.swift; sourceTree = "<group>"; };
 		3504A8A024D0CE6D00202678 /* MoyaGistsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsRepositoryTests.swift; sourceTree = "<group>"; };
 		3504A8A424D0D33700202678 /* GistDigestResponse+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestResponse+Fixtures.swift"; sourceTree = "<group>"; };
+		3504A8A824D0FED200202678 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		3504A8AA24D100DF00202678 /* StackViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewBuilder.swift; sourceTree = "<group>"; };
+		3504A8AC24D1039B00202678 /* GistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistView.swift; sourceTree = "<group>"; };
 		3549C25D24CF900600CE94D0 /* Gist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549C26024CF900600CE94D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3549C26B24CF900700CE94D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -308,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				3549C2A124CFAAB700CE94D0 /* GistViewController.swift */,
+				3504A8AC24D1039B00202678 /* GistView.swift */,
 			);
 			path = Gist;
 			sourceTree = "<group>";
@@ -316,6 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				3549C2A424CFAB4000CE94D0 /* BaseViewController.swift */,
+				3504A8A824D0FED200202678 /* CustomViewController.swift */,
+				3504A8AA24D100DF00202678 /* StackViewBuilder.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -775,7 +784,9 @@
 				357B2FD724CFC9B400813529 /* MoyaDataSource.swift in Sources */,
 				3549C2A224CFAAB700CE94D0 /* GistViewController.swift in Sources */,
 				3549C26124CF900600CE94D0 /* AppDelegate.swift in Sources */,
+				3504A8AB24D100DF00202678 /* StackViewBuilder.swift in Sources */,
 				356EAA3924CFB4E100D20FE5 /* GistDigest.swift in Sources */,
+				3504A8A924D0FED200202678 /* CustomViewController.swift in Sources */,
 				357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */,
 				357B2FD124CFC41100813529 /* GetPublicGistsUseCase.swift in Sources */,
 				3549C29F24CFA99D00CE94D0 /* SplitViewController.swift in Sources */,
@@ -784,6 +795,7 @@
 				357B2FF324CFF40300813529 /* GistDigest+Mappers.swift in Sources */,
 				3504A89B24D07E8100202678 /* URLs.swift in Sources */,
 				357B2FEE24CFDF3600813529 /* MoyaGistsRepository.swift in Sources */,
+				3504A8AD24D1039B00202678 /* GistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,7 +903,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -945,7 +957,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

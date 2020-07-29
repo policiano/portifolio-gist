@@ -1,20 +1,21 @@
 import UIKit
 
-public final class GistViewController: BaseViewController {
+public final class GistViewController: BaseViewController, CustomViewController {
+    typealias View = GistView
+
+    public override func loadView() {
+        view = GistView()
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .random
-        title = "Gist"
-    }
-}
+        let viewModel = GistView.ViewModel(
+            avatarUrl: URL(string: "https://avatars2.githubusercontent.com/u/50024899?v=4"),
+            ownerName: "emanuel-jose",
+            creationDate: "Created 18 minutes ago"
+        )
 
-extension UIColor {
-    static var random: UIColor {
-        return UIColor(red: .random(in: 0...1),
-                       green: .random(in: 0...1),
-                       blue: .random(in: 0...1),
-                       alpha: 1.0)
+        customView.display(with: viewModel)
     }
 }
