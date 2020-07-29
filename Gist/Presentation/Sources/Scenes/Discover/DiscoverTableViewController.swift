@@ -39,6 +39,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showDetailViewController(GistViewController(), sender: self)
+        let navigationController = UINavigationController(rootViewController: GistViewController())
+        showDetailViewController(navigationController, sender: self)
     }
 }
