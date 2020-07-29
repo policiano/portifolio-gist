@@ -2,41 +2,14 @@ import Anchorage
 import Kingfisher
 import UIKit
 
-final class GistView: UIView {
-    private lazy var avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
-    }()
-
-    private lazy var ownerNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .semibold)
-        label.textColor = .label
-        return label
-    }()
-
-    private lazy var creationDateLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
-        label.textColor = .secondaryLabel
-        return label
-    }()
-
+final class GistView: BaseView {
     private let containerView = UIView()
+    private let headerView = GistDigestView()
 
-    init() {
-        super.init(frame: .zero)
-        setup()
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) { nil }
-
-    private func setup() {
+    override func setup() {
         containerView.backgroundColor = .systemGroupedBackground
 
         setupScrollView()
-        setupAvatar()
         setupHeaderView()
     }
 
@@ -51,46 +24,21 @@ final class GistView: UIView {
     }
 
     private func setupHeaderView() {
-        let stackView = StackViewBuilder {
-            let stackView = StackViewBuilder {
-                $0.spacing = 4
-                $0.arrangedSubviews = [ownerNameLabel, creationDateLabel]
-            }.build()
+        containerView.addSubview(headerView)
 
-            $0.axis = .horizontal
-            $0.spacing = 16
-            $0.alignment = .center
-            $0.arrangedSubviews = [avatarImageView, stackView]
-        }.build()
-
-        containerView.addSubview(stackView)
-
-        stackView.horizontalAnchors == containerView.horizontalAnchors + 16
-        stackView.topAnchor == containerView.topAnchor + 24
-    }
-
-    private func setupAvatar() {
-        avatarImageView.heightAnchor == 60
-        avatarImageView.widthAnchor == 60
-
-        avatarImageView.layer.cornerRadius = 30
-        avatarImageView.layer.masksToBounds = true
+        headerView.horizontalAnchors == containerView.horizontalAnchors + 16
+        headerView.topAnchor == containerView.topAnchor + 24
     }
 }
 
 extension GistView {
     struct ViewModel {
-        let avatarUrl: URL?
-        let ownerName: String
-        let creationDate: String
+        let headerViewModel: GistDigestView.ViewModel
+        let description: String?
+        let files: [String]
     }
 
     func display(with viewModel: ViewModel) {
-        if let url = viewModel.avatarUrl {
-            avatarImageView.kf.setImage(with: url)
-        }
-
-        ownerNameLabel.text = viewModel.ownerName
-        creationDateLabel.text = viewModel.creationDate
+        headerView.display(with: viewModel.headerViewModel)
     }
 }
