@@ -92,16 +92,11 @@ extension GistDigestView {
 
         ownerNameLabel.text = viewModel.ownerName
         secondaryLabel.text = viewModel.secondaryText
+        tagList.removeAllTags()
 
         for file in viewModel.fileTypes {
             tagList.addTag(file)
         }
-    }
-}
-
-private extension TagListView {
-    func usePresetColors() {
-
     }
 }
 

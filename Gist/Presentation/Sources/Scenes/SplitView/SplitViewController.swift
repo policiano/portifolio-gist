@@ -10,8 +10,6 @@ public final class SplitViewController: UISplitViewController {
     private func setupMasterAndDetail() {
         let master = UINavigationController(rootViewController: DiscoverTableViewController())
 
-//        master.navigationBar.prefersLargeTitles = true
-
         viewControllers = [master]
     }
 }
