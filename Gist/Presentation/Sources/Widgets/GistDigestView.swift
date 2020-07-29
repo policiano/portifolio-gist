@@ -1,15 +1,10 @@
-//
-//  GistDigestView.swift
-//  Gist
-//
-//  Created by Willian Fagner De Souza Policiano on 29/07/20.
-//  Copyright © 2020 Willian. All rights reserved.
-//
-
 import Anchorage
+import TagListView
 import UIKit
 
 final class GistDigestView: BaseView {
+    let tagList = TagListView()
+
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 30
@@ -34,8 +29,13 @@ final class GistDigestView: BaseView {
     private lazy var containerView: UIStackView = {
         StackViewBuilder {
             let stackView = StackViewBuilder {
-                $0.spacing = 4
-                $0.arrangedSubviews = [ownerNameLabel, secondaryLabel]
+                let stackView = StackViewBuilder {
+                    $0.spacing = 4
+                    $0.arrangedSubviews = [ownerNameLabel, secondaryLabel]
+                }.build()
+
+                $0.spacing = 8
+                $0.arrangedSubviews = [stackView, tagList]
             }.build()
 
             $0.axis = .horizontal
@@ -48,11 +48,12 @@ final class GistDigestView: BaseView {
     // MARK: Subviews setup
 
     override func setup() {
-        backgroundColor = superview?.backgroundColor
-        containerView.backgroundColor = superview?.backgroundColor
-        
+        backgroundColor = .systemBackground
+        containerView.backgroundColor = .systemBackground
+
         setupAvatar()
         setupContainer()
+        setupTagList()
     }
 
     private func setupAvatar() {
@@ -62,7 +63,17 @@ final class GistDigestView: BaseView {
 
     private func setupContainer() {
         addSubview(containerView)
-        containerView.edgeAnchors == edgeAnchors
+        containerView.edgeAnchors == edgeAnchors + 16
+    }
+
+    private func setupTagList() {
+        tagList.tagBackgroundColor = UIColor.systemBlue.withAlphaComponent(0.1)
+        tagList.cornerRadius = 3
+        tagList.borderWidth = 1
+        tagList.borderColor = UIColor.systemBlue.withAlphaComponent(0.2)
+        tagList.textColor = .systemBlue
+        tagList.paddingY = 4
+        tagList.paddingX = 6
     }
 }
 
@@ -71,6 +82,7 @@ extension GistDigestView {
         let avatarUrl: URL?
         let ownerName: String
         let secondaryText: String
+        let fileTypes: [String]
     }
 
     func display(with viewModel: ViewModel) {
@@ -80,6 +92,18 @@ extension GistDigestView {
 
         ownerNameLabel.text = viewModel.ownerName
         secondaryLabel.text = viewModel.secondaryText
+
+        for file in viewModel.fileTypes {
+            tagList.addTag(file)
+        }
     }
 }
+
+private extension TagListView {
+    func usePresetColors() {
+
+    }
+}
+
+
 

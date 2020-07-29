@@ -26,8 +26,8 @@ final class GistView: BaseView {
     private func setupHeaderView() {
         containerView.addSubview(headerView)
 
-        headerView.horizontalAnchors == containerView.horizontalAnchors + 16
-        headerView.topAnchor == containerView.topAnchor + 24
+        headerView.horizontalAnchors == containerView.horizontalAnchors
+        headerView.topAnchor == containerView.topAnchor
     }
 }
 
