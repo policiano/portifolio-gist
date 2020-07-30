@@ -18,7 +18,9 @@ public final class DiscoverTableViewController: BaseTableViewController {
 
     var viewModels: [GistDigestView.ViewModel] = [] {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -73,11 +75,6 @@ extension DiscoverTableViewController: DiscoverDisplayLogic {
             tableView.restore()
             self.viewModels = viewModels
         case .failure(let error):
-            let retry = { [weak self] in
-                guard let self = self else { return }
-                self.getDiscoveries()
-            }
-
             self.viewModels = []
 
             tableView.showError(
@@ -85,7 +82,7 @@ extension DiscoverTableViewController: DiscoverDisplayLogic {
                 message: error.message,
                 action: (
                     title: "Try Again",
-                    handler: retry
+                    handler: getDiscoveries
                 )
             )
         }
