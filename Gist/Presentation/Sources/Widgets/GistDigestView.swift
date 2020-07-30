@@ -14,14 +14,18 @@ final class GistDigestView: BaseView {
 
     private lazy var ownerNameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .semibold)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         label.textColor = .label
         return label
     }()
 
     private lazy var secondaryLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         label.textColor = .secondaryLabel
         return label
     }()
@@ -74,6 +78,7 @@ final class GistDigestView: BaseView {
         tagList.textColor = .systemBlue
         tagList.paddingY = 4
         tagList.paddingX = 6
+        tagList.textFont = UIFont.preferredFont(forTextStyle: .caption2)
     }
 }
 
