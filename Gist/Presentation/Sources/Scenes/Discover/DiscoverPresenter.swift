@@ -20,35 +20,14 @@ final class DiscoverPresenter {
     }
 
     private func map(gist: GistDigest) -> GistDigestView.ViewModel {
-        map(gist: gist, prepareForDetail: false)
-    }
-
-    private func map(gist: GistDigest, prepareForDetail: Bool) -> GistDigestView.ViewModel {
-        var fileTypes = gist.files.suffix(4).map { $0.type }
-        if gist.files.count > 4 {
-            fileTypes.append("...")
-        }
-
-        let secondaryText: String?
-        if prepareForDetail {
-            secondaryText = "date"
-        } else {
-            secondaryText = buildDescription(from: gist.description)
-        }
+        let fileTags = gist.fileTags(threshold: 4)
 
         return .init(
             avatarUrl: gist.owner.avatarUrl,
             ownerName: gist.owner.name,
-            secondaryText: secondaryText,
-            fileTypes: fileTypes
+            secondaryText: gist.formmatedDescription,
+            fileTags: fileTags
         )
-    }
-
-    private func buildDescription(from string: String?) -> String? {
-        string?.trimmingCharacters(in: .whitespacesAndNewlines)
-            .components(separatedBy: .newlines)
-            .filter{ !$0.isEmpty }
-            .joined(separator: "\n")
     }
 }
 
@@ -84,15 +63,31 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
             return
         }
 
-        let headerViewModel = map(gist: selectedGist, prepareForDetail: true)
-        let files = selectedGist.files.map { $0.name }
+        display?.displaySelectedGist(viewModel: selectedGist)
+    }
+}
 
-        let viewModel = Discover.SelectGist.ViewModel(
-            headerViewModel: headerViewModel,
-            description: buildDescription(from: selectedGist.description),
-            files: files
-        )
+extension GistDigest {
+    var formmatedDescription: String? {
+        description?.trimmingCharacters(in: .whitespacesAndNewlines)
+            .components(separatedBy: .newlines)
+            .filter{ !$0.isEmpty }
+            .joined(separator: "\n")
+    }
 
-        display?.displaySelectedGist(viewModel: viewModel)
+    func fileTags(threshold: Int? = nil) -> [String] {
+        var fileTypes = files.map { $0.type }
+
+        guard let threshold = threshold else {
+            return fileTypes
+        }
+
+        fileTypes = Array(fileTypes.suffix(threshold))
+
+        if files.count > threshold {
+            fileTypes.append("...")
+        }
+
+        return fileTypes
     }
 }

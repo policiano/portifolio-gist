@@ -14,6 +14,6 @@ enum Discover {
             let index: Int
         }
 
-        typealias ViewModel = GistView.ViewModel
+        typealias ViewModel = GistDigest
     }
 }

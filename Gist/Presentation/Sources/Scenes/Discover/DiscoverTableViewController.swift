@@ -87,7 +87,7 @@ extension DiscoverTableViewController: DiscoverDisplayLogic {
     }
 
     func displaySelectedGist(viewModel: Discover.SelectGist.ViewModel) {
-        let viewController = GistTableViewController(viewModel: viewModel)
+        let viewController = GistConfigurator().resolve(with: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)
         showDetailViewController(navigationController, sender: self)
     }

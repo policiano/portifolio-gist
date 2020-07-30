@@ -1,45 +1,64 @@
 import UIKit
 
-public final class GistTableViewController: BaseTableViewController {
-    enum Section: Int {
-        case description = 0
-        case files = 1
+protocol GistDisplayLogic: AnyObject {
+    func displayDetails(viewModel: Gist.GetDetails.ViewModel)
+}
 
-        var title: String {
-            switch self {
-            case .description:
-                return "Description"
-            case .files:
-                return "Files"
+final class GistTableViewController: BaseTableViewController {
+
+    private let headerView: GistDigestView = {
+        let header = GistDigestView()
+        header.backgroundColor = .systemBackground
+        return header
+    }()
+
+    private var viewModel: ViewModel = .error {
+        didSet {
+            if let header = self.header {
+                updateHeaderWith(header)
             }
+
+            tableView.reloadData()
         }
     }
 
-    private let headerView = GistDigestView()
+    private var header: HeaderViewModel? {
+        if case .content(let header, _) = viewModel {
+            return header
+        }
+        return nil
+    }
 
-    private let viewModel: GistView.ViewModel
+    private var sections: [Section] {
+        if case .content(_, let sections) = viewModel {
+            return sections
+        }
+        return []
+    }
 
-    init(viewModel: GistView.ViewModel) {
-        self.viewModel = viewModel
+    // MARK: Object lifecycle
+
+    private let presenter: GistPresentationLogic
+
+    init(presenter: GistPresentationLogic) {
+        self.presenter = presenter
         super.init(style: .grouped)
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
-    public override func viewDidLoad() {
+    // MARK: ViewController lifecycle
+
+    override func viewDidLoad() {
         navigationController?.navigationItem.largeTitleDisplayMode = .never
         setupTableView()
-        tableView.reloadData()
+        presenter.getDetails(request: .init())
     }
 
-    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        tableView.layoutTableHeaderView()
-    }
+    // MARK: Private helpers
 
     private func setupTableView() {
-        updateHeaderWith(viewModel.headerViewModel)
-
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.identifier)
         tableView.estimatedRowHeight = 40
         tableView.rowHeight = UITableView.automaticDimension
@@ -51,35 +70,29 @@ public final class GistTableViewController: BaseTableViewController {
         tableView.layoutTableHeaderView()
     }
 
-    public override func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.description != nil ? 2 : 1
+    // MARK: TableView Delegate & DataSource
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        sections.count
     }
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch Section(rawValue: section) {
-        case .description:
-            return 1
-        case .files:
-            return viewModel.files.count
-        case .none:
-            return 0
-        }
+        sections[section].rows.count
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = UITableViewCell.dequeued(fromTableView: tableView, atIndexPath: indexPath),
-            let section = Section(rawValue: indexPath.section) else {
+        guard let cell = UITableViewCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) else {
                 return UITableViewCell()
         }
 
-        switch section {
+        let section = sections[indexPath.section]
+
+        switch section.descriptor {
         case .description:
             cell.selectionStyle = .none
-            cell.textLabel?.text = viewModel.description
             cell.textLabel?.numberOfLines = 0
         case .files:
             cell.selectionStyle = .default
-            cell.textLabel?.text = viewModel.files[safeIndex: indexPath.row]
             cell.accessoryType = .disclosureIndicator
 
             let font = UIFont.monospacedSystemFont(ofSize: 14, weight: .semibold)
@@ -89,11 +102,43 @@ public final class GistTableViewController: BaseTableViewController {
             cell.textLabel?.textColor = .systemBlue
         }
 
+        cell.textLabel?.text = section.rows[indexPath.row].title
+
         return cell
     }
 
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        Section(rawValue: section)?.title
+        sections[section].descriptor.rawValue
+    }
+}
+
+extension GistTableViewController: GistDisplayLogic {
+    func displayDetails(viewModel: Gist.GetDetails.ViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
+// MARK: ViewModel
+
+extension GistTableViewController {
+    typealias HeaderViewModel = GistDigestView.ViewModel
+    struct Section {
+        enum Descriptor: String {
+            case description
+            case files
+        }
+
+        struct Row {
+            let title: String
+        }
+
+        let descriptor: Descriptor
+        let rows: [Row]
+    }
+
+    enum ViewModel {
+        case content(header: HeaderViewModel, sections: [Section])
+        case error
     }
 }
 

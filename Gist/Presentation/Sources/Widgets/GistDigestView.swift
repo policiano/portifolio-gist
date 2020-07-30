@@ -1,4 +1,5 @@
 import Anchorage
+import Kingfisher
 import TagListView
 import UIKit
 
@@ -103,7 +104,7 @@ extension GistDigestView {
         let avatarUrl: URL?
         let ownerName: String
         let secondaryText: String?
-        let fileTypes: [String]
+        let fileTags: [String]
     }
 
     func display(with viewModel: ViewModel) {
@@ -119,8 +120,8 @@ extension GistDigestView {
 
         tagList.removeAllTags()
 
-        for file in viewModel.fileTypes {
-            tagList.addTag(file)
+        for tag in viewModel.fileTags {
+            tagList.addTag(tag)
         }
     }
 }
@@ -130,7 +131,7 @@ extension GistDigestView.ViewModel: Equatable {
         lhs.avatarUrl == rhs.avatarUrl
             && lhs.ownerName == rhs.ownerName
             && lhs.secondaryText == rhs.secondaryText
-            && lhs.fileTypes == rhs.fileTypes
+            && lhs.fileTags == rhs.fileTags
     }
 }
 
