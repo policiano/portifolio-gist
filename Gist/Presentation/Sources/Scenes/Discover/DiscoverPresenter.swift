@@ -2,10 +2,13 @@ import Foundation
 
 protocol DiscoverPresentationLogic {
     func getDiscoveries(request: Discover.GetDiscoveries.Request)
+    func selectGist(request: Discover.SelectGist.Request)
 }
 
 final class DiscoverPresenter {
     private let getPublicGists: GetPublicGistsUseCase
+    private var gists: [GistDigest] = []
+
     weak var display: DiscoverDisplayLogic?
 
     init(getPublicGists: GetPublicGistsUseCase) {
@@ -17,23 +20,35 @@ final class DiscoverPresenter {
     }
 
     private func map(gist: GistDigest) -> GistDigestView.ViewModel {
+        map(gist: gist, prepareForDetail: false)
+    }
+
+    private func map(gist: GistDigest, prepareForDetail: Bool) -> GistDigestView.ViewModel {
         var fileTypes = gist.files.suffix(4).map { $0.type }
         if gist.files.count > 4 {
             fileTypes.append("...")
         }
 
-        let description = gist.description?
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-            .components(separatedBy: .newlines)
-            .filter{ !$0.isEmpty }
-            .joined(separator: "\n")
+        let secondaryText: String?
+        if prepareForDetail {
+            secondaryText = "date"
+        } else {
+            secondaryText = buildDescription(from: gist.description)
+        }
 
         return .init(
             avatarUrl: gist.owner.avatarUrl,
             ownerName: gist.owner.name,
-            secondaryText: description,
+            secondaryText: secondaryText,
             fileTypes: fileTypes
         )
+    }
+
+    private func buildDescription(from string: String?) -> String? {
+        string?.trimmingCharacters(in: .whitespacesAndNewlines)
+            .components(separatedBy: .newlines)
+            .filter{ !$0.isEmpty }
+            .joined(separator: "\n")
     }
 }
 
@@ -45,6 +60,8 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
 
             switch $0 {
             case .success(let gists):
+                self.gists = gists
+
                 if gists.isEmpty {
                     let error = ErrorHandler.userError()
                     viewModel = .failure(error)
@@ -58,5 +75,24 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
 
             self.display?.displayDiscoveries(viewModel: viewModel)
         }
+    }
+
+    func selectGist(request: Discover.SelectGist.Request) {
+        let index = request.index
+
+        guard let selectedGist = gists[safeIndex: index] else {
+            return
+        }
+
+        let headerViewModel = map(gist: selectedGist, prepareForDetail: true)
+        let files = selectedGist.files.map { $0.name }
+
+        let viewModel = Discover.SelectGist.ViewModel(
+            headerViewModel: headerViewModel,
+            description: buildDescription(from: selectedGist.description),
+            files: files
+        )
+
+        display?.displaySelectedGist(viewModel: viewModel)
     }
 }

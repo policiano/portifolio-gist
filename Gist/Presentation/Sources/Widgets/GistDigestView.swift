@@ -125,5 +125,14 @@ extension GistDigestView {
     }
 }
 
+extension GistDigestView.ViewModel: Equatable {
+    static func == (lhs: GistDigestView.ViewModel, rhs: GistDigestView.ViewModel) -> Bool {
+        lhs.avatarUrl == rhs.avatarUrl
+            && lhs.ownerName == rhs.ownerName
+            && lhs.secondaryText == rhs.secondaryText
+            && lhs.fileTypes == rhs.fileTypes
+    }
+}
+
 
 

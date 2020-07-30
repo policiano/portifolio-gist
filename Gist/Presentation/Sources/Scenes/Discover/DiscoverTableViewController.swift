@@ -2,6 +2,7 @@ import UIKit
 
 protocol DiscoverDisplayLogic: AnyObject {
     func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel)
+    func displaySelectedGist(viewModel: Discover.SelectGist.ViewModel)
 }
 
 public final class DiscoverTableViewController: BaseTableViewController {
@@ -30,10 +31,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
 
         title = "Discover"
         navigationController?.navigationBar.prefersLargeTitles = true
-    }
 
-    public override func viewWillAppear(_ animated: Bool) {
-        tableView.showLoading()
         getDiscoveries()
     }
 
@@ -42,6 +40,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     }
 
     private func getDiscoveries() {
+        tableView.showLoading()
         presenter.getDiscoveries(request: .init())
     }
 
@@ -63,8 +62,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let navigationController = UINavigationController(rootViewController: GistViewController())
-        showDetailViewController(navigationController, sender: self)
+        presenter.selectGist(request: .init(index: indexPath.row))
     }
 }
 
@@ -86,5 +84,11 @@ extension DiscoverTableViewController: DiscoverDisplayLogic {
                 )
             )
         }
+    }
+
+    func displaySelectedGist(viewModel: Discover.SelectGist.ViewModel) {
+        let viewController = GistTableViewController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        showDetailViewController(navigationController, sender: self)
     }
 }

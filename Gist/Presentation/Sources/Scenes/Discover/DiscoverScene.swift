@@ -8,4 +8,12 @@ enum Discover {
             case failure(UserError)
         }
     }
+
+    enum SelectGist {
+        struct Request {
+            let index: Int
+        }
+
+        typealias ViewModel = GistView.ViewModel
+    }
 }
