@@ -2,15 +2,19 @@ import UIKit
 
 protocol DiscoverDisplayLogic: AnyObject {
     func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel)
-    func displaySelectedGist(viewModel: Discover.SelectGist.ViewModel)
 }
 
 public final class DiscoverTableViewController: BaseTableViewController {
 
     private let presenter: DiscoverPresentationLogic
+    private let router: DiscoverRoutingLogic
 
-    init(presenter: DiscoverPresentationLogic) {
+    init(
+        presenter: DiscoverPresentationLogic,
+        router: DiscoverRoutingLogic
+    ) {
         self.presenter = presenter
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -62,7 +66,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.selectGist(request: .init(index: indexPath.row))
+        router.routeToDigest(forIndex: indexPath.row)
     }
 }
 
@@ -84,11 +88,5 @@ extension DiscoverTableViewController: DiscoverDisplayLogic {
                 )
             )
         }
-    }
-
-    func displaySelectedGist(viewModel: Discover.SelectGist.ViewModel) {
-        let viewController = GistConfigurator().resolve(with: viewModel)
-        let navigationController = UINavigationController(rootViewController: viewController)
-        showDetailViewController(navigationController, sender: self)
     }
 }

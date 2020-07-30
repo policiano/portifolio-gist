@@ -2,12 +2,15 @@ import Foundation
 
 protocol DiscoverPresentationLogic {
     func getDiscoveries(request: Discover.GetDiscoveries.Request)
-    func selectGist(request: Discover.SelectGist.Request)
 }
 
-final class DiscoverPresenter {
+protocol DiscoverDataStore {
+    var gists: [GistDigest] { get set }
+}
+
+final class DiscoverPresenter: DiscoverDataStore {
     private let getPublicGists: GetPublicGistsUseCase
-    private var gists: [GistDigest] = []
+    var gists: [GistDigest] = []
 
     weak var display: DiscoverDisplayLogic?
 
@@ -54,16 +57,6 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
 
             self.display?.displayDiscoveries(viewModel: viewModel)
         }
-    }
-
-    func selectGist(request: Discover.SelectGist.Request) {
-        let index = request.index
-
-        guard let selectedGist = gists[safeIndex: index] else {
-            return
-        }
-
-        display?.displaySelectedGist(viewModel: selectedGist)
     }
 }
 

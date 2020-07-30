@@ -6,9 +6,11 @@ final class DiscoverConfigurator {
         let repository = MoyaGistsRepository()
         let getPublicGists = GetPublicGists(repository: repository)
         let presenter = DiscoverPresenter(getPublicGists: getPublicGists)
-        let viewController = DiscoverTableViewController(presenter: presenter)
+        let router = DiscoverRouter(dataStore: presenter)
+        let viewController = DiscoverTableViewController(presenter: presenter, router: router)
 
         presenter.display = viewController
+        router.viewController = viewController
 
         return viewController
     }
