@@ -4,6 +4,7 @@ extension GistDigest {
     init?(response: GistDigestResponse) {
         let files = response.files.map()
         guard let id = response.id,
+            let createdAt = response.createdAt,
             let owner = Owner(response: response.owner),
             !files.isEmpty else {
                 return nil
@@ -12,6 +13,7 @@ extension GistDigest {
 
         self.init(
             id: id,
+            createdAt: createdAt,
             description: description.isEmpty ? nil : description,
             owner: owner,
             files: files

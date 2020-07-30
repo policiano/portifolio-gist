@@ -7,9 +7,14 @@ protocol DiscoverDisplayLogic: AnyObject {
 public final class DiscoverTableViewController: BaseTableViewController {
 
     private let presenter: DiscoverPresentationLogic
+    private let router: DiscoverRoutingLogic
 
-    init(presenter: DiscoverPresentationLogic) {
+    init(
+        presenter: DiscoverPresentationLogic,
+        router: DiscoverRoutingLogic
+    ) {
         self.presenter = presenter
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -30,10 +35,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
 
         title = "Discover"
         navigationController?.navigationBar.prefersLargeTitles = true
-    }
 
-    public override func viewWillAppear(_ animated: Bool) {
-        tableView.showLoading()
         getDiscoveries()
     }
 
@@ -42,6 +44,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     }
 
     private func getDiscoveries() {
+        tableView.showLoading()
         presenter.getDiscoveries(request: .init())
     }
 
@@ -63,8 +66,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let navigationController = UINavigationController(rootViewController: GistViewController())
-        showDetailViewController(navigationController, sender: self)
+        router.routeToDigest(forIndex: indexPath.row)
     }
 }
 

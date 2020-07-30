@@ -2,12 +2,14 @@ import Foundation
 
 struct GistDigestResponse: Codable {
     let id: String?
+    let createdAt: String?
     let description: String?
     let owner: Owner?
     let files: [String: File]
 
     enum Key: String, CodingKey {
         case id
+        case createdAt = "created_at"
         case description
         case owner
         case files
@@ -15,11 +17,13 @@ struct GistDigestResponse: Codable {
 
     init(
         id: String?,
+        createdAt: String?,
         description: String?,
         owner: Owner?,
         files: [String: File]
     ) {
         self.id = id
+        self.createdAt = createdAt
         self.description = description
         self.owner = owner
         self.files = files
@@ -28,6 +32,7 @@ struct GistDigestResponse: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Key.self)
         self.id = try? container.decode(String.self, forKey: .id)
+        self.createdAt = try? container.decode(String.self, forKey: .createdAt)
         self.description = try? container.decode(String.self, forKey: .description)
         self.owner = try? container.decode(Owner.self, forKey: .owner)
         self.files = (try? container.decode([String: File].self, forKey: .files)) ?? [:]

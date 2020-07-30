@@ -1,4 +1,5 @@
 import Anchorage
+import Kingfisher
 import TagListView
 import UIKit
 
@@ -25,6 +26,7 @@ final class GistDigestView: BaseView {
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.textColor = .label
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
 
@@ -47,13 +49,14 @@ final class GistDigestView: BaseView {
                     $0.arrangedSubviews = [ownerNameLabel, secondaryLabel]
                 }.build()
 
+                $0.distribution = .fill
                 $0.spacing = 8
                 $0.arrangedSubviews = [stackView, tagList]
             }.build()
 
             $0.axis = .horizontal
             $0.spacing = 16
-            $0.alignment = .center
+            $0.alignment = .top
             $0.distribution = .fillProportionally
             $0.arrangedSubviews = [avatarContainer, stackView]
         }.build()
@@ -77,8 +80,9 @@ final class GistDigestView: BaseView {
     private func setupAvatar() {
         avatarImageView.widthAnchor == 60
         avatarImageView.heightAnchor == avatarImageView.widthAnchor
-        avatarImageView.edgeAnchors >= avatarContainer.edgeAnchors
-        avatarImageView.centerAnchors == avatarContainer.centerAnchors
+        avatarImageView.horizontalAnchors == avatarContainer.horizontalAnchors
+        avatarImageView.topAnchor == avatarContainer.topAnchor
+        avatarContainer.heightAnchor >= 60
     }
 
     private func setupContainer() {
@@ -103,7 +107,7 @@ extension GistDigestView {
         let avatarUrl: URL?
         let ownerName: String
         let secondaryText: String?
-        let fileTypes: [String]
+        let fileTags: [String]
     }
 
     func display(with viewModel: ViewModel) {
@@ -119,9 +123,18 @@ extension GistDigestView {
 
         tagList.removeAllTags()
 
-        for file in viewModel.fileTypes {
-            tagList.addTag(file)
+        for tag in viewModel.fileTags {
+            tagList.addTag(tag)
         }
+    }
+}
+
+extension GistDigestView.ViewModel: Equatable {
+    static func == (lhs: GistDigestView.ViewModel, rhs: GistDigestView.ViewModel) -> Bool {
+        lhs.avatarUrl == rhs.avatarUrl
+            && lhs.ownerName == rhs.ownerName
+            && lhs.secondaryText == rhs.secondaryText
+            && lhs.fileTags == rhs.fileTags
     }
 }
 

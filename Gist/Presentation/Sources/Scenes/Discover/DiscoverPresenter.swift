@@ -4,8 +4,14 @@ protocol DiscoverPresentationLogic {
     func getDiscoveries(request: Discover.GetDiscoveries.Request)
 }
 
-final class DiscoverPresenter {
+protocol DiscoverDataStore {
+    var gists: [GistDigest] { get set }
+}
+
+final class DiscoverPresenter: DiscoverDataStore {
     private let getPublicGists: GetPublicGistsUseCase
+    var gists: [GistDigest] = []
+
     weak var display: DiscoverDisplayLogic?
 
     init(getPublicGists: GetPublicGistsUseCase) {
@@ -17,22 +23,13 @@ final class DiscoverPresenter {
     }
 
     private func map(gist: GistDigest) -> GistDigestView.ViewModel {
-        var fileTypes = gist.files.suffix(4).map { $0.type }
-        if gist.files.count > 4 {
-            fileTypes.append("...")
-        }
-
-        let description = gist.description?
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-            .components(separatedBy: .newlines)
-            .filter{ !$0.isEmpty }
-            .joined(separator: "\n")
+        let fileTags = gist.fileTags(threshold: 4)
 
         return .init(
             avatarUrl: gist.owner.avatarUrl,
             ownerName: gist.owner.name,
-            secondaryText: description,
-            fileTypes: fileTypes
+            secondaryText: gist.formmatedDescription,
+            fileTags: fileTags
         )
     }
 }
@@ -45,6 +42,8 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
 
             switch $0 {
             case .success(let gists):
+                self.gists = gists
+
                 if gists.isEmpty {
                     let error = ErrorHandler.userError()
                     viewModel = .failure(error)
@@ -58,5 +57,30 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
 
             self.display?.displayDiscoveries(viewModel: viewModel)
         }
+    }
+}
+
+extension GistDigest {
+    var formmatedDescription: String? {
+        description?.trimmingCharacters(in: .whitespacesAndNewlines)
+            .components(separatedBy: .newlines)
+            .filter{ !$0.isEmpty }
+            .joined(separator: "\n")
+    }
+
+    func fileTags(threshold: Int? = nil) -> [String] {
+        var fileTypes = files.map { $0.type }
+
+        guard let threshold = threshold else {
+            return fileTypes
+        }
+
+        fileTypes = Array(fileTypes.suffix(threshold))
+
+        if files.count > threshold {
+            fileTypes.append("...")
+        }
+
+        return fileTypes
     }
 }
