@@ -1,9 +1,22 @@
 import UIKit
 
-public final class DiscoverTableViewController: BaseTableViewController {
-    let repository = MoyaGistsRepository()
+protocol DiscoverDisplayLogic: AnyObject {
+    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel)
+}
 
-    var models: [GistDigest] = [] {
+public final class DiscoverTableViewController: BaseTableViewController {
+
+    private let presenter: DiscoverPresentationLogic
+
+    init(presenter: DiscoverPresentationLogic) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
+
+    var viewModels: [GistDigestView.ViewModel] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -11,35 +24,46 @@ public final class DiscoverTableViewController: BaseTableViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        registerCells()
+        setupTableView()
 
         title = "Discover"
+        navigationController?.navigationBar.prefersLargeTitles = true
 
-        GetPublicGists(repository: MoyaGistsRepository()).execute { [weak self] in
-            self?.models = $0.value ?? []
-        }
+        presenter.getDiscoveries(request: .init())
     }
 
-    private func registerCells() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    private func setupTableView() {
+        tableView.register(GistDigestCell.self, forCellReuseIdentifier: GistDigestCell.identifier)
     }
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return viewModels.count
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
+        guard let cell = GistDigestCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) else {
             return UITableViewCell()
         }
-        let item = models[indexPath.row]
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = "\(item.owner.name) * \(item.files.first?.name ?? "")\n\n\(item.description ?? "")"
+
+        let viewModel = viewModels[indexPath.row]
+        cell.display(with: viewModel)
+
         return cell
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let navigationController = UINavigationController(rootViewController: GistViewController())
         showDetailViewController(navigationController, sender: self)
+    }
+}
+
+extension DiscoverTableViewController: DiscoverDisplayLogic {
+    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel) {
+        switch viewModel {
+        case .content(let viewModels):
+            self.viewModels = viewModels
+        default:
+            break
+        }
     }
 }

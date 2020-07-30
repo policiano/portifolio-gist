@@ -8,10 +8,11 @@ extension GistDigest {
             !files.isEmpty else {
                 return nil
         }
+        let description = response.description ?? ""
 
         self.init(
             id: id,
-            description: response.description,
+            description: description.isEmpty ? nil : description,
             owner: owner,
             files: files
         )
