@@ -27,6 +27,7 @@
 		3549C2A224CFAAB700CE94D0 /* GistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C2A124CFAAB700CE94D0 /* GistViewController.swift */; };
 		3549C2A524CFAB4000CE94D0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C2A424CFAB4000CE94D0 /* BaseViewController.swift */; };
 		356EAA3924CFB4E100D20FE5 /* GistDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EAA3824CFB4E100D20FE5 /* GistDigest.swift */; };
+		3578EA8C24D273850032F639 /* DiscoverPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578EA8A24D273570032F639 /* DiscoverPresenterTests.swift */; };
 		357B2FBB24CFB78200813529 /* GistDigestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FB824CFB77200813529 /* GistDigestTests.swift */; };
 		357B2FBE24CFB84400813529 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FBD24CFB84400813529 /* Random.swift */; };
 		357B2FC224CFBD2700813529 /* GetPublicGistsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FC124CFBD2700813529 /* GetPublicGistsUseCaseTests.swift */; };
@@ -52,6 +53,8 @@
 		358DA00D24D24B37000790CA /* DiscoverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00C24D24B37000790CA /* DiscoverScene.swift */; };
 		358DA01124D24BE3000790CA /* DiscoverTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00F24D24BBE000790CA /* DiscoverTableViewControllerTests.swift */; };
 		358DA01324D2561A000790CA /* DiscoverConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01224D2561A000790CA /* DiscoverConfigurator.swift */; };
+		358DA01724D26CC2000790CA /* DiscoverPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01624D26CC2000790CA /* DiscoverPresentationLogicSpy.swift */; };
+		358DA01B24D26D29000790CA /* GistDigestViewViewModel+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01924D26D07000790CA /* GistDigestViewViewModel+Fixture.swift */; };
 		B5614D648C79C28A12BAEBDD /* Pods_GistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA0A6B33EE9DFD8970FF46 /* Pods_GistTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +100,7 @@
 		3549C2A124CFAAB700CE94D0 /* GistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewController.swift; sourceTree = "<group>"; };
 		3549C2A424CFAB4000CE94D0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		356EAA3824CFB4E100D20FE5 /* GistDigest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GistDigest.swift; path = Gist/Domain/Entities/GistDigest.swift; sourceTree = SOURCE_ROOT; };
+		3578EA8A24D273570032F639 /* DiscoverPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenterTests.swift; sourceTree = "<group>"; };
 		357B2FB824CFB77200813529 /* GistDigestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestTests.swift; sourceTree = "<group>"; };
 		357B2FBD24CFB84400813529 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		357B2FC124CFBD2700813529 /* GetPublicGistsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPublicGistsUseCaseTests.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 		358DA00C24D24B37000790CA /* DiscoverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverScene.swift; sourceTree = "<group>"; };
 		358DA00F24D24BBE000790CA /* DiscoverTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewControllerTests.swift; sourceTree = "<group>"; };
 		358DA01224D2561A000790CA /* DiscoverConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverConfigurator.swift; sourceTree = "<group>"; };
+		358DA01624D26CC2000790CA /* DiscoverPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresentationLogicSpy.swift; sourceTree = "<group>"; };
+		358DA01924D26D07000790CA /* GistDigestViewViewModel+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestViewViewModel+Fixture.swift"; sourceTree = "<group>"; };
 		7958A52B76F6B18A6EF72CA2 /* Pods-Gist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.debug.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.debug.xcconfig"; sourceTree = "<group>"; };
 		84923CC397DA36C9406967BE /* Pods-Gist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.release.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.release.xcconfig"; sourceTree = "<group>"; };
 		A10A29F416BCF6BC9A8B2009 /* Pods-GistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistTests.release.xcconfig"; path = "Target Support Files/Pods-GistTests/Pods-GistTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -315,10 +321,10 @@
 		3549C29A24CF941700CE94D0 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				3549C29B24CF943800CE94D0 /* DiscoverTableViewController.swift */,
+				358DA01224D2561A000790CA /* DiscoverConfigurator.swift */,
 				358DA00924D24B15000790CA /* DiscoverPresenter.swift */,
 				358DA00C24D24B37000790CA /* DiscoverScene.swift */,
-				358DA01224D2561A000790CA /* DiscoverConfigurator.swift */,
+				3549C29B24CF943800CE94D0 /* DiscoverTableViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -550,9 +556,36 @@
 		358DA00E24D24BA9000790CA /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				358DA00F24D24BBE000790CA /* DiscoverTableViewControllerTests.swift */,
+				358DA01824D26CED000790CA /* Fixtures */,
+				358DA01524D26CAD000790CA /* Doubles */,
+				358DA01424D26C43000790CA /* Scenes */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		358DA01424D26C43000790CA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				358DA00F24D24BBE000790CA /* DiscoverTableViewControllerTests.swift */,
+				3578EA8A24D273570032F639 /* DiscoverPresenterTests.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		358DA01524D26CAD000790CA /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				358DA01624D26CC2000790CA /* DiscoverPresentationLogicSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
+		358DA01824D26CED000790CA /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				358DA01924D26D07000790CA /* GistDigestViewViewModel+Fixture.swift */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		35C3B43F17A6339659E94C0D /* Frameworks */ = {
@@ -850,14 +883,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3578EA8C24D273850032F639 /* DiscoverPresenterTests.swift in Sources */,
 				357B2FDC24CFCEB000813529 /* MoyaDataSourceSpy.swift in Sources */,
 				3504A8A524D0D33700202678 /* GistDigestResponse+Fixtures.swift in Sources */,
 				357B2FCE24CFC3E100813529 /* GistDigest+Fixtures.swift in Sources */,
 				357B2FC724CFBFDB00813529 /* ErrorDummy.swift in Sources */,
+				358DA01724D26CC2000790CA /* DiscoverPresentationLogicSpy.swift in Sources */,
 				357B2FCA24CFC37600813529 /* GistsRepositorySpy.swift in Sources */,
 				358DA01124D24BE3000790CA /* DiscoverTableViewControllerTests.swift in Sources */,
 				357B2FE624CFD4C300813529 /* GistDigestResponseTests.swift in Sources */,
 				3504A89C24D07F2C00202678 /* GistsTargetTypeTests.swift in Sources */,
+				358DA01B24D26D29000790CA /* GistDigestViewViewModel+Fixture.swift in Sources */,
 				3504A89624D07CBC00202678 /* GistDigestResponseMapperTests.swift in Sources */,
 				3504A89E24D0824B00202678 /* PublicGistsRequestTests.swift in Sources */,
 				357B2FBB24CFB78200813529 /* GistDigestTests.swift in Sources */,

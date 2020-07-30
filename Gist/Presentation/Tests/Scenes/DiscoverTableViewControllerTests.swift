@@ -12,11 +12,12 @@ final class DiscoverTableViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.title, "Discover")
         XCTAssertTrue(presenterSpy.getDiscoveriesCalled)
     }
-}
 
-final class DiscoverPresentationLogicSpy: DiscoverPresentationLogic {
-    private(set) var getDiscoveriesCalled = false
-    func getDiscoveries(request: Discover.GetDiscoveries.Request) {
-        getDiscoveriesCalled = true
+    func test_onDisplayDiscoveries_withContent_shouldReloadTheTableView() {
+        let viewModels = (0...5).map { _ in GistDigestView.ViewModel.fixture() }
+
+        sut.displayDiscoveries(viewModel: .content(viewModels))
+
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), viewModels.count)
     }
 }
