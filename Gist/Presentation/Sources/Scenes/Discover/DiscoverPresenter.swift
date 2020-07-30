@@ -1,7 +1,7 @@
 import Foundation
 
 protocol DiscoverPresentationLogic {
-    func getDiscoveries(request: Discover.GetDiscoveries.Request)
+    func getMoreDiscoveries(request: Discover.GetMoreDiscoveries.Request)
 }
 
 protocol DiscoverDataStore {
@@ -10,16 +10,17 @@ protocol DiscoverDataStore {
 
 final class DiscoverPresenter: DiscoverDataStore {
     private let getPublicGists: GetPublicGistsUseCase
+    private let getMorePublicGists: GetMorePublicGistsUseCase
     var gists: [GistDigest] = []
 
     weak var display: DiscoverDisplayLogic?
 
-    init(getPublicGists: GetPublicGistsUseCase) {
+    init(
+        getPublicGists: GetPublicGistsUseCase,
+        getMorePublicGists: GetMorePublicGistsUseCase
+    ) {
         self.getPublicGists = getPublicGists
-    }
-
-    private func makeViewModel(with gists: [GistDigest]) -> Discover.GetDiscoveries.ViewModel {
-        .content(gists.map(self.map(gist:)))
+        self.getMorePublicGists = getMorePublicGists
     }
 
     private func map(gist: GistDigest) -> GistDigestView.ViewModel {
@@ -32,30 +33,36 @@ final class DiscoverPresenter: DiscoverDataStore {
             fileTags: fileTags
         )
     }
+
+    private func calculateIndexPathsToReload(from newGists: [GistDigest]) -> [IndexPath] {
+        let startIndex = gists.count - newGists.count
+        let endIndex = startIndex + newGists.count
+        return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
+    }
 }
 
 extension DiscoverPresenter: DiscoverPresentationLogic {
-    func getDiscoveries(request: Discover.GetDiscoveries.Request) {
-        getPublicGists.execute { [weak self] in
+    func getMoreDiscoveries(request: Discover.GetMoreDiscoveries.Request) {
+        getMorePublicGists.execute { [weak self] in
             guard let self = self else { return }
-            let viewModel: Discover.GetDiscoveries.ViewModel
 
             switch $0 {
-            case .success(let gists):
-                self.gists = gists
+            case .success(let newGists):
+                self.gists.append(contentsOf: newGists)
+                let content = self.gists.map(self.map(gist:))
 
-                if gists.isEmpty {
-                    let error = ErrorHandler.userError()
-                    viewModel = .failure(error)
-                } else {
-                    viewModel = self.makeViewModel(with: gists)
-                }
+                self.display?.displayMoreDiscoveries(viewModel:
+                    .content(
+                        list: content,
+                        hasMoreDataAvailable: !newGists.isEmpty
+                    )
+                )
             case .failure(let error):
                 let userError = ErrorHandler.userError(from: error)
-                viewModel = .failure(userError)
+                self.display?.displayMoreDiscoveries(viewModel:
+                    .failure(userError)
+                )
             }
-
-            self.display?.displayDiscoveries(viewModel: viewModel)
         }
     }
 }

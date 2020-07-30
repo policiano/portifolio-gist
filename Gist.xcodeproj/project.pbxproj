@@ -22,6 +22,7 @@
 		3507C21224D3358500366D6F /* GistConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21124D3358500366D6F /* GistConfigurator.swift */; };
 		3507C21524D3392200366D6F /* GistScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21424D3392200366D6F /* GistScene.swift */; };
 		3507C21724D33DB700366D6F /* DiscoverRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21624D33DB700366D6F /* DiscoverRouter.swift */; };
+		3507C21924D3645900366D6F /* GetMorePublicGistsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21824D3645900366D6F /* GetMorePublicGistsUseCase.swift */; };
 		3549C26124CF900600CE94D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C26024CF900600CE94D0 /* AppDelegate.swift */; };
 		3549C26C24CF900700CE94D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3549C26B24CF900700CE94D0 /* Assets.xcassets */; };
 		3549C26F24CF900700CE94D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3549C26D24CF900700CE94D0 /* LaunchScreen.storyboard */; };
@@ -95,6 +96,7 @@
 		3507C21124D3358500366D6F /* GistConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistConfigurator.swift; sourceTree = "<group>"; };
 		3507C21424D3392200366D6F /* GistScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistScene.swift; sourceTree = "<group>"; };
 		3507C21624D33DB700366D6F /* DiscoverRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverRouter.swift; sourceTree = "<group>"; };
+		3507C21824D3645900366D6F /* GetMorePublicGistsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMorePublicGistsUseCase.swift; sourceTree = "<group>"; };
 		3549C25D24CF900600CE94D0 /* Gist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549C26024CF900600CE94D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3549C26B24CF900700CE94D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				357B2FD024CFC41100813529 /* GetPublicGistsUseCase.swift */,
+				3507C21824D3645900366D6F /* GetMorePublicGistsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				3578EA9024D27A920032F639 /* ErrorStateView.swift in Sources */,
 				3507C21524D3392200366D6F /* GistScene.swift in Sources */,
 				356EAA3924CFB4E100D20FE5 /* GistDigest.swift in Sources */,
+				3507C21924D3645900366D6F /* GetMorePublicGistsUseCase.swift in Sources */,
 				3504A8A924D0FED200202678 /* CustomViewController.swift in Sources */,
 				358DA01324D2561A000790CA /* DiscoverConfigurator.swift in Sources */,
 				357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */,

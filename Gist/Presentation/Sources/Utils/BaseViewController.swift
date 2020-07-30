@@ -11,57 +11,43 @@ extension BaseController where Self: UIViewController {
     }
 }
 
-public class BaseViewController: UIViewController, BaseController {
+public class BaseViewController: UIViewController, BaseController, ErrorStateViewDelegate {
+    private let errorView = ErrorStateView()
 
     public override func viewDidLoad() {
         setup()
+        setupErrorView()
     }
 
     public var rootView: UIView { view }
+
+    private func setupErrorView() {
+        rootView.addSubview(errorView)
+        errorView.edgeAnchors == rootView.edgeAnchors
+        errorView.isHidden = true
+        rootView.sendSubviewToBack(errorView)
+    }
+
+    func showError(title: String?, message: String?, buttonTitle: String) {
+
+        errorView.show(title: title, message: message, buttonTitle: buttonTitle)
+        errorView.delegate = self
+        rootView.bringSubviewToFront(errorView)
+        errorView.isHidden = false
+    }
+
+    public func didTapOnActionButton(in errorStateView: ErrorStateView) {
+
+    }
 }
 
-public class BaseTableViewController: UITableViewController, BaseController, ErrorStateViewDelegate {
+public class BaseTableViewController: UITableViewController, BaseController {
 
     public override func viewDidLoad() {
         setup()
     }
 
     public var rootView: UIView { tableView }
-
-    func showError(title: String?, message: String?, buttonTitle: String) {
-        let errorView = ErrorStateView()
-        errorView.show(title: title, message: message, buttonTitle: buttonTitle)
-        errorView.delegate = self
-
-        tableView.backgroundView = errorView
-        tableView.separatorStyle = .none
-    }
-
-    func showLoading() {
-        let loadingView = UIView()
-        loadingView.backgroundColor = .systemBackground
-
-        let activityIndicatiorView = UIActivityIndicatorView(style: .large)
-        activityIndicatiorView.startAnimating()
-
-        loadingView.addSubview(activityIndicatiorView)
-
-        activityIndicatiorView.centerAnchors == loadingView.centerAnchors
-
-        tableView.backgroundView = loadingView
-        tableView.separatorStyle = .none
-    }
-
-    func restore() {
-        tableView.backgroundView = nil
-        tableView.separatorStyle = .singleLine
-    }
-
-    // MARK: ErrorStateViewDelegate
-
-    public func didTapOnActionButton(in errorStateView: ErrorStateView) {
-
-    }
 }
 
 extension UITableView {

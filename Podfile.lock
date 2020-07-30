@@ -8,12 +8,14 @@ PODS:
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
+  - PaginatedTableView (1.0.1)
   - TagListView (1.4.0)
 
 DEPENDENCIES:
   - Anchorage
   - Kingfisher (~> 5.0)
   - Moya (~> 14.0)
+  - PaginatedTableView
   - TagListView (~> 1.0)
 
 SPEC REPOS:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - Anchorage
     - Kingfisher
     - Moya
+    - PaginatedTableView
     - TagListView
 
 SPEC CHECKSUMS:
@@ -29,8 +32,9 @@ SPEC CHECKSUMS:
   Anchorage: d7f02c4f9425b537053237aab11ae97e59b55f36
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  PaginatedTableView: 294d9831d5ddf5c0dcfbb4a281d4fcfb8d12f55a
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: 85d749d77e5e76620aff791a3a8e6533f24fa252
+PODFILE CHECKSUM: 06de085446e3ddb44089b1e331a580ec13556cab
 
 COCOAPODS: 1.9.3

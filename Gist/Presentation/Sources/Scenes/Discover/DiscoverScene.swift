@@ -1,11 +1,15 @@
 import Foundation
 
 enum Discover {
-    enum GetDiscoveries {
+    enum GetMoreDiscoveries {
         struct Request { }
         enum ViewModel {
-            case content([GistDigestView.ViewModel])
+            case content(
+                list: [GistDigestView.ViewModel],
+                hasMoreDataAvailable: Bool
+            )
             case failure(UserError)
+
         }
     }
 
