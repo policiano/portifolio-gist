@@ -31,6 +31,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     }
 
     public override func viewWillAppear(_ animated: Bool) {
+        tableView.showLoading()
         getDiscoveries()
     }
 

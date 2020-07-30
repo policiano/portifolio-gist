@@ -33,13 +33,28 @@ extension UITableView {
     func showError(title: String?, message: String?, action: ErrorStateView.Action) {
         let errorView = ErrorStateView()
         errorView.show(title: title, message: message, action: action)
-        // The only tricky part is here:
-        self.backgroundView = errorView
-        self.separatorStyle = .none
+
+        backgroundView = errorView
+        separatorStyle = .none
+    }
+
+    func showLoading() {
+        let loadingView = UIView()
+        loadingView.backgroundColor = .systemBackground
+
+        let activityIndicatiorView = UIActivityIndicatorView(style: .large)
+        activityIndicatiorView.startAnimating()
+        
+        loadingView.addSubview(activityIndicatiorView)
+
+        activityIndicatiorView.centerAnchors == loadingView.centerAnchors
+
+        backgroundView = loadingView
+        separatorStyle = .none
     }
 
     func restore() {
-        self.backgroundView = nil
-        self.separatorStyle = .singleLine
+        backgroundView = nil
+        separatorStyle = .singleLine
     }
 }
