@@ -11,6 +11,8 @@ public final class SplitViewController: UISplitViewController {
         let discoverViewController = DiscoverConfigurator().resolve()
         let master = UINavigationController(rootViewController: discoverViewController)
 
+        master.navigationBar.prefersLargeTitles = true
+
         viewControllers = [master]
     }
 }

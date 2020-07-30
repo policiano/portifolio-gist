@@ -39,3 +39,4 @@ public final class GistViewController: BaseViewController, CustomViewController 
         customView.display(with: viewModel)
     }
 }
+
