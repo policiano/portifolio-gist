@@ -13,17 +13,17 @@ final class GistPresenter {
     }
 
     private func map(gist: GistDigest) -> Gist.GetDetails.ViewModel {
-        let fileTags = gist.fileTags(threshold: 4)
+        let fileTags = gist.fileTags()
 
         let header = GistTableViewController.HeaderViewModel(
             avatarUrl: gist.owner.avatarUrl,
             ownerName: gist.owner.name,
-            secondaryText: gist.formmatedDescription,
+            secondaryText: "some date",
             fileTags: fileTags
         )
 
         typealias Section = GistTableViewController.Section
-        var sections: [Section] = []
+        var sections: [Section] = [.init(descriptor: .header, rows: [.init(title: "")])]
 
         if let description = gist.formmatedDescription {
             let section = Section(descriptor: .description, rows: [.init(title: description)])

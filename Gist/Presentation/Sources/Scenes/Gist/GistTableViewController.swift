@@ -14,10 +14,6 @@ final class GistTableViewController: BaseTableViewController {
 
     private var viewModel: ViewModel = .error {
         didSet {
-            if let header = self.header {
-                updateHeaderWith(header)
-            }
-
             tableView.reloadData()
         }
     }
@@ -59,16 +55,18 @@ final class GistTableViewController: BaseTableViewController {
     // MARK: Private helpers
 
     private func setupTableView() {
+        tableView.register(GistDigestCell.self, forCellReuseIdentifier: GistDigestCell.identifier)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.identifier)
         tableView.estimatedRowHeight = 40
         tableView.rowHeight = UITableView.automaticDimension
     }
 
-    private func updateHeaderWith(_ viewModel: GistDigestView.ViewModel) {
-        headerView.display(with: viewModel)
-        tableView.tableHeaderView = headerView
-        tableView.layoutTableHeaderView()
-    }
+//    private func updateHeaderWith(_ viewModel: GistDigestView.ViewModel) {
+//        headerView.display(with: viewModel)
+//        tableView.tableHeaderView = headerView
+//        tableView.setNeedsDisplay()
+//        tableView.layoutTableHeaderView()
+//    }
 
     // MARK: TableView Delegate & DataSource
 
@@ -81,13 +79,20 @@ final class GistTableViewController: BaseTableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = UITableViewCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) else {
-                return UITableViewCell()
+        guard var cell = UITableViewCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) else {
+            return UITableViewCell()
         }
 
         let section = sections[indexPath.section]
 
         switch section.descriptor {
+        case .header:
+            guard let gistDigestCell = GistDigestCell.dequeued(fromTableView: tableView, atIndexPath: indexPath),
+                let header = header else {
+                return UITableViewCell()
+            }
+            gistDigestCell.display(with: header)
+            cell = gistDigestCell
         case .description:
             cell.selectionStyle = .none
             cell.textLabel?.numberOfLines = 0
@@ -108,7 +113,11 @@ final class GistTableViewController: BaseTableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        sections[section].descriptor.rawValue
+        let descriptor = sections[section].descriptor
+        if descriptor == .header {
+            return nil
+        }
+        return descriptor.rawValue
     }
 }
 
@@ -124,6 +133,7 @@ extension GistTableViewController {
     typealias HeaderViewModel = GistDigestView.ViewModel
     struct Section {
         enum Descriptor: String {
+            case header
             case description
             case files
         }
