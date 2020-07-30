@@ -45,9 +45,21 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
 
             switch $0 {
             case .success(let gists):
-                viewModel = self.makeViewModel(with: gists)
+                if gists.isEmpty {
+                    viewModel = .failure(
+                        .init(
+                            title: "Nothing found",
+                            message: "There is no Gist to show you so far."
+                        )
+                    )
+                } else {
+                    viewModel = self.makeViewModel(with: gists)
+                }
+
+
+
             case .failure(let error):
-                viewModel = .failure
+                viewModel = .failure(.init(title: "Network Error", message: "It seems you are not connected on Internet. Check your connection and try again."))
             }
 
             self.display?.displayDiscoveries(viewModel: viewModel)

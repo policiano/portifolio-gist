@@ -1,3 +1,4 @@
+import Anchorage
 import UIKit
 
 public protocol BaseController {
@@ -26,4 +27,34 @@ public class BaseTableViewController: UITableViewController, BaseController {
     }
 
     public var rootView: UIView { tableView }
+}
+
+extension UITableView {
+    func showError(title: String?, message: String?, action: ErrorStateView.Action) {
+        let errorView = ErrorStateView()
+        errorView.show(title: title, message: message, action: action)
+
+        backgroundView = errorView
+        separatorStyle = .none
+    }
+
+    func showLoading() {
+        let loadingView = UIView()
+        loadingView.backgroundColor = .systemBackground
+
+        let activityIndicatiorView = UIActivityIndicatorView(style: .large)
+        activityIndicatiorView.startAnimating()
+        
+        loadingView.addSubview(activityIndicatiorView)
+
+        activityIndicatiorView.centerAnchors == loadingView.centerAnchors
+
+        backgroundView = loadingView
+        separatorStyle = .none
+    }
+
+    func restore() {
+        backgroundView = nil
+        separatorStyle = .singleLine
+    }
 }

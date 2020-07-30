@@ -11,7 +11,7 @@ final class GistDigestView: BaseView {
         return view
     }()
 
-    private lazy var avatarImageView: UIImageView = {
+    private let avatarImageView: UIImageView = {
         let imageView = UIImageView(frame: .init(x: 0, y: 0, width: 60, height: 60))
         imageView.layer.cornerRadius = 30
         imageView.layer.masksToBounds = true
@@ -19,18 +19,18 @@ final class GistDigestView: BaseView {
         return imageView
     }()
 
-    private lazy var ownerNameLabel: UILabel = {
+    private let ownerNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.textColor = .label
         return label
     }()
 
-    private lazy var secondaryLabel: UILabel = {
+    private let secondaryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.font = .preferredFont(forTextStyle: .subheadline)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 3
         label.textColor = .secondaryLabel

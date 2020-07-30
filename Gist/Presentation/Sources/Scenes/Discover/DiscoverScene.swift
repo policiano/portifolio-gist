@@ -5,7 +5,7 @@ enum Discover {
         struct Request { }
         enum ViewModel {
             case content([GistDigestView.ViewModel])
-            case failure
+            case failure(UserError)
         }
     }
 }
