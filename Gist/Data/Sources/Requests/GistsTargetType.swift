@@ -18,7 +18,7 @@ public class GistsTargetType: TargetType {
 
     public var task: Task { .requestPlain }
 
-    public var validationType: ValidationType {
-        return .successAndRedirectCodes
-    }
+//    public var validationType: ValidationType {
+//        return .successAndRedirectCodes
+//    }
 }
