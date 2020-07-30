@@ -3,6 +3,9 @@ import Foundation
 enum Discover {
     enum GetDiscoveries {
         struct Request { }
-        struct ViewModel { }
+        enum ViewModel {
+            case content([GistDigestView.ViewModel])
+            case failure
+        }
     }
 }

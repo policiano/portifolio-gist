@@ -8,7 +8,8 @@ public final class SplitViewController: UISplitViewController {
     }
     
     private func setupMasterAndDetail() {
-        let master = UINavigationController(rootViewController: DiscoverTableViewController())
+        let discoverViewController = DiscoverConfigurator().resolve()
+        let master = UINavigationController(rootViewController: discoverViewController)
 
         viewControllers = [master]
     }

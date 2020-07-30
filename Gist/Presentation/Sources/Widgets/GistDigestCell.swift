@@ -14,6 +14,10 @@ final class GistDigestCell: UITableViewCell {
         nil
     }
 
+    override func prepareForReuse() {
+        gistDigestView.prepareForReuse()
+    }
+
     private func setup() {
         contentView.addSubview(gistDigestView)
         gistDigestView.edgeAnchors == contentView.edgeAnchors

@@ -1,10 +1,14 @@
 import UIKit
 
+protocol DiscoverDisplayLogic: AnyObject {
+    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel)
+}
+
 public final class DiscoverTableViewController: BaseTableViewController {
 
     private let presenter: DiscoverPresentationLogic
 
-    init(presenter: DiscoverPresentationLogic = DiscoverPresenter()) {
+    init(presenter: DiscoverPresentationLogic) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -12,9 +16,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
-    let repository = MoyaGistsRepository()
-
-    var models: [GistDigest] = [] {
+    var viewModels: [GistDigestView.ViewModel] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -22,49 +24,28 @@ public final class DiscoverTableViewController: BaseTableViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        registerCells()
+        setupTableView()
 
         title = "Discover"
 
         presenter.getDiscoveries(request: .init())
-
-        GetPublicGists(repository: MoyaGistsRepository()).execute { [weak self] in
-            self?.models = $0.value ?? []
-        }
     }
 
-    private func registerCells() {
+    private func setupTableView() {
         tableView.register(GistDigestCell.self, forCellReuseIdentifier: GistDigestCell.identifier)
     }
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return viewModels.count
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = GistDigestCell.dequeued(fromTableView: tableView) else {
+        guard let cell = GistDigestCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) else {
             return UITableViewCell()
         }
-        let files = [
-            "application/json",
-            "text/plain",
-            "text/html",
-            "image/jpeg",
-            "image/png",
-            "audio/mpeg",
-            "audio/ogg",
-            "video/mp4",
-            "application/octet-stream"
-        ]
 
-        let headerViewModel = GistDigestView.ViewModel(
-            avatarUrl: URL(string: "https://avatars2.githubusercontent.com/u/50024899?v=4"),
-            ownerName: "emanuel-jose",
-            secondaryText: "Created 18 minutes ago",
-            fileTypes: Array(files.prefix(4))
-        )
-
-        cell.display(with: headerViewModel)
+        let viewModel = viewModels[indexPath.row]
+        cell.display(with: viewModel)
 
         return cell
     }
@@ -72,5 +53,16 @@ public final class DiscoverTableViewController: BaseTableViewController {
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let navigationController = UINavigationController(rootViewController: GistViewController())
         showDetailViewController(navigationController, sender: self)
+    }
+}
+
+extension DiscoverTableViewController: DiscoverDisplayLogic {
+    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel) {
+        switch viewModel {
+        case .content(let viewModels):
+            self.viewModels = viewModels
+        default:
+            break
+        }
     }
 }
