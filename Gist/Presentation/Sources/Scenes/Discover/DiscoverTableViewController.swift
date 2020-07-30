@@ -27,6 +27,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
         setupTableView()
 
         title = "Discover"
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         presenter.getDiscoveries(request: .init())
     }

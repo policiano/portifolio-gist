@@ -9,7 +9,8 @@ public final class GistViewController: BaseViewController, CustomViewController 
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.navigationItem.largeTitleDisplayMode = .never
+        
         let files = [
             "application/json",
             "text/plain",
