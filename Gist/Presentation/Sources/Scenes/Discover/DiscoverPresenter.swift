@@ -1,7 +1,7 @@
 import Foundation
 
 protocol DiscoverPresentationLogic {
-    func getMoreDiscoveries(request: Discover.GetMoreDiscoveries.Request)
+    func getDiscoveries(request: Discover.GetDiscoveries.Request)
 }
 
 protocol DiscoverDataStore {
@@ -10,17 +10,14 @@ protocol DiscoverDataStore {
 
 final class DiscoverPresenter: DiscoverDataStore {
     private let getPublicGists: GetPublicGistsUseCase
-    private let getMorePublicGists: GetMorePublicGistsUseCase
     var gists: [GistDigest] = []
 
     weak var display: DiscoverDisplayLogic?
 
     init(
-        getPublicGists: GetPublicGistsUseCase,
-        getMorePublicGists: GetMorePublicGistsUseCase
+        getPublicGists: GetPublicGistsUseCase
     ) {
         self.getPublicGists = getPublicGists
-        self.getMorePublicGists = getMorePublicGists
     }
 
     private func map(gist: GistDigest) -> GistDigestView.ViewModel {
@@ -42,8 +39,8 @@ final class DiscoverPresenter: DiscoverDataStore {
 }
 
 extension DiscoverPresenter: DiscoverPresentationLogic {
-    func getMoreDiscoveries(request: Discover.GetMoreDiscoveries.Request) {
-        getMorePublicGists.execute { [weak self] in
+    func getDiscoveries(request: Discover.GetDiscoveries.Request) {
+        getPublicGists.execute { [weak self] in
             guard let self = self else { return }
 
             switch $0 {
@@ -51,7 +48,7 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
                 self.gists.append(contentsOf: newGists)
                 let content = self.gists.map(self.map(gist:))
 
-                self.display?.displayMoreDiscoveries(viewModel:
+                self.display?.displayDiscoveries(viewModel:
                     .content(
                         list: content,
                         hasMoreDataAvailable: !newGists.isEmpty
@@ -59,7 +56,7 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
                 )
             case .failure(let error):
                 let userError = ErrorHandler.userError(from: error)
-                self.display?.displayMoreDiscoveries(viewModel:
+                self.display?.displayDiscoveries(viewModel:
                     .failure(userError)
                 )
             }

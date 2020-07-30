@@ -1,7 +1,7 @@
 import Foundation
 
 enum Discover {
-    enum GetMoreDiscoveries {
+    enum GetDiscoveries {
         struct Request { }
         enum ViewModel {
             case content(
@@ -9,7 +9,6 @@ enum Discover {
                 hasMoreDataAvailable: Bool
             )
             case failure(UserError)
-
         }
     }
 

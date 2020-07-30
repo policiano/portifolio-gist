@@ -4,7 +4,7 @@ protocol GistDisplayLogic: AnyObject {
     func displayDetails(viewModel: Gist.GetDetails.ViewModel)
 }
 
-final class GistTableViewController: BaseTableViewController {
+final class GistTableViewController: UITableViewController {
 
     private let headerView: GistDigestView = {
         let header = GistDigestView()

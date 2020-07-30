@@ -2,10 +2,10 @@ import UIKit
 import PaginatedTableView
 
 protocol DiscoverDisplayLogic: AnyObject {
-    func displayMoreDiscoveries(viewModel: Discover.GetMoreDiscoveries.ViewModel)
+    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel)
 }
 
-public final class DiscoverTableViewController: BaseViewController, CustomViewController {
+public final class DiscoverViewController: UIViewController, CustomViewController {
     typealias View = PaginatedTableView
 
     private let presenter: DiscoverPresentationLogic
@@ -29,10 +29,6 @@ public final class DiscoverTableViewController: BaseViewController, CustomViewCo
         view = PaginatedTableView()
     }
 
-    public override var rootView: UIView {
-        customView
-    }
-
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -51,18 +47,14 @@ public final class DiscoverTableViewController: BaseViewController, CustomViewCo
     }
 
     private func getDiscoveries() {
-        presenter.getMoreDiscoveries(request: .init())
-    }
-
-    public override func didTapOnActionButton(in errorStateView: ErrorStateView) {
-        getDiscoveries()
+        presenter.getDiscoveries(request: .init())
     }
 
     var onSuccess: ((Bool) -> Void)?
     var onError: ((Error) -> Void)?
 }
 
-extension DiscoverTableViewController: PaginatedTableViewDataSource, PaginatedTableViewDelegate {
+extension DiscoverViewController: PaginatedTableViewDataSource, PaginatedTableViewDelegate {
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { UITableView.automaticDimension }
 
@@ -77,12 +69,8 @@ extension DiscoverTableViewController: PaginatedTableViewDataSource, PaginatedTa
             return UITableViewCell()
         }
 
-        if isLoadingCell(for: indexPath) {
-            cell.displayLoading()
-        } else {
-            let viewModel = viewModels[indexPath.row]
-            cell.display(with: viewModel)
-        }
+        let viewModel = viewModels[indexPath.row]
+        cell.display(with: viewModel)
 
         return cell
     }
@@ -92,7 +80,8 @@ extension DiscoverTableViewController: PaginatedTableViewDataSource, PaginatedTa
     }
 
     public func loadMore(_ pageNumber: Int, _ pageSize: Int, onSuccess: ((Bool) -> Void)?, onError: ((Error) -> Void)?) {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+        let delay = pageNumber > 1 ? 2 : 0.5
+        DispatchQueue.global().asyncAfter(deadline: .now() + delay) {
             self.getDiscoveries()
         }
 
@@ -101,19 +90,11 @@ extension DiscoverTableViewController: PaginatedTableViewDataSource, PaginatedTa
     }
 }
 
-// MARK: Infinite scrolling
-
-private extension DiscoverTableViewController {
-    func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        return indexPath.row >= viewModels.count && viewModels.count > 0
-    }
-}
-
 // MARK: Display Logic
 
-extension DiscoverTableViewController: DiscoverDisplayLogic {
+extension DiscoverViewController: DiscoverDisplayLogic {
 
-    func displayMoreDiscoveries(viewModel: Discover.GetMoreDiscoveries.ViewModel) {
+    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel) {
         switch viewModel {
         case .content(let list, let hasMoreDataAvailable):
             viewModels = list
@@ -121,6 +102,5 @@ extension DiscoverTableViewController: DiscoverDisplayLogic {
         case .failure(let userError):
             onError?(userError)
         }
-
     }
 }
