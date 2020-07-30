@@ -44,7 +44,7 @@ public final class DiscoverTableViewController: BaseTableViewController {
     }
 
     private func getDiscoveries() {
-        tableView.showLoading()
+        showLoading()
         presenter.getDiscoveries(request: .init())
     }
 
@@ -68,24 +68,25 @@ public final class DiscoverTableViewController: BaseTableViewController {
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         router.routeToDigest(forIndex: indexPath.row)
     }
+
+    public override func didTapOnActionButton(in errorStateView: ErrorStateView) {
+        getDiscoveries()
+    }
 }
 
 extension DiscoverTableViewController: DiscoverDisplayLogic {
     func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel) {
         switch viewModel {
         case .content(let viewModels):
-            tableView.restore()
+            restore()
             self.viewModels = viewModels
         case .failure(let error):
             self.viewModels = []
 
-            tableView.showError(
+            showError(
                 title: error.title,
                 message: error.message,
-                action: (
-                    title: "Try Again",
-                    handler: getDiscoveries
-                )
+                buttonTitle: "Try Again"
             )
         }
     }

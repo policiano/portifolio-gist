@@ -20,22 +20,21 @@ public class BaseViewController: UIViewController, BaseController {
     public var rootView: UIView { view }
 }
 
-public class BaseTableViewController: UITableViewController, BaseController {
+public class BaseTableViewController: UITableViewController, BaseController, ErrorStateViewDelegate {
 
     public override func viewDidLoad() {
         setup()
     }
 
     public var rootView: UIView { tableView }
-}
 
-extension UITableView {
-    func showError(title: String?, message: String?, action: ErrorStateView.Action) {
+    func showError(title: String?, message: String?, buttonTitle: String) {
         let errorView = ErrorStateView()
-        errorView.show(title: title, message: message, action: action)
+        errorView.show(title: title, message: message, buttonTitle: buttonTitle)
+        errorView.delegate = self
 
-        backgroundView = errorView
-        separatorStyle = .none
+        tableView.backgroundView = errorView
+        tableView.separatorStyle = .none
     }
 
     func showLoading() {
@@ -44,18 +43,24 @@ extension UITableView {
 
         let activityIndicatiorView = UIActivityIndicatorView(style: .large)
         activityIndicatiorView.startAnimating()
-        
+
         loadingView.addSubview(activityIndicatiorView)
 
         activityIndicatiorView.centerAnchors == loadingView.centerAnchors
 
-        backgroundView = loadingView
-        separatorStyle = .none
+        tableView.backgroundView = loadingView
+        tableView.separatorStyle = .none
     }
 
     func restore() {
-        backgroundView = nil
-        separatorStyle = .singleLine
+        tableView.backgroundView = nil
+        tableView.separatorStyle = .singleLine
+    }
+
+    // MARK: ErrorStateViewDelegate
+
+    public func didTapOnActionButton(in errorStateView: ErrorStateView) {
+
     }
 }
 
