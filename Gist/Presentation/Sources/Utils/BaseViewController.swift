@@ -1,3 +1,4 @@
+import Anchorage
 import UIKit
 
 public protocol BaseController {
@@ -26,4 +27,19 @@ public class BaseTableViewController: UITableViewController, BaseController {
     }
 
     public var rootView: UIView { tableView }
+}
+
+extension UITableView {
+    func showError(title: String?, message: String?, action: ErrorStateView.Action) {
+        let errorView = ErrorStateView()
+        errorView.show(title: title, message: message, action: action)
+        // The only tricky part is here:
+        self.backgroundView = errorView
+        self.separatorStyle = .none
+    }
+
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
+    }
 }

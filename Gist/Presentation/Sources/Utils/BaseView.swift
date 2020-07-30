@@ -1,6 +1,6 @@
 import UIKit
 
-class BaseView: UIView {
+public class BaseView: UIView {
     init() {
         super.init(frame: .zero)
         setup()

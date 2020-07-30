@@ -28,13 +28,21 @@ public final class DiscoverTableViewController: BaseTableViewController {
 
         title = "Discover"
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
-        presenter.getDiscoveries(request: .init())
+    public override func viewWillAppear(_ animated: Bool) {
+        getDiscoveries()
     }
 
     private func setupTableView() {
         tableView.register(GistDigestCell.self, forCellReuseIdentifier: GistDigestCell.identifier)
     }
+
+    private func getDiscoveries() {
+        presenter.getDiscoveries(request: .init())
+    }
+
+    // MARK: TableView Delegate & DataSource
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
@@ -61,9 +69,24 @@ extension DiscoverTableViewController: DiscoverDisplayLogic {
     func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel) {
         switch viewModel {
         case .content(let viewModels):
+            tableView.restore()
             self.viewModels = viewModels
-        default:
-            break
+        case .failure(let error):
+            let retry = { [weak self] in
+                guard let self = self else { return }
+                self.getDiscoveries()
+            }
+
+            self.viewModels = []
+
+            tableView.showError(
+                title: error.title,
+                message: error.message,
+                action: (
+                    title: "Try Again",
+                    handler: retry
+                )
+            )
         }
     }
 }
