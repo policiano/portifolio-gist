@@ -1,6 +1,17 @@
 import UIKit
 
 public final class DiscoverTableViewController: BaseTableViewController {
+
+    private let presenter: DiscoverPresentationLogic
+
+    init(presenter: DiscoverPresentationLogic = DiscoverPresenter()) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
+
     let repository = MoyaGistsRepository()
 
     var models: [GistDigest] = [] {
@@ -14,6 +25,8 @@ public final class DiscoverTableViewController: BaseTableViewController {
         registerCells()
 
         title = "Discover"
+
+        presenter.getDiscoveries(request: .init())
 
         GetPublicGists(repository: MoyaGistsRepository()).execute { [weak self] in
             self?.models = $0.value ?? []
