@@ -47,6 +47,7 @@ final class GistTableViewController: BaseTableViewController {
     // MARK: ViewController lifecycle
 
     override func viewDidLoad() {
+        title = "Gist"
         navigationController?.navigationItem.largeTitleDisplayMode = .never
         setupTableView()
         presenter.getDetails(request: .init())
@@ -57,16 +58,9 @@ final class GistTableViewController: BaseTableViewController {
     private func setupTableView() {
         tableView.register(GistDigestCell.self, forCellReuseIdentifier: GistDigestCell.identifier)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.identifier)
-        tableView.estimatedRowHeight = 40
+        tableView.estimatedRowHeight = 92
         tableView.rowHeight = UITableView.automaticDimension
     }
-
-//    private func updateHeaderWith(_ viewModel: GistDigestView.ViewModel) {
-//        headerView.display(with: viewModel)
-//        tableView.tableHeaderView = headerView
-//        tableView.setNeedsDisplay()
-//        tableView.layoutTableHeaderView()
-//    }
 
     // MARK: TableView Delegate & DataSource
 
@@ -131,6 +125,7 @@ extension GistTableViewController: GistDisplayLogic {
 
 extension GistTableViewController {
     typealias HeaderViewModel = GistDigestView.ViewModel
+
     struct Section {
         enum Descriptor: String {
             case header

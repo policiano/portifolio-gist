@@ -18,7 +18,7 @@ final class GistPresenter {
         let header = GistTableViewController.HeaderViewModel(
             avatarUrl: gist.owner.avatarUrl,
             ownerName: gist.owner.name,
-            secondaryText: "some date",
+            secondaryText: gist.formmatedCreationDate,
             fileTags: fileTags
         )
 
@@ -45,5 +45,27 @@ extension GistPresenter: GistPresentationLogic {
     func getDetails(request: Gist.GetDetails.Request) {
         let viewModel = map(gist: gist)
         display?.displayDetails(viewModel: viewModel)
+    }
+}
+
+extension GistDigest {
+    var formmatedCreationDate: String {
+        let dateFormatter = DateFormatter()
+        let enUSPosixLocale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.locale = enUSPosixLocale
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+
+        guard let date = dateFormatter.date(from: createdAt) else {
+            return ""
+        }
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        let stringDate = dateFormatter.string(from: date)
+        if stringDate.isEmpty {
+            return ""
+        }
+
+        return "Created on \(stringDate)"
     }
 }
