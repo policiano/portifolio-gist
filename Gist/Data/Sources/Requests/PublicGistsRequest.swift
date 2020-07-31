@@ -13,6 +13,10 @@ public final class PublicGistsRequest: GistsTargetType {
     }
 
     public override var task: Task {
-        .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
+        let parameters: [String: Any] = [
+            "page": page,
+            "per_page": 20
+        ]
+        return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
     }
 }

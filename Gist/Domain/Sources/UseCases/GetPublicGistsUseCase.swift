@@ -6,6 +6,7 @@ public protocol GetPublicGistsUseCase {
 
 public final class GetPublicGists {
     private let repository: GistsRepository
+    private var currentPage = 1
 
     public init(repository: GistsRepository) {
         self.repository = repository
@@ -14,6 +15,15 @@ public final class GetPublicGists {
 
 extension GetPublicGists: GetPublicGistsUseCase {
     public func execute(completion: @escaping (Result<[GistDigest]>) -> Void) {
-        repository.getPublicGists(page: 0, completion: completion)
+
+        repository.getPublicGists(page: currentPage) { [weak self] in
+            guard let self = self else { return }
+
+            if case .success = $0 {
+                self.currentPage += 1
+            }
+
+            completion($0)
+        }
     }
 }

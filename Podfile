@@ -5,6 +5,8 @@ def presentation_pods
   pod 'Anchorage'
   pod 'Kingfisher', '~> 5.0'
   pod 'TagListView', '~> 1.0'
+  pod 'PaginatedTableView'
+  pod "StatefulViewController", "~> 3.0"
 end
 
 def data_pods
