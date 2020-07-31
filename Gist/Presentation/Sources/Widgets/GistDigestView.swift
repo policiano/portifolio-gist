@@ -113,10 +113,6 @@ extension GistDigestView {
     func display(with viewModel: ViewModel) {
         prepareForReuse()
 
-        if let url = viewModel.avatarUrl {
-            avatarImageView.kf.setImage(with: url)
-        }
-
         ownerNameLabel.text = viewModel.ownerName
         secondaryLabel.text = viewModel.secondaryText
         secondaryLabel.isHidden = viewModel.secondaryText == nil
@@ -125,6 +121,14 @@ extension GistDigestView {
 
         for tag in viewModel.fileTags {
             tagList.addTag(tag)
+        }
+
+        guard let url = viewModel.avatarUrl else {
+            return
+        }
+
+        DispatchQueue.main.async {
+            self.avatarImageView.kf.setImage(with: url)
         }
     }
 }
