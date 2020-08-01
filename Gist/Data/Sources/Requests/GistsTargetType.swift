@@ -7,7 +7,10 @@ public class GistsTargetType: TargetType {
     }
 
     public var headers: [String: String]? {
-        ["Accept": "application/vnd.github.v3+json"]
+        [
+            "Authorization": "token 971d1adc19eff25a3daa561c13d3b6cabc7c58bc",
+            "Accept": "application/vnd.github.v3+json"
+        ]
     }
 
     public var path: String { "" }

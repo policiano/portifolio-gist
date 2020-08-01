@@ -1,24 +1,27 @@
 import Foundation
 
-public struct GistDigest {
+public class GistDigest {
     public let id: String
     public let createdAt: String
     public let description: String?
     public let owner: Owner
     public let files: [File]
+    public var isBookmarked: Bool
 
     public init(
         id: String,
         createdAt: String,
         description: String?,
         owner: Owner,
-        files: [File]
+        files: [File],
+        isBookmarked: Bool
     ) {
         self.id = id
         self.createdAt = createdAt
         self.description = description
         self.owner = owner
         self.files = files
+        self.isBookmarked = isBookmarked
     }
 }
 

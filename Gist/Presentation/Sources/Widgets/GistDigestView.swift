@@ -62,6 +62,13 @@ final class GistDigestView: BaseView {
         }.build()
     }()
 
+    private lazy var bookmarkButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        button.setImage(UIImage(systemName: "bookmark.fill"), for: .selected)
+        return button
+    }()
+
     // MARK: Subviews setup
 
     override func setup() {
@@ -87,7 +94,15 @@ final class GistDigestView: BaseView {
 
     private func setupContainer() {
         addSubview(containerView)
-        containerView.edgeAnchors == edgeAnchors + 16
+        addSubview(bookmarkButton)
+        bookmarkButton.heightAnchor == 40
+        bookmarkButton.widthAnchor == 40
+        bookmarkButton.topAnchor == topAnchor + 16
+        bookmarkButton.trailingAnchor == trailingAnchor - 8
+
+        bookmarkButton.leadingAnchor == containerView.trailingAnchor - 16
+        containerView.leadingAnchor == leadingAnchor + 16
+        containerView.verticalAnchors == verticalAnchors + 16
     }
 
     private func setupTagList() {
