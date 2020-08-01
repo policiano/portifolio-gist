@@ -71,7 +71,6 @@ public final class DiscoverViewController: UIViewController, StatefulViewControl
         tableView.paginatedDelegate = self
         tableView.paginatedDataSource = self
         tableView.pageSize = 20
-        tableView.loadMoreViewHeight = 60
         tableView.register(GistDigestCell.self, forCellReuseIdentifier: GistDigestCell.identifier)
     }
 
