@@ -81,8 +81,7 @@ extension GistDigest {
         }
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
-        let stringDate = dateFormatter.string(from: date)
-        if stringDate.isEmpty {
+        guard let stringDate = dateFormatter.string(from: date).valueOrNil else {
             return ""
         }
 

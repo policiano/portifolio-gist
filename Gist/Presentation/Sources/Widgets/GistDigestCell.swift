@@ -34,6 +34,7 @@ final class GistDigestCell: UITableViewCell {
         imageView.layer.cornerRadius = 30
         imageView.layer.masksToBounds = true
         imageView.setContentCompressionResistancePriority(.required, for: .vertical)
+        imageView.kf.indicatorType = .activity
         return imageView
     }()
 
@@ -150,7 +151,6 @@ extension GistDigestCell {
     }
 
     func display(with viewModel: ViewModel) {
-        self.viewModel = viewModel
         prepareForReuse()
 
         ownerNameLabel.text = viewModel.ownerName
@@ -171,7 +171,7 @@ extension GistDigestCell {
         }
 
         DispatchQueue.main.async {
-            self.avatarImageView.kf.setImage(with: url)
+            self.avatarImageView.kf.setImage(with: url, options: [.transition(.fade(0.3))])
         }
     }
 }

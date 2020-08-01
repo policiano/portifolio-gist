@@ -9,7 +9,9 @@ final class GistTableViewController: UITableViewController {
 
     private var viewModel: ViewModel = .error {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 

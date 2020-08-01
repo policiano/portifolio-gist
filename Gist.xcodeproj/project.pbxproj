@@ -54,7 +54,6 @@
 		357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FEA24CFDD3E00813529 /* PublicGistsRequest.swift */; };
 		357B2FEE24CFDF3600813529 /* MoyaGistsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FED24CFDF3600813529 /* MoyaGistsRepository.swift */; };
 		357B2FF324CFF40300813529 /* GistDigest+Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FF224CFF40300813529 /* GistDigest+Mappers.swift */; };
-		358D9FFE24D23567000790CA /* GistDigestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D9FFD24D23567000790CA /* GistDigestView.swift */; };
 		358DA00024D23597000790CA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D9FFF24D23597000790CA /* BaseView.swift */; };
 		358DA00224D23717000790CA /* GistDigestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00124D23717000790CA /* GistDigestCell.swift */; };
 		358DA00624D2412F000790CA /* Dequeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00524D2412F000790CA /* Dequeable.swift */; };
@@ -67,6 +66,7 @@
 		35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */; };
 		35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */; };
 		35996A7124D4CBE5003A813D /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A7024D4CBE5003A813D /* Bool.swift */; };
+		35F6F74B24D5B8A600A4BA41 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F6F74A24D5B8A600A4BA41 /* String.swift */; };
 		B5614D648C79C28A12BAEBDD /* Pods_GistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA0A6B33EE9DFD8970FF46 /* Pods_GistTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,7 +139,6 @@
 		357B2FEA24CFDD3E00813529 /* PublicGistsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGistsRequest.swift; sourceTree = "<group>"; };
 		357B2FED24CFDF3600813529 /* MoyaGistsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsRepository.swift; sourceTree = "<group>"; };
 		357B2FF224CFF40300813529 /* GistDigest+Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigest+Mappers.swift"; sourceTree = "<group>"; };
-		358D9FFD24D23567000790CA /* GistDigestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestView.swift; sourceTree = "<group>"; };
 		358D9FFF24D23597000790CA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		358DA00124D23717000790CA /* GistDigestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestCell.swift; sourceTree = "<group>"; };
 		358DA00524D2412F000790CA /* Dequeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeable.swift; sourceTree = "<group>"; };
@@ -152,6 +151,7 @@
 		35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A7024D4CBE5003A813D /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
+		35F6F74A24D5B8A600A4BA41 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7958A52B76F6B18A6EF72CA2 /* Pods-Gist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.debug.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.debug.xcconfig"; sourceTree = "<group>"; };
 		84923CC397DA36C9406967BE /* Pods-Gist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist.release.xcconfig"; path = "Target Support Files/Pods-Gist/Pods-Gist.release.xcconfig"; sourceTree = "<group>"; };
 		A10A29F416BCF6BC9A8B2009 /* Pods-GistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistTests.release.xcconfig"; path = "Target Support Files/Pods-GistTests/Pods-GistTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -392,7 +392,6 @@
 				358D9FFF24D23597000790CA /* BaseView.swift */,
 				358DA00524D2412F000790CA /* Dequeable.swift */,
 				3578EA9124D28C5D0032F639 /* UserError.swift */,
-				35996A7024D4CBE5003A813D /* Bool.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -438,6 +437,8 @@
 		357B2FBC24CFB83000813529 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				35996A7024D4CBE5003A813D /* Bool.swift */,
+				35F6F74A24D5B8A600A4BA41 /* String.swift */,
 				357B2FBD24CFB84400813529 /* Random.swift */,
 				357B2FC324CFBE5A00813529 /* Result.swift */,
 				3504A89A24D07E8100202678 /* URLs.swift */,
@@ -591,7 +592,6 @@
 			isa = PBXGroup;
 			children = (
 				3507C21A24D3ACA100366D6F /* Stateful */,
-				358D9FFD24D23567000790CA /* GistDigestView.swift */,
 				358DA00124D23717000790CA /* GistDigestCell.swift */,
 			);
 			path = Widgets;
@@ -899,7 +899,6 @@
 				357B2FE224CFD29700813529 /* GistDigestResponse.swift in Sources */,
 				357B2FE924CFDB8C00813529 /* GistsTargetType.swift in Sources */,
 				3549C29C24CF943800CE94D0 /* DiscoverViewController.swift in Sources */,
-				358D9FFE24D23567000790CA /* GistDigestView.swift in Sources */,
 				353EF2B624D4C4570094AD0C /* BookmarkGistUseCase.swift in Sources */,
 				357B2FD424CFC46A00813529 /* GistsRepository.swift in Sources */,
 				3507C22A24D3AD0300366D6F /* ErrorView.swift in Sources */,
@@ -915,6 +914,7 @@
 				356EAA3924CFB4E100D20FE5 /* GistDigest.swift in Sources */,
 				3507C21924D3645900366D6F /* GetPublicGistsUseCase.swift in Sources */,
 				35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */,
+				35F6F74B24D5B8A600A4BA41 /* String.swift in Sources */,
 				3504A8A924D0FED200202678 /* CustomViewController.swift in Sources */,
 				358DA01324D2561A000790CA /* DiscoverConfigurator.swift in Sources */,
 				357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */,
