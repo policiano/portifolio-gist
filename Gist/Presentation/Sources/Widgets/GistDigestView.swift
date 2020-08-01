@@ -66,6 +66,7 @@ final class GistDigestView: BaseView {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bookmark"), for: .normal)
         button.setImage(UIImage(systemName: "bookmark.fill"), for: .selected)
+        button.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -89,7 +90,6 @@ final class GistDigestView: BaseView {
         avatarImageView.heightAnchor == avatarImageView.widthAnchor
         avatarImageView.horizontalAnchors == avatarContainer.horizontalAnchors
         avatarImageView.topAnchor == avatarContainer.topAnchor
-        avatarContainer.heightAnchor >= 60
     }
 
     private func setupContainer() {
@@ -100,7 +100,7 @@ final class GistDigestView: BaseView {
         bookmarkButton.topAnchor == topAnchor + 16
         bookmarkButton.trailingAnchor == trailingAnchor - 8
 
-        bookmarkButton.leadingAnchor == containerView.trailingAnchor - 16
+        bookmarkButton.leadingAnchor == containerView.trailingAnchor + 8
         containerView.leadingAnchor == leadingAnchor + 16
         containerView.verticalAnchors == verticalAnchors + 16
     }
@@ -114,6 +114,10 @@ final class GistDigestView: BaseView {
         tagList.borderWidth = 1
         tagList.paddingY = 4
         tagList.paddingX = 6
+    }
+
+    @objc private func bookmarkButtonTapped() {
+        bookmarkButton.isSelected.toggle()
     }
 }
 
@@ -137,6 +141,8 @@ extension GistDigestView {
         for tag in viewModel.fileTags {
             tagList.addTag(tag)
         }
+
+        layoutIfNeeded()
 
         guard let url = viewModel.avatarUrl else {
             return
