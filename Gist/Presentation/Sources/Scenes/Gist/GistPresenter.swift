@@ -5,7 +5,7 @@ protocol GistPresentationLogic {
     func bookmark(request: Gist.Bookmark.Request)
 }
 
-final class GistPresenter {
+final class GistPresenter: NSObject {
     private var gist: GistDigest
     private let bookmarkGist: BookmarkGistUseCase
     weak var display: GistDisplayLogic?
@@ -58,13 +58,13 @@ extension GistPresenter: GistPresentationLogic {
     }
 
     func bookmark(request: Gist.Bookmark.Request) {
-        bookmarkGist.execute(gist: gist) { [weak self] in
-            guard case .success(let updatedGist) = $0, let self = self else {
+        bookmarkGist.execute(gist: gist, weakfy { (strongSelf, result) in
+            guard case .success(let updatedGist) = result else {
                 return
             }
             self.gist = updatedGist
             self.mapAndDisplay(updatedGist)
-        }
+        })
     }
 }
 

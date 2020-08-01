@@ -85,9 +85,12 @@ final class GistTableViewController: UITableViewController {
             gistDigestCell.display(with: header)
             gistDigestCell.delegate = self
             cell = gistDigestCell
+            return cell
         case .description:
             cell.selectionStyle = .none
             cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.font = .preferredFont(forTextStyle: .caption1)
+            cell.textLabel?.textColor = .label
         case .files:
             cell.selectionStyle = .default
             cell.accessoryType = .disclosureIndicator
@@ -95,10 +98,10 @@ final class GistTableViewController: UITableViewController {
             let font = UIFont.monospacedSystemFont(ofSize: 14, weight: .semibold)
             let fontMetrics = UIFontMetrics(forTextStyle: .subheadline)
             cell.textLabel?.font = fontMetrics.scaledFont(for: font)
-            cell.textLabel?.adjustsFontForContentSizeCategory = true
             cell.textLabel?.textColor = .systemBlue
         }
 
+        cell.textLabel?.adjustsFontForContentSizeCategory = true
         cell.textLabel?.text = section.rows[indexPath.row].title
 
         return cell

@@ -3,7 +3,7 @@ import UIKit
 final class GistConfigurator {
     func resolve(with gist: GistDigest) -> UIViewController {
 
-        let repository = FirebaseBookmarksRepository()
+        let repository = FirebaseBookmarksRepository.shared
         let bookmarkGist = BookmarkGist(repository: repository)
         let presenter = GistPresenter(gist: gist, bookmarkGist: bookmarkGist)
         let viewController = GistTableViewController(presenter: presenter)

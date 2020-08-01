@@ -54,6 +54,7 @@ public final class DiscoverViewController: UIViewController, StatefulViewControl
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
 
         setupInitialViewState()
         startLoading()
