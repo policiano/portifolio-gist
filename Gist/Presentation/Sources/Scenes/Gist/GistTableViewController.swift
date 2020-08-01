@@ -7,12 +7,6 @@ protocol GistDisplayLogic: AnyObject {
 
 final class GistTableViewController: UITableViewController {
 
-    private let headerView: GistDigestView = {
-        let header = GistDigestView()
-        header.backgroundColor = .systemBackground
-        return header
-    }()
-
     private var viewModel: ViewModel = .error {
         didSet {
             tableView.reloadData()
@@ -87,6 +81,7 @@ final class GistTableViewController: UITableViewController {
                 return UITableViewCell()
             }
             gistDigestCell.display(with: header)
+            gistDigestCell.delegate = self
             cell = gistDigestCell
         case .description:
             cell.selectionStyle = .none
@@ -116,6 +111,12 @@ final class GistTableViewController: UITableViewController {
     }
 }
 
+extension GistTableViewController: GistDigestCellDelegate {
+    func bookmarkDidTap(_ cell: GistDigestCell) {
+        presenter.bookmark(request: .init())
+    }
+}
+
 extension GistTableViewController: GistDisplayLogic {
     func displayBookmark(viewModel: Gist.Bookmark.ViewModel) {
         self.viewModel = viewModel
@@ -129,7 +130,7 @@ extension GistTableViewController: GistDisplayLogic {
 // MARK: ViewModel
 
 extension GistTableViewController {
-    typealias HeaderViewModel = GistDigestView.ViewModel
+    typealias HeaderViewModel = GistDigestCell.ViewModel
 
     struct Section {
         enum Descriptor: String {

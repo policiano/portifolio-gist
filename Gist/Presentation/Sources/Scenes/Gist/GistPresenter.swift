@@ -6,7 +6,7 @@ protocol GistPresentationLogic {
 }
 
 final class GistPresenter {
-    private let gist: GistDigest
+    private var gist: GistDigest
     private let bookmarkGist: BookmarkGistUseCase
     weak var display: GistDisplayLogic?
 
@@ -19,10 +19,12 @@ final class GistPresenter {
         let fileTags = gist.fileTags()
 
         let header = GistTableViewController.HeaderViewModel(
+            id: gist.id,
             avatarUrl: gist.owner.avatarUrl,
             ownerName: gist.owner.name,
             secondaryText: gist.formmatedCreationDate,
-            fileTags: fileTags
+            fileTags: fileTags,
+            isBookmarked: gist.isBookmarked
         )
 
         typealias Section = GistTableViewController.Section
@@ -42,6 +44,11 @@ final class GistPresenter {
 
         return .content(header: header, sections: sections)
     }
+
+    private func mapAndDisplay(_ gist: GistDigest) {
+        let viewModel = self.map(gist: gist)
+        self.display?.displayBookmark(viewModel: viewModel)
+    }
 }
 
 extension GistPresenter: GistPresentationLogic {
@@ -55,8 +62,8 @@ extension GistPresenter: GistPresentationLogic {
             guard case .success(let updatedGist) = $0, let self = self else {
                 return
             }
-            let viewModel = self.map(gist: updatedGist)
-            self.display?.displayBookmark(viewModel: viewModel)
+            self.gist = updatedGist
+            self.mapAndDisplay(updatedGist)
         }
     }
 }

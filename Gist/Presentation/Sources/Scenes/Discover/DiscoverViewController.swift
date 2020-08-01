@@ -9,7 +9,7 @@ protocol DiscoverDisplayLogic: AnyObject {
 
 public final class DiscoverViewController: UIViewController, StatefulViewController {
     private let tableView = PaginatedTableView()
-    private var viewModels: [GistDigestView.ViewModel] = []
+    private var viewModels: [GistDigestCell.ViewModel] = []
 
     // MARK: Pagination
 

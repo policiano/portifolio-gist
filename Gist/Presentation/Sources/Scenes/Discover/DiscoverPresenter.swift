@@ -20,14 +20,16 @@ final class DiscoverPresenter: DiscoverDataStore {
         self.getPublicGists = getPublicGists
     }
 
-    private func map(gist: GistDigest) -> GistDigestView.ViewModel {
+    private func map(gist: GistDigest) -> GistDigestCell.ViewModel {
         let fileTags = gist.fileTags(threshold: 4)
 
         return .init(
+            id: gist.id,
             avatarUrl: gist.owner.avatarUrl,
             ownerName: gist.owner.name,
             secondaryText: gist.formmatedDescription,
-            fileTags: fileTags
+            fileTags: fileTags,
+            isBookmarked: gist.isBookmarked
         )
     }
 

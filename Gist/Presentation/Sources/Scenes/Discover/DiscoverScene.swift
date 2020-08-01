@@ -5,7 +5,7 @@ enum Discover {
         struct Request { }
         enum ViewModel {
             case content(
-                list: [GistDigestView.ViewModel],
+                list: [GistDigestCell.ViewModel],
                 hasMoreDataAvailable: Bool
             )
             case failure(UserError)
