@@ -2,14 +2,17 @@ import Foundation
 
 protocol GistPresentationLogic {
     func getDetails(request: Gist.GetDetails.Request)
+    func bookmark(request: Gist.Bookmark.Request)
 }
 
 final class GistPresenter {
     private let gist: GistDigest
+    private let bookmarkGist: BookmarkGistUseCase
     weak var display: GistDisplayLogic?
 
-    init(gist: GistDigest) {
+    init(gist: GistDigest, bookmarkGist: BookmarkGistUseCase) {
         self.gist = gist
+        self.bookmarkGist = bookmarkGist
     }
 
     private func map(gist: GistDigest) -> Gist.GetDetails.ViewModel {
@@ -45,6 +48,16 @@ extension GistPresenter: GistPresentationLogic {
     func getDetails(request: Gist.GetDetails.Request) {
         let viewModel = map(gist: gist)
         display?.displayDetails(viewModel: viewModel)
+    }
+
+    func bookmark(request: Gist.Bookmark.Request) {
+        bookmarkGist.execute(gist: gist) { [weak self] in
+            guard case .success(let updatedGist) = $0, let self = self else {
+                return
+            }
+            let viewModel = self.map(gist: updatedGist)
+            self.display?.displayBookmark(viewModel: viewModel)
+        }
     }
 }
 

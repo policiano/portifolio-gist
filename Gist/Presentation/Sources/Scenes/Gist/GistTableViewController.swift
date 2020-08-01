@@ -2,6 +2,7 @@ import UIKit
 
 protocol GistDisplayLogic: AnyObject {
     func displayDetails(viewModel: Gist.GetDetails.ViewModel)
+    func displayBookmark(viewModel: Gist.Bookmark.ViewModel)
 }
 
 final class GistTableViewController: UITableViewController {
@@ -116,6 +117,10 @@ final class GistTableViewController: UITableViewController {
 }
 
 extension GistTableViewController: GistDisplayLogic {
+    func displayBookmark(viewModel: Gist.Bookmark.ViewModel) {
+        self.viewModel = viewModel
+    }
+
     func displayDetails(viewModel: Gist.GetDetails.ViewModel) {
         self.viewModel = viewModel
     }
