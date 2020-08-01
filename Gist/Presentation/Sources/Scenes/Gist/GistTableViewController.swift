@@ -5,7 +5,13 @@ protocol GistDisplayLogic: AnyObject {
     func displayBookmark(viewModel: Gist.Bookmark.ViewModel)
 }
 
+protocol GistTableViewControllerDelegate: AnyObject {
+    func didUpdateGist(at viewController: GistTableViewController)
+}
+
 final class GistTableViewController: UITableViewController {
+
+    weak var delegate: GistTableViewControllerDelegate?
 
     private var viewModel: ViewModel = .error {
         didSet {
@@ -89,7 +95,7 @@ final class GistTableViewController: UITableViewController {
         case .description:
             cell.selectionStyle = .none
             cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.font = .preferredFont(forTextStyle: .caption1)
+            cell.textLabel?.font = .preferredFont(forTextStyle: .body)
             cell.textLabel?.textColor = .label
         case .files:
             cell.selectionStyle = .default
@@ -125,6 +131,9 @@ extension GistTableViewController: GistDigestCellDelegate {
 extension GistTableViewController: GistDisplayLogic {
     func displayBookmark(viewModel: Gist.Bookmark.ViewModel) {
         self.viewModel = viewModel
+        if splitViewController?.isCollapsed == false {
+            delegate?.didUpdateGist(at: self)
+        }
     }
 
     func displayDetails(viewModel: Gist.GetDetails.ViewModel) {

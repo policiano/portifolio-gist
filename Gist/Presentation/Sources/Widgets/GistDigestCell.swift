@@ -135,7 +135,6 @@ final class GistDigestCell: UITableViewCell {
     }
 
     @objc private func bookmarkButtonTapped() {
-        
         delegate?.bookmarkDidTap(self)
     }
 }
@@ -147,7 +146,7 @@ extension GistDigestCell {
         let ownerName: String
         let secondaryText: String?
         let fileTags: [String]
-        let isBookmarked: Bool
+        var isBookmarked: Bool
     }
 
     func display(with viewModel: ViewModel) {

@@ -23,8 +23,8 @@ final class DiscoverRouter: DiscoverRouterType {
         guard let selectedDigest = dataStore.gists[safeIndex: index] else {
             return
         }
-
-        let destinationViewController = GistConfigurator().resolve(with: selectedDigest)
+        let delegate = viewController as? GistTableViewControllerDelegate
+        let destinationViewController = GistConfigurator().resolve(with: selectedDigest, delegate: delegate)
         let navigationController = UINavigationController(rootViewController: destinationViewController)
         viewController?.showDetailViewController(navigationController, sender: viewController)
     }

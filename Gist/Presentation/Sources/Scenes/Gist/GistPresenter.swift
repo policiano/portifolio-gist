@@ -59,7 +59,7 @@ extension GistPresenter: GistPresentationLogic {
 
     func bookmark(request: Gist.Bookmark.Request) {
         bookmarkGist.execute(gist: gist, weakfy { (strongSelf, result) in
-            guard case .success(let updatedGist) = result else {
+            guard let updatedGist = result.value else {
                 return
             }
             self.gist = updatedGist

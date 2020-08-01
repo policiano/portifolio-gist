@@ -5,11 +5,14 @@ import StatefulViewController
 
 protocol DiscoverDisplayLogic: AnyObject {
     func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel)
+    func updateSelectedGist(viewModel: Discover.CheckUpdates.ViewModel)
+    func displayBookmark(viewModel: Discover.Bookmark.ViewModel)
 }
 
 public final class DiscoverViewController: UIViewController, StatefulViewController {
     private let tableView = PaginatedTableView()
     private var viewModels: [GistDigestCell.ViewModel] = []
+    private var selectedGist: GistDigestCell.ViewModel?
 
     // MARK: Pagination
 
@@ -54,7 +57,9 @@ public final class DiscoverViewController: UIViewController, StatefulViewControl
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        if splitViewController?.isCollapsed == true {
+            checkSelectedGistUpdates()
+        }
 
         setupInitialViewState()
         startLoading()
@@ -108,10 +113,26 @@ public final class DiscoverViewController: UIViewController, StatefulViewControl
         present(alertController, animated: true, completion: nil)
     }
 
+    private func updateAndReload(_ gist: GistDigestCell.ViewModel, at index: IndexPath) {
+        viewModels[index.row] = gist
+        selectedGist = gist
+        tableView.reloadRows(at: [index], with: .fade)
+    }
+
+    private func refreshDetailView(with index: IndexPath) {
+        if splitViewController?.isCollapsed == false {
+            router.routeToDigest(forIndex: index.row)
+        }
+    }
+
     // MARK: UseCase
 
     @objc private func getDiscoveries() {
         presenter.getDiscoveries(request: .init())
+    }
+
+    private func checkSelectedGistUpdates() {
+         presenter.checkSelectedGistUpdates(request: .init(selectedGist: selectedGist))
     }
 }
 
@@ -134,11 +155,13 @@ extension DiscoverViewController: PaginatedTableViewDataSource, PaginatedTableVi
 
         let viewModel = viewModels[indexPath.row]
         cell.display(with: viewModel)
+        cell.delegate = self
 
         return cell
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedGist = viewModels[safeIndex: indexPath.row]
         router.routeToDigest(forIndex: indexPath.row)
     }
 
@@ -153,9 +176,34 @@ extension DiscoverViewController: PaginatedTableViewDataSource, PaginatedTableVi
     }
 }
 
+extension DiscoverViewController: GistTableViewControllerDelegate {
+    func didUpdateGist(at viewController: GistTableViewController) {
+        checkSelectedGistUpdates()
+    }
+}
+
+extension DiscoverViewController: GistDigestCellDelegate {
+    func bookmarkDidTap(_ cell: GistDigestCell) {
+        guard let indexPath = tableView.indexPath(for: cell),
+            let gist = viewModels[safeIndex: indexPath.row] else {
+                return
+        }
+
+        presenter.bookmark(request: .init(index: indexPath, gist: gist))
+    }
+}
+
 // MARK: Display Logic
 
 extension DiscoverViewController: DiscoverDisplayLogic {
+    func displayBookmark(viewModel: Discover.Bookmark.ViewModel) {
+        updateAndReload(viewModel.bookmarkedGist, at: viewModel.index)
+        refreshDetailView(with: viewModel.index)
+    }
+
+    func updateSelectedGist(viewModel: Discover.CheckUpdates.ViewModel) {
+        updateAndReload(viewModel.selectedGist, at: viewModel.index)
+    }
 
     func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel) {
         switch viewModel {

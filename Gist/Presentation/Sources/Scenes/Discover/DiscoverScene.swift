@@ -19,4 +19,27 @@ enum Discover {
 
         typealias ViewModel = GistDigest
     }
+
+    enum CheckUpdates {
+        struct Request {
+            let selectedGist: GistDigestCell.ViewModel?
+        }
+
+        struct ViewModel {
+            let index: IndexPath
+            let selectedGist: GistDigestCell.ViewModel
+        }
+    }
+
+    enum Bookmark {
+        struct Request {
+            let index: IndexPath
+            let gist: GistDigestCell.ViewModel
+        }
+
+        struct ViewModel {
+            let index: IndexPath
+            let bookmarkedGist: GistDigestCell.ViewModel
+        }
+    }
 }

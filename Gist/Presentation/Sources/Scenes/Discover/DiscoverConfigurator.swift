@@ -9,8 +9,10 @@ final class DiscoverConfigurator {
             repository: gistsRepository
         )
 
+        let bookmarkGist = BookmarkGist(repository: bookmarkRepository)
+
         let presenter = DiscoverPresenter(
-            getPublicGists: getPublicGists
+            getPublicGists: getPublicGists, bookmarkGist: bookmarkGist
         )
         
         let router = DiscoverRouter(dataStore: presenter)
