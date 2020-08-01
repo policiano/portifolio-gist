@@ -11,7 +11,7 @@ final class DiscoverPresenterTests: XCTestCase {
         return presenter
     }()
 
-    private var actualViewModels: [GistDigestView.ViewModel] {
+    private var actualViewModels: [GistDigestCell.ViewModel] {
         guard let content = displaySpy.displayDiscoveriesViewModelPassed,
             case .content(let viewModels) = content else {
                 XCTFail("Expecting a content view model, got nil")

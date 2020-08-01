@@ -150,11 +150,13 @@ extension GistDigestCell {
     }
 
     func display(with viewModel: ViewModel) {
+        self.viewModel = viewModel
         prepareForReuse()
 
         ownerNameLabel.text = viewModel.ownerName
         secondaryLabel.text = viewModel.secondaryText
         secondaryLabel.isHidden = viewModel.secondaryText == nil
+        bookmarkButton.isSelected = viewModel.isBookmarked
 
         tagList.removeAllTags()
 

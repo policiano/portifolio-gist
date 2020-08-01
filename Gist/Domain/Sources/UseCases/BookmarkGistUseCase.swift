@@ -14,14 +14,14 @@ public final class BookmarkGist {
 
 extension BookmarkGist: BookmarkGistUseCase {
     public func execute(gist: GistDigest, completion: @escaping (Swift.Result<GistDigest, Never>) -> Void) {
-        gist.isBookmarked = true
+        gist.isBookmarked.toggle()
 
         repository.bookmark(gist: gist) {
             switch $0 {
             case .success(let bookmarkedGist):
                 completion(.success(bookmarkedGist))
             case .failure:
-                gist.isBookmarked = false
+                gist.isBookmarked.toggle()
                 completion(.success(gist))
             }
         }
