@@ -12,7 +12,8 @@ final class GistDigestResponseTests: XCTestCase {
 
         XCTAssertNotNil(actualValue)
         XCTAssertNil(actualValue?.description)
-        XCTAssertEqual(actualValue?.files.isEmpty, true)
+        XCTAssertNil(actualValue?.createdAt)
+        XCTAssertNil(actualValue?.files)
         XCTAssertNil(actualValue?.owner)
     }
 
@@ -30,6 +31,7 @@ final class GistDigestResponseTests: XCTestCase {
             "id": "aa5a315d61ae9438b18d",
             "non-expected": null,
             "description": "Hello World Examples",
+            "created_at": "any value",
             "files": {
                 "hello_world.rb": {
                     "filename": "hello_world.rb",
@@ -63,10 +65,11 @@ final class GistDigestResponseTests: XCTestCase {
         """
 
         let actualValue: GistDigestResponse? = json.decode()
-        let actualFile = actualValue?.files["hello_world.rb"]
+        let actualFile = actualValue?.files?["hello_world.rb"]
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.description, "Hello World Examples")
+        XCTAssertEqual(actualValue?.createdAt, "any value")
         XCTAssertEqual(actualFile?.filename, "hello_world.rb")
         XCTAssertEqual(actualFile?.type, "application/x-ruby")
         XCTAssertEqual(actualValue?.owner?.login, "octocat")
