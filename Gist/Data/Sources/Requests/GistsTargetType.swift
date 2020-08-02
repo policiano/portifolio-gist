@@ -8,7 +8,7 @@ public class GistsTargetType: TargetType {
 
     public var headers: [String: String]? {
         [
-            "Authorization": "token 981ed952c9d4d69adb35206877ef43c500f098f4",
+//            "Authorization": "token 981ed952c9d4d69adb35206877ef43c500f098f4",
             "Accept": "application/vnd.github.v3+json"
         ]
     }
