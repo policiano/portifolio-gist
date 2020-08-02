@@ -70,6 +70,7 @@
 		359730C724D645B800C31149 /* BookmarksConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730C624D645B800C31149 /* BookmarksConfigurator.swift */; };
 		359730C924D6478200C31149 /* GetAllBookmarksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730C824D6478200C31149 /* GetAllBookmarksUseCase.swift */; };
 		359730CB24D72FED00C31149 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730CA24D72FED00C31149 /* UITableView.swift */; };
+		359730D724D7351700C31149 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 359730D624D7351700C31149 /* Localizable.strings */; };
 		35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */; };
 		35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */; };
 		35996A7124D4CBE5003A813D /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A7024D4CBE5003A813D /* Bool.swift */; };
@@ -163,6 +164,7 @@
 		359730C624D645B800C31149 /* BookmarksConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksConfigurator.swift; sourceTree = "<group>"; };
 		359730C824D6478200C31149 /* GetAllBookmarksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllBookmarksUseCase.swift; sourceTree = "<group>"; };
 		359730CA24D72FED00C31149 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		359730D624D7351700C31149 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A7024D4CBE5003A813D /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		3549C29724CF93E200CE94D0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				359730D624D7351700C31149 /* Localizable.strings */,
 				3549C26B24CF900700CE94D0 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -353,6 +356,7 @@
 		3549C29824CF940500CE94D0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				359730D524D7338500C31149 /* Generated */,
 				358D9FFC24D23557000790CA /* Widgets */,
 				3549C2A324CFAB2B00CE94D0 /* Utils */,
 				3549C29924CF940E00CE94D0 /* Scenes */,
@@ -664,6 +668,13 @@
 			path = Bookmarks;
 			sourceTree = "<group>";
 		};
+		359730D524D7338500C31149 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		35C3B43F17A6339659E94C0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,6 +708,7 @@
 				606599A77A001D52CA900B94 /* [CP] Check Pods Manifest.lock */,
 				3549C25924CF900600CE94D0 /* Sources */,
 				3549C25A24CF900600CE94D0 /* Frameworks */,
+				359730D424D7321B00C31149 /* Swiftgen */,
 				3549C25B24CF900600CE94D0 /* Resources */,
 				89B09021D8EB3EACE1701712 /* [CP] Embed Pods Frameworks */,
 			);
@@ -797,6 +809,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3549C26F24CF900700CE94D0 /* LaunchScreen.storyboard in Resources */,
+				359730D724D7351700C31149 /* Localizable.strings in Resources */,
 				3549C26C24CF900700CE94D0 /* Assets.xcassets in Resources */,
 				359730BC24D6172500C31149 /* GoogleService-Info.plist in Resources */,
 			);
@@ -835,6 +848,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gist-GistUITests/Pods-Gist-GistUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		359730D424D7321B00C31149 /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
 		35A3D43C58FD325297B54EEA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

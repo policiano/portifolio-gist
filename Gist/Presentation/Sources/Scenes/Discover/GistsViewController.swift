@@ -53,7 +53,7 @@ public class GistsViewController: UIViewController, StatefulViewController {
     }
 
     public func setNavigationBar() {
-        title = "Discover"
+        title = NSLocalizedString("discover", comment: "")
 
         let bookmark = UIBarButtonItem(
             title: "Bookmarks",

@@ -7,6 +7,7 @@ def presentation_pods
   pod 'TagListView', '~> 1.0'
   pod 'PaginatedTableView'
   pod "StatefulViewController", "~> 3.0"
+  pod 'SwiftGen', '~> 6.0'
 end
 
 def data_pods
