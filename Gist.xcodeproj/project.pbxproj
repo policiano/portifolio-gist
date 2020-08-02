@@ -21,7 +21,7 @@
 		3507C21024D3269500366D6F /* GistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C20F24D3269500366D6F /* GistPresenter.swift */; };
 		3507C21224D3358500366D6F /* GistConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21124D3358500366D6F /* GistConfigurator.swift */; };
 		3507C21524D3392200366D6F /* GistScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21424D3392200366D6F /* GistScene.swift */; };
-		3507C21724D33DB700366D6F /* DiscoverRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21624D33DB700366D6F /* DiscoverRouter.swift */; };
+		3507C21724D33DB700366D6F /* GistsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21624D33DB700366D6F /* GistsRouter.swift */; };
 		3507C21924D3645900366D6F /* GetPublicGistsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C21824D3645900366D6F /* GetPublicGistsUseCase.swift */; };
 		3507C22724D3AD0300366D6F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C22324D3AD0300366D6F /* EmptyView.swift */; };
 		3507C22824D3AD0300366D6F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C22424D3AD0300366D6F /* LoadingView.swift */; };
@@ -32,7 +32,7 @@
 		3549C26C24CF900700CE94D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3549C26B24CF900700CE94D0 /* Assets.xcassets */; };
 		3549C26F24CF900700CE94D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3549C26D24CF900700CE94D0 /* LaunchScreen.storyboard */; };
 		3549C28524CF900800CE94D0 /* GistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C28424CF900800CE94D0 /* GistUITests.swift */; };
-		3549C29C24CF943800CE94D0 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C29B24CF943800CE94D0 /* DiscoverViewController.swift */; };
+		3549C29C24CF943800CE94D0 /* GistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C29B24CF943800CE94D0 /* GistsTableViewController.swift */; };
 		3549C29F24CFA99D00CE94D0 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C29E24CFA99D00CE94D0 /* SplitViewController.swift */; };
 		3549C2A224CFAAB700CE94D0 /* GistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549C2A124CFAAB700CE94D0 /* GistTableViewController.swift */; };
 		356EAA3924CFB4E100D20FE5 /* GistDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EAA3824CFB4E100D20FE5 /* GistDigest.swift */; };
@@ -57,10 +57,10 @@
 		358DA00024D23597000790CA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D9FFF24D23597000790CA /* BaseView.swift */; };
 		358DA00224D23717000790CA /* GistDigestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00124D23717000790CA /* GistDigestCell.swift */; };
 		358DA00624D2412F000790CA /* Dequeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00524D2412F000790CA /* Dequeable.swift */; };
-		358DA00A24D24B15000790CA /* DiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00924D24B15000790CA /* DiscoverPresenter.swift */; };
-		358DA00D24D24B37000790CA /* DiscoverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00C24D24B37000790CA /* DiscoverScene.swift */; };
+		358DA00A24D24B15000790CA /* GistsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00924D24B15000790CA /* GistsPresenter.swift */; };
+		358DA00D24D24B37000790CA /* GistsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00C24D24B37000790CA /* GistsScene.swift */; };
 		358DA01124D24BE3000790CA /* DiscoverTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00F24D24BBE000790CA /* DiscoverTableViewControllerTests.swift */; };
-		358DA01324D2561A000790CA /* DiscoverConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01224D2561A000790CA /* DiscoverConfigurator.swift */; };
+		358DA01324D2561A000790CA /* GistsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01224D2561A000790CA /* GistsConfigurator.swift */; };
 		358DA01724D26CC2000790CA /* DiscoverPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01624D26CC2000790CA /* DiscoverPresentationLogicSpy.swift */; };
 		358DA01B24D26D29000790CA /* GistDigestViewViewModel+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01924D26D07000790CA /* GistDigestViewViewModel+Fixture.swift */; };
 		359730BC24D6172500C31149 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 359730BB24D6172500C31149 /* GoogleService-Info.plist */; };
@@ -107,7 +107,7 @@
 		3507C20F24D3269500366D6F /* GistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistPresenter.swift; sourceTree = "<group>"; };
 		3507C21124D3358500366D6F /* GistConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistConfigurator.swift; sourceTree = "<group>"; };
 		3507C21424D3392200366D6F /* GistScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistScene.swift; sourceTree = "<group>"; };
-		3507C21624D33DB700366D6F /* DiscoverRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverRouter.swift; sourceTree = "<group>"; };
+		3507C21624D33DB700366D6F /* GistsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsRouter.swift; sourceTree = "<group>"; };
 		3507C21824D3645900366D6F /* GetPublicGistsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPublicGistsUseCase.swift; sourceTree = "<group>"; };
 		3507C22324D3AD0300366D6F /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		3507C22424D3AD0300366D6F /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		3549C28024CF900800CE94D0 /* GistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549C28424CF900800CE94D0 /* GistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistUITests.swift; sourceTree = "<group>"; };
 		3549C28624CF900800CE94D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3549C29B24CF943800CE94D0 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		3549C29B24CF943800CE94D0 /* GistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsTableViewController.swift; sourceTree = "<group>"; };
 		3549C29E24CFA99D00CE94D0 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		3549C2A124CFAAB700CE94D0 /* GistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistTableViewController.swift; sourceTree = "<group>"; };
 		356EAA3824CFB4E100D20FE5 /* GistDigest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GistDigest.swift; path = Gist/Domain/Entities/GistDigest.swift; sourceTree = SOURCE_ROOT; };
@@ -149,10 +149,10 @@
 		358D9FFF24D23597000790CA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		358DA00124D23717000790CA /* GistDigestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestCell.swift; sourceTree = "<group>"; };
 		358DA00524D2412F000790CA /* Dequeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeable.swift; sourceTree = "<group>"; };
-		358DA00924D24B15000790CA /* DiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenter.swift; sourceTree = "<group>"; };
-		358DA00C24D24B37000790CA /* DiscoverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverScene.swift; sourceTree = "<group>"; };
+		358DA00924D24B15000790CA /* GistsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsPresenter.swift; sourceTree = "<group>"; };
+		358DA00C24D24B37000790CA /* GistsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsScene.swift; sourceTree = "<group>"; };
 		358DA00F24D24BBE000790CA /* DiscoverTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewControllerTests.swift; sourceTree = "<group>"; };
-		358DA01224D2561A000790CA /* DiscoverConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverConfigurator.swift; sourceTree = "<group>"; };
+		358DA01224D2561A000790CA /* GistsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsConfigurator.swift; sourceTree = "<group>"; };
 		358DA01624D26CC2000790CA /* DiscoverPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresentationLogicSpy.swift; sourceTree = "<group>"; };
 		358DA01924D26D07000790CA /* GistDigestViewViewModel+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestViewViewModel+Fixture.swift"; sourceTree = "<group>"; };
 		359730BB24D6172500C31149 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -363,7 +363,7 @@
 			children = (
 				359730C324D6451A00C31149 /* Bookmarks */,
 				3549C29D24CFA97C00CE94D0 /* SplitView */,
-				3549C2A024CFAA9D00CE94D0 /* Gist */,
+				3549C2A024CFAA9D00CE94D0 /* Details */,
 				3549C29A24CF941700CE94D0 /* Discover */,
 			);
 			path = Scenes;
@@ -372,11 +372,11 @@
 		3549C29A24CF941700CE94D0 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				358DA01224D2561A000790CA /* DiscoverConfigurator.swift */,
-				358DA00924D24B15000790CA /* DiscoverPresenter.swift */,
-				358DA00C24D24B37000790CA /* DiscoverScene.swift */,
-				3549C29B24CF943800CE94D0 /* DiscoverViewController.swift */,
-				3507C21624D33DB700366D6F /* DiscoverRouter.swift */,
+				358DA01224D2561A000790CA /* GistsConfigurator.swift */,
+				358DA00924D24B15000790CA /* GistsPresenter.swift */,
+				358DA00C24D24B37000790CA /* GistsScene.swift */,
+				3549C29B24CF943800CE94D0 /* GistsTableViewController.swift */,
+				3507C21624D33DB700366D6F /* GistsRouter.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 			path = SplitView;
 			sourceTree = "<group>";
 		};
-		3549C2A024CFAA9D00CE94D0 /* Gist */ = {
+		3549C2A024CFAA9D00CE94D0 /* Details */ = {
 			isa = PBXGroup;
 			children = (
 				3549C2A124CFAAB700CE94D0 /* GistTableViewController.swift */,
@@ -397,7 +397,7 @@
 				3507C21124D3358500366D6F /* GistConfigurator.swift */,
 				3507C21424D3392200366D6F /* GistScene.swift */,
 			);
-			path = Gist;
+			path = Details;
 			sourceTree = "<group>";
 		};
 		3549C2A324CFAB2B00CE94D0 /* Utils */ = {
@@ -923,14 +923,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				358DA00A24D24B15000790CA /* DiscoverPresenter.swift in Sources */,
+				358DA00A24D24B15000790CA /* GistsPresenter.swift in Sources */,
 				3507C21024D3269500366D6F /* GistPresenter.swift in Sources */,
 				359730C524D6454400C31149 /* BookmarksViewController.swift in Sources */,
 				35996A7124D4CBE5003A813D /* Bool.swift in Sources */,
 				359730C924D6478200C31149 /* GetAllBookmarksUseCase.swift in Sources */,
 				357B2FE224CFD29700813529 /* GistDigestResponse.swift in Sources */,
 				357B2FE924CFDB8C00813529 /* GistsTargetType.swift in Sources */,
-				3549C29C24CF943800CE94D0 /* DiscoverViewController.swift in Sources */,
+				3549C29C24CF943800CE94D0 /* GistsTableViewController.swift in Sources */,
 				353EF2B624D4C4570094AD0C /* BookmarkGistUseCase.swift in Sources */,
 				357B2FD424CFC46A00813529 /* GistsRepository.swift in Sources */,
 				359730C724D645B800C31149 /* BookmarksConfigurator.swift in Sources */,
@@ -952,7 +952,7 @@
 				35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */,
 				35F6F74B24D5B8A600A4BA41 /* String.swift in Sources */,
 				3504A8A924D0FED200202678 /* CustomViewController.swift in Sources */,
-				358DA01324D2561A000790CA /* DiscoverConfigurator.swift in Sources */,
+				358DA01324D2561A000790CA /* GistsConfigurator.swift in Sources */,
 				357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */,
 				3507C22824D3AD0300366D6F /* LoadingView.swift in Sources */,
 				3549C29F24CFA99D00CE94D0 /* SplitViewController.swift in Sources */,
@@ -960,9 +960,9 @@
 				3507C20D24D3173D00366D6F /* Array.swift in Sources */,
 				357B2FC424CFBE5A00813529 /* Result.swift in Sources */,
 				3507C22924D3AD0300366D6F /* BasicPlaceholderView.swift in Sources */,
-				358DA00D24D24B37000790CA /* DiscoverScene.swift in Sources */,
+				358DA00D24D24B37000790CA /* GistsScene.swift in Sources */,
 				357B2FBE24CFB84400813529 /* Random.swift in Sources */,
-				3507C21724D33DB700366D6F /* DiscoverRouter.swift in Sources */,
+				3507C21724D33DB700366D6F /* GistsRouter.swift in Sources */,
 				357B2FF324CFF40300813529 /* GistDigest+Mappers.swift in Sources */,
 				3507C21224D3358500366D6F /* GistConfigurator.swift in Sources */,
 				3504A89B24D07E8100202678 /* URLs.swift in Sources */,

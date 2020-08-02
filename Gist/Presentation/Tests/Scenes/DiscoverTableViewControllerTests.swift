@@ -2,21 +2,21 @@
 import Gist
 import XCTest
 
-final class DiscoverTableViewControllerTests: XCTestCase {
-    private let presenterSpy = DiscoverPresentationLogicSpy()
-    private lazy var sut = DiscoverTableViewController(presenter: presenterSpy)
+final class GistsTableViewControllerTests: XCTestCase {
+    private let presenterSpy = GistsPresentationLogicSpy()
+    private lazy var sut = GistsTableViewController(presenter: presenterSpy)
 
-    func test_onViewDidLoad_shouldCallGetDiscoveries() {
+    func test_onViewDidLoad_shouldCallGetGists() {
         sut.viewDidLoad()
 
-        XCTAssertEqual(sut.title, "Discover")
-        XCTAssertTrue(presenterSpy.getDiscoveriesCalled)
+        XCTAssertEqual(sut.title, "Gists")
+        XCTAssertTrue(presenterSpy.getGistsCalled)
     }
 
-    func test_onDisplayDiscoveries_withContent_shouldReloadTheTableView() {
+    func test_onDisplayGists_withContent_shouldReloadTheTableView() {
         let viewModels = (0...5).map { _ in GistDigestCell.ViewModel.fixture() }
 
-        sut.displayDiscoveries(viewModel: .content(viewModels))
+        sut.displayGists(viewModel: .content(viewModels))
 
         XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), viewModels.count)
     }

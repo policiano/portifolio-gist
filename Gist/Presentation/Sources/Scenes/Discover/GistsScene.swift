@@ -1,7 +1,7 @@
 import Foundation
 
-enum Discover {
-    enum GetDiscoveries {
+enum Gists {
+    enum GetGists {
         struct Request { }
         enum ViewModel {
             case content(

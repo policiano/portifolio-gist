@@ -1,23 +1,26 @@
 import UIKit
 
-protocol DiscoverRoutingLogic {
+protocol GistsRoutingLogic {
     func routeToDigest(forIndex index: Int)
+    func routeToBookmarks() 
 }
 
-protocol DiscoverDataPassing {
-    var dataStore: DiscoverDataStore { get }
+protocol GistsDataPassing {
+    var dataStore: GistsDataStore { get }
 }
 
-typealias DiscoverRouterType = DiscoverRoutingLogic & DiscoverDataPassing
+typealias GistsRouterType = GistsRoutingLogic & GistsDataPassing
 
-final class DiscoverRouter: DiscoverRouterType {
-    let dataStore: DiscoverDataStore
+final class GistsRouter: GistsDataPassing {
+    let dataStore: GistsDataStore
+    weak var viewController: UIViewController?
 
-    init(dataStore: DiscoverDataStore) {
+    init(dataStore: GistsDataStore) {
         self.dataStore = dataStore
     }
+}
 
-    weak var viewController: UIViewController?
+extension GistsRouter: GistsRoutingLogic {
 
     func routeToDigest(forIndex index: Int) {
         guard let selectedDigest = dataStore.gists[safeIndex: index] else {
@@ -27,5 +30,10 @@ final class DiscoverRouter: DiscoverRouterType {
         let destinationViewController = GistConfigurator().resolve(with: selectedDigest, delegate: delegate)
         let navigationController = UINavigationController(rootViewController: destinationViewController)
         viewController?.showDetailViewController(navigationController, sender: viewController)
+    }
+
+    func routeToBookmarks() {
+        let bookmarksViewController = BookmarksConfigurator().resolve()
+        viewController?.navigationController?.pushViewController(bookmarksViewController, animated: true)
     }
 }

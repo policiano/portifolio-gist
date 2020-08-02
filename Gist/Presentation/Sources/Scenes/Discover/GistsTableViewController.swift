@@ -3,13 +3,13 @@ import UIKit
 import PaginatedTableView
 import StatefulViewController
 
-protocol DiscoverDisplayLogic: AnyObject {
-    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel)
-    func updateSelectedGist(viewModel: Discover.CheckUpdates.ViewModel)
-    func displayBookmark(viewModel: Discover.Bookmark.ViewModel)
+protocol GistsDisplayLogic: AnyObject {
+    func displayGists(viewModel: Gists.GetGists.ViewModel)
+    func updateSelectedGist(viewModel: Gists.CheckUpdates.ViewModel)
+    func displayBookmark(viewModel: Gists.Bookmark.ViewModel)
 }
 
-public class DiscoverViewController: UIViewController, StatefulViewController {
+public class GistsTableViewController: UIViewController, StatefulViewController {
     private let tableView = PaginatedTableView()
     private var viewModels: [GistDigestCell.ViewModel] = []
     private var selectedGist: GistDigestCell.ViewModel?
@@ -21,12 +21,12 @@ public class DiscoverViewController: UIViewController, StatefulViewController {
 
     // MARK: Object lifecycle
 
-    private let presenter: DiscoverPresentationLogic
-    private let router: DiscoverRoutingLogic
+    private let presenter: GistsPresentationLogic
+    private let router: GistsRoutingLogic
 
     init(
-        presenter: DiscoverPresentationLogic,
-        router: DiscoverRoutingLogic
+        presenter: GistsPresentationLogic,
+        router: GistsRoutingLogic
     ) {
         self.presenter = presenter
         self.router = router
@@ -53,16 +53,21 @@ public class DiscoverViewController: UIViewController, StatefulViewController {
     }
 
     public func setNavigationBar() {
-        let bookmark = UIBarButtonItem(title: "Bookmarks", style: .plain, target: self, action: #selector(routeToBookmarks))
-        navigationItem.rightBarButtonItem = bookmark
+        title = "Gists"
 
-        title = "Discover"
+        let bookmark = UIBarButtonItem(
+            title: "Bookmarks",
+            style: .plain,
+            target: self,
+            action: #selector(routeToBookmarks)
+        )
+
+        navigationItem.rightBarButtonItem = bookmark
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     @objc func routeToBookmarks() {
-        let discoverPage = BookmarksConfigurator().resolve()
-        navigationController?.pushViewController(discoverPage, animated: true)
+        router.routeToBookmarks()
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -94,7 +99,7 @@ public class DiscoverViewController: UIViewController, StatefulViewController {
 
     private lazy var errorStateView: ErrorView = {
         let view = ErrorView(frame: self.view.frame)
-        view.tapGestureRecognizer.addTarget(self, action: #selector(getDiscoveries))
+        view.tapGestureRecognizer.addTarget(self, action: #selector(getGists))
         return view
     }()
 
@@ -137,8 +142,8 @@ public class DiscoverViewController: UIViewController, StatefulViewController {
 
     // MARK: UseCase
 
-    @objc private func getDiscoveries() {
-        presenter.getDiscoveries(request: .init())
+    @objc private func getGists() {
+        presenter.getGists(request: .init())
     }
 
     private func checkSelectedGistUpdates() {
@@ -148,7 +153,7 @@ public class DiscoverViewController: UIViewController, StatefulViewController {
 
 // MARK: PaginatedTable
 
-extension DiscoverViewController: PaginatedTableViewDataSource, PaginatedTableViewDelegate {
+extension GistsTableViewController: PaginatedTableViewDataSource, PaginatedTableViewDelegate {
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { UITableView.automaticDimension }
 
@@ -178,7 +183,7 @@ extension DiscoverViewController: PaginatedTableViewDataSource, PaginatedTableVi
     public func loadMore(_ pageNumber: Int, _ pageSize: Int, onSuccess: ((Bool) -> Void)?, onError: ((Error) -> Void)?) {
         let delay = pageNumber > 1 ? 1.5 : 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            self.getDiscoveries()
+            self.getGists()
         }
 
         self.onSuccess = onSuccess
@@ -186,13 +191,13 @@ extension DiscoverViewController: PaginatedTableViewDataSource, PaginatedTableVi
     }
 }
 
-extension DiscoverViewController: GistTableViewControllerDelegate {
+extension GistsTableViewController: GistTableViewControllerDelegate {
     func didUpdateGist(at viewController: GistTableViewController) {
         checkSelectedGistUpdates()
     }
 }
 
-extension DiscoverViewController: GistDigestCellDelegate {
+extension GistsTableViewController: GistDigestCellDelegate {
     func bookmarkDidTap(_ cell: GistDigestCell) {
         guard let indexPath = tableView.indexPath(for: cell),
             let gist = viewModels[safeIndex: indexPath.row] else {
@@ -205,17 +210,17 @@ extension DiscoverViewController: GistDigestCellDelegate {
 
 // MARK: Display Logic
 
-extension DiscoverViewController: DiscoverDisplayLogic {
-    func displayBookmark(viewModel: Discover.Bookmark.ViewModel) {
+extension GistsTableViewController: GistsDisplayLogic {
+    func displayBookmark(viewModel: Gists.Bookmark.ViewModel) {
         updateAndReload(viewModel.bookmarkedGist, at: viewModel.index)
         refreshDetailView(with: viewModel.index)
     }
 
-    func updateSelectedGist(viewModel: Discover.CheckUpdates.ViewModel) {
+    func updateSelectedGist(viewModel: Gists.CheckUpdates.ViewModel) {
         updateAndReload(viewModel.selectedGist, at: viewModel.index)
     }
 
-    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel) {
+    func displayGists(viewModel: Gists.GetGists.ViewModel) {
         switch viewModel {
         case .content(let list, let hasMoreDataAvailable):
             viewModels = list

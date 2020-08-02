@@ -19,7 +19,7 @@ final class BookmarksConfigurator {
             bookmarkGist: bookmarkGist
         )
 
-        let router = DiscoverRouter(dataStore: presenter)
+        let router = GistsRouter(dataStore: presenter)
         let viewController = BookmarksViewController(presenter: presenter, router: router)
 
         presenter.display = viewController

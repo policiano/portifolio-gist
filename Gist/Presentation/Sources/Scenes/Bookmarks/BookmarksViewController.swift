@@ -1,6 +1,6 @@
 import UIKit
 
-final class BookmarksViewController: DiscoverViewController {
+final class BookmarksViewController: GistsTableViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         navigationItem.rightBarButtonItem = nil

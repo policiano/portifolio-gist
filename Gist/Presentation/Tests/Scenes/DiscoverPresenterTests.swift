@@ -2,17 +2,17 @@
 import Gist
 import XCTest
 
-final class DiscoverPresenterTests: XCTestCase {
-    private let displaySpy = DiscoverDisplayLogicSpy()
+final class GistsPresenterTests: XCTestCase {
+    private let displaySpy = GistsDisplayLogicSpy()
     private let getGistsSpy = GetPublicGistsUseCaseSpy()
-    private lazy var sut: DiscoverPresenter = {
-        let presenter = DiscoverPresenter(getPublicGists: getGistsSpy)
+    private lazy var sut: GistsPresenter = {
+        let presenter = GistsPresenter(getPublicGists: getGistsSpy)
         presenter.display = displaySpy
         return presenter
     }()
 
     private var actualViewModels: [GistDigestCell.ViewModel] {
-        guard let content = displaySpy.displayDiscoveriesViewModelPassed,
+        guard let content = displaySpy.displayGistsViewModelPassed,
             case .content(let viewModels) = content else {
                 XCTFail("Expecting a content view model, got nil")
                 return []
@@ -20,25 +20,25 @@ final class DiscoverPresenterTests: XCTestCase {
         return viewModels
     }
 
-    func test_getDiscoveries_shouldMapTheModelsProperly() {
+    func test_getGists_shouldMapTheModelsProperly() {
         let gists = [GistDigest.fixture()]
 
         getGistsSpy.executeResultToBeReturned = .success(gists)
 
-        sut.getDiscoveries(request: .init())
+        sut.getGists(request: .init())
 
-        XCTAssertTrue(displaySpy.displayDiscoveriesCalled)
+        XCTAssertTrue(displaySpy.displayGistsCalled)
         XCTAssertEqual(actualViewModels.count, gists.count)
         XCTAssertEqual(actualViewModels[0].avatarUrl, gists[0].owner.avatarUrl)
         XCTAssertEqual(actualViewModels[0].ownerName, gists[0].owner.name)
         XCTAssertEqual(actualViewModels[0].secondaryText, gists[0].description)
     }
 
-    func test_getDiscoveries_shouldReturnOnlyFourFileTypes() {
+    func test_getGists_shouldReturnOnlyFourFileTypes() {
         var gists = [GistDigest.fixture(files: (0...7).map { _ in .fixture() })]
         getGistsSpy.executeResultToBeReturned = .success(gists)
 
-        sut.getDiscoveries(request: .init())
+        sut.getGists(request: .init())
 
         XCTAssertEqual(actualViewModels[0].fileTypes.count, 5)
         XCTAssertEqual(actualViewModels[0].fileTypes.last, "...")
@@ -46,19 +46,19 @@ final class DiscoverPresenterTests: XCTestCase {
         gists = [GistDigest.fixture(files: (0...3).map { _ in .fixture() })]
         getGistsSpy.executeResultToBeReturned = .success(gists)
 
-        sut.getDiscoveries(request: .init())
+        sut.getGists(request: .init())
 
         XCTAssertEqual(actualViewModels[0].fileTypes.count, gists[0].files.count)
     }
 }
 
-final class DiscoverDisplayLogicSpy: DiscoverDisplayLogic {
+final class GistsDisplayLogicSpy: GistsDisplayLogic {
 
-    private(set) var displayDiscoveriesCalled = false
-    private(set) var displayDiscoveriesViewModelPassed: Discover.GetDiscoveries.ViewModel?
-    func displayDiscoveries(viewModel: Discover.GetDiscoveries.ViewModel) {
-        displayDiscoveriesCalled = true
-        displayDiscoveriesViewModelPassed = viewModel
+    private(set) var displayGistsCalled = false
+    private(set) var displayGistsViewModelPassed: Gists.GetGists.ViewModel?
+    func displayGists(viewModel: Gists.GetGists.ViewModel) {
+        displayGistsCalled = true
+        displayGistsViewModelPassed = viewModel
     }
 }
 

@@ -1,21 +1,21 @@
 import Foundation
 
-protocol DiscoverPresentationLogic {
-    func getDiscoveries(request: Discover.GetDiscoveries.Request)
-    func checkSelectedGistUpdates(request: Discover.CheckUpdates.Request)
-    func bookmark(request: Discover.Bookmark.Request)
+protocol GistsPresentationLogic {
+    func getGists(request: Gists.GetGists.Request)
+    func checkSelectedGistUpdates(request: Gists.CheckUpdates.Request)
+    func bookmark(request: Gists.Bookmark.Request)
 }
 
-protocol DiscoverDataStore {
+protocol GistsDataStore {
     var gists: [GistDigest] { get set }
 }
 
-class DiscoverPresenter: NSObject, DiscoverDataStore {
+class GistsPresenter: NSObject, GistsDataStore {
     private let getPublicGists: GetPublicGistsUseCase
     private let bookmarkGist: BookmarkGistUseCase
     var gists: [GistDigest] = []
 
-    weak var display: DiscoverDisplayLogic?
+    weak var display: GistsDisplayLogic?
 
     init(
         getPublicGists: GetPublicGistsUseCase,
@@ -54,7 +54,7 @@ class DiscoverPresenter: NSObject, DiscoverDataStore {
                 self.gists = self.gists.uniques
                 let content = self.gists.map(self.mapGist)
 
-                self.display?.displayDiscoveries(viewModel:
+                self.display?.displayGists(viewModel:
                     .content(
                         list: content,
                         hasMoreDataAvailable: !newGists.isEmpty
@@ -62,7 +62,7 @@ class DiscoverPresenter: NSObject, DiscoverDataStore {
                 )
             case .failure(let error):
                 let userError = ErrorHandler.userError(from: error)
-                self.display?.displayDiscoveries(viewModel:
+                self.display?.displayGists(viewModel:
                     .failure(userError)
                 )
             }
@@ -70,12 +70,12 @@ class DiscoverPresenter: NSObject, DiscoverDataStore {
     }
 }
 
-extension DiscoverPresenter: DiscoverPresentationLogic {
-    func getDiscoveries(request: Discover.GetDiscoveries.Request) {
+extension GistsPresenter: GistsPresentationLogic {
+    func getGists(request: Gists.GetGists.Request) {
         fetchAndDisplay()
     }
 
-    func bookmark(request: Discover.Bookmark.Request) {
+    func bookmark(request: Gists.Bookmark.Request) {
         guard let bookmarkedGist = gists.first(where: { $0.id == request.gist.id }) else {
             return
         }
@@ -87,7 +87,7 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
                 return
             }
 
-            let viewModel = Discover.Bookmark.ViewModel(
+            let viewModel = Gists.Bookmark.ViewModel(
                 index: index,
                 bookmarkedGist: self.mapGist(updatedGist)
             )
@@ -95,7 +95,7 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
         })
     }
 
-    func checkSelectedGistUpdates(request: Discover.CheckUpdates.Request) {
+    func checkSelectedGistUpdates(request: Gists.CheckUpdates.Request) {
         guard let selectedGist = request.selectedGist,
             let (index, gist) = gists.enumerated().first(where: { $1.id == selectedGist.id }) else { return }
 
@@ -105,7 +105,7 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
     }
 }
 
-class BookmarksPresenter: DiscoverPresenter {
+class BookmarksPresenter: GistsPresenter {
     private let getAllBookmarks: GetAllBookmarksUseCase
 
     init(getAllBookmarks: GetAllBookmarksUseCase, getPublicGists: GetPublicGistsUseCase, bookmarkGist: BookmarkGistUseCase) {
@@ -128,7 +128,7 @@ class BookmarksPresenter: DiscoverPresenter {
                 }
                 let content = self.gists.map(self.mapGist)
 
-                self.display?.displayDiscoveries(viewModel:
+                self.display?.displayGists(viewModel:
                     .content(
                         list: content,
                         hasMoreDataAvailable: false
@@ -136,7 +136,7 @@ class BookmarksPresenter: DiscoverPresenter {
                 )
             case .failure(let error):
                 let userError = ErrorHandler.userError(from: error)
-                self.display?.displayDiscoveries(viewModel:
+                self.display?.displayGists(viewModel:
                     .failure(userError)
                 )
             }

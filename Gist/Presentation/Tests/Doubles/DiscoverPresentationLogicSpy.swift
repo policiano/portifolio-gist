@@ -1,9 +1,9 @@
 @testable
 import Gist
 
-final class DiscoverPresentationLogicSpy: DiscoverPresentationLogic {
-    private(set) var getDiscoveriesCalled = false
-    func getDiscoveries(request: Discover.GetDiscoveries.Request) {
-        getDiscoveriesCalled = true
+final class GistsPresentationLogicSpy: GistsPresentationLogic {
+    private(set) var getGistsCalled = false
+    func getGists(request: Gists.GetGists.Request) {
+        getGistsCalled = true
     }
 }

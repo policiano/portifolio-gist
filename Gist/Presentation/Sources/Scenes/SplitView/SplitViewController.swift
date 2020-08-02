@@ -8,8 +8,8 @@ public final class SplitViewController: UISplitViewController {
     }
     
     private func setupMasterAndDetail() {
-        let discoverViewController = DiscoverConfigurator().resolve()
-        let master = UINavigationController(rootViewController: discoverViewController)
+        let gistsViewController = GistsConfigurator().resolve()
+        let master = UINavigationController(rootViewController: gistsViewController)
 
         master.navigationBar.prefersLargeTitles = true
 
