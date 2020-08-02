@@ -6,7 +6,7 @@ public class GistDigest: Codable {
     public let description: String?
     public let owner: Owner
     public let files: [File]
-    public var isBookmarked: Bool
+    public var bookmarkedAt: Date?
 
     public init(
         id: String,
@@ -14,14 +14,26 @@ public class GistDigest: Codable {
         description: String?,
         owner: Owner,
         files: [File],
-        isBookmarked: Bool
+        bookmarkedAt: Date?
     ) {
         self.id = id
         self.createdAt = createdAt
         self.description = description
         self.owner = owner
         self.files = files
-        self.isBookmarked = isBookmarked
+        self.bookmarkedAt = bookmarkedAt
+    }
+}
+
+extension GistDigest {
+    var isBookmarked: Bool {
+        get {
+            bookmarkedAt != nil
+        }
+
+        set {
+            bookmarkedAt = newValue == true ? Date() : nil
+        }
     }
 }
 

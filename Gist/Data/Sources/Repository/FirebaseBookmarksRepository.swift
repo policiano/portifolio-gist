@@ -8,11 +8,11 @@ public final class FirebaseBookmarksRepository {
     }
 
     private func addToBookmarks(_ gist: GistDigest) throws {
-        try database.set(gist, forKey: "bookmarks")
+        try database.set(gist, withId: gist.id, forKey: "bookmarks")
     }
 
     private func removeFromBookmarks(_ gist: GistDigest) {
-//        bookmarks.remove(gist)
+        database.deleteData(withId: gist.id, forKey: "bookmarks")
     }
 }
 

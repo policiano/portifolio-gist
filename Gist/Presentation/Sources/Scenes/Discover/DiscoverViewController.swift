@@ -9,7 +9,7 @@ protocol DiscoverDisplayLogic: AnyObject {
     func displayBookmark(viewModel: Discover.Bookmark.ViewModel)
 }
 
-public final class DiscoverViewController: UIViewController, StatefulViewController {
+public class DiscoverViewController: UIViewController, StatefulViewController {
     private let tableView = PaginatedTableView()
     private var viewModels: [GistDigestCell.ViewModel] = []
     private var selectedGist: GistDigestCell.ViewModel?
@@ -46,13 +46,23 @@ public final class DiscoverViewController: UIViewController, StatefulViewControl
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
+        setNavigationBar()
         setupStateful()
+
+        tableView.loadData(refresh: true)
+    }
+
+    public func setNavigationBar() {
+        let bookmark = UIBarButtonItem(title: "Bookmarks", style: .plain, target: self, action: #selector(routeToBookmarks))
+        navigationItem.rightBarButtonItem = bookmark
 
         title = "Discover"
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
-        tableView.loadData(refresh: true)
+    @objc func routeToBookmarks() {
+        let discoverPage = BookmarksConfigurator().resolve()
+        navigationController?.pushViewController(discoverPage, animated: true)
     }
 
     public override func viewWillAppear(_ animated: Bool) {

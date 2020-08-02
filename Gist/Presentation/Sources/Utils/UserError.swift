@@ -8,7 +8,7 @@ struct ErrorHandler {
 
         guard let error = error else {
             title = "Nothing found"
-            message = "There is no Gist to show you so far."
+            message = "There is nothing here so far."
 
             return .init(title: title, message: message)
         }

@@ -10,7 +10,7 @@ protocol DiscoverDataStore {
     var gists: [GistDigest] { get set }
 }
 
-final class DiscoverPresenter: NSObject, DiscoverDataStore {
+class DiscoverPresenter: NSObject, DiscoverDataStore {
     private let getPublicGists: GetPublicGistsUseCase
     private let bookmarkGist: BookmarkGistUseCase
     var gists: [GistDigest] = []
@@ -25,7 +25,7 @@ final class DiscoverPresenter: NSObject, DiscoverDataStore {
         self.bookmarkGist = bookmarkGist
     }
 
-    private func mapGist(_ gist: GistDigest) -> GistDigestCell.ViewModel {
+    fileprivate func mapGist(_ gist: GistDigest) -> GistDigestCell.ViewModel {
         let fileTags = gist.fileTags(threshold: 4)
 
         return .init(
@@ -43,9 +43,38 @@ final class DiscoverPresenter: NSObject, DiscoverDataStore {
         let endIndex = startIndex + newGists.count
         return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
+
+    fileprivate func fetchAndDisplay() {
+        getPublicGists.execute { [weak self] in
+            guard let self = self else { return }
+
+            switch $0 {
+            case .success(let newGists):
+                self.gists.append(contentsOf: newGists)
+                self.gists = self.gists.uniques
+                let content = self.gists.map(self.mapGist)
+
+                self.display?.displayDiscoveries(viewModel:
+                    .content(
+                        list: content,
+                        hasMoreDataAvailable: !newGists.isEmpty
+                    )
+                )
+            case .failure(let error):
+                let userError = ErrorHandler.userError(from: error)
+                self.display?.displayDiscoveries(viewModel:
+                    .failure(userError)
+                )
+            }
+        }
+    }
 }
 
 extension DiscoverPresenter: DiscoverPresentationLogic {
+    func getDiscoveries(request: Discover.GetDiscoveries.Request) {
+        fetchAndDisplay()
+    }
+
     func bookmark(request: Discover.Bookmark.Request) {
         guard let bookmarkedGist = gists.first(where: { $0.id == request.gist.id }) else {
             return
@@ -74,21 +103,35 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
         let mappedGist = mapGist(gist)
         display?.updateSelectedGist(viewModel: .init(index: indexPath, selectedGist: mappedGist))
     }
+}
 
-    func getDiscoveries(request: Discover.GetDiscoveries.Request) {
-        getPublicGists.execute { [weak self] in
+class BookmarksPresenter: DiscoverPresenter {
+    private let getAllBookmarks: GetAllBookmarksUseCase
+
+    init(getAllBookmarks: GetAllBookmarksUseCase, getPublicGists: GetPublicGistsUseCase, bookmarkGist: BookmarkGistUseCase) {
+        self.getAllBookmarks = getAllBookmarks
+        super.init(getPublicGists: getPublicGists, bookmarkGist: bookmarkGist)
+    }
+
+    override func fetchAndDisplay() {
+        guard gists.isEmpty else { return }
+        
+        getAllBookmarks.execute { [weak self] in
             guard let self = self else { return }
 
             switch $0 {
-            case .success(let newGists):
-                self.gists.append(contentsOf: newGists)
+            case .success(let bookmarkedGists):
+                self.gists = bookmarkedGists
                 self.gists = self.gists.uniques
+                self.gists.sort {
+                    $0.bookmarkedAt ?? Date() > $1.bookmarkedAt ?? Date()
+                }
                 let content = self.gists.map(self.mapGist)
 
                 self.display?.displayDiscoveries(viewModel:
                     .content(
                         list: content,
-                        hasMoreDataAvailable: !newGists.isEmpty
+                        hasMoreDataAvailable: false
                     )
                 )
             case .failure(let error):
@@ -97,6 +140,7 @@ extension DiscoverPresenter: DiscoverPresentationLogic {
                     .failure(userError)
                 )
             }
+
         }
     }
 }

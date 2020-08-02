@@ -66,6 +66,9 @@
 		359730BC24D6172500C31149 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 359730BB24D6172500C31149 /* GoogleService-Info.plist */; };
 		359730BE24D61B6900C31149 /* FirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730BD24D61B6900C31149 /* FirebaseDataSource.swift */; };
 		359730C024D62B1C00C31149 /* GistDigestReponse+Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730BF24D62B1C00C31149 /* GistDigestReponse+Mappers.swift */; };
+		359730C524D6454400C31149 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730C424D6454400C31149 /* BookmarksViewController.swift */; };
+		359730C724D645B800C31149 /* BookmarksConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730C624D645B800C31149 /* BookmarksConfigurator.swift */; };
+		359730C924D6478200C31149 /* GetAllBookmarksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730C824D6478200C31149 /* GetAllBookmarksUseCase.swift */; };
 		35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */; };
 		35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */; };
 		35996A7124D4CBE5003A813D /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A7024D4CBE5003A813D /* Bool.swift */; };
@@ -155,6 +158,9 @@
 		359730BB24D6172500C31149 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		359730BD24D61B6900C31149 /* FirebaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataSource.swift; sourceTree = "<group>"; };
 		359730BF24D62B1C00C31149 /* GistDigestReponse+Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestReponse+Mappers.swift"; sourceTree = "<group>"; };
+		359730C424D6454400C31149 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		359730C624D645B800C31149 /* BookmarksConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksConfigurator.swift; sourceTree = "<group>"; };
+		359730C824D6478200C31149 /* GetAllBookmarksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllBookmarksUseCase.swift; sourceTree = "<group>"; };
 		35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A7024D4CBE5003A813D /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
@@ -355,6 +361,7 @@
 		3549C29924CF940E00CE94D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				359730C324D6451A00C31149 /* Bookmarks */,
 				3549C29D24CFA97C00CE94D0 /* SplitView */,
 				3549C2A024CFAA9D00CE94D0 /* Gist */,
 				3549C29A24CF941700CE94D0 /* Discover */,
@@ -494,6 +501,7 @@
 			children = (
 				3507C21824D3645900366D6F /* GetPublicGistsUseCase.swift */,
 				353EF2B524D4C4570094AD0C /* BookmarkGistUseCase.swift */,
+				359730C824D6478200C31149 /* GetAllBookmarksUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -642,6 +650,15 @@
 				358DA01924D26D07000790CA /* GistDigestViewViewModel+Fixture.swift */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		359730C324D6451A00C31149 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				359730C424D6454400C31149 /* BookmarksViewController.swift */,
+				359730C624D645B800C31149 /* BookmarksConfigurator.swift */,
+			);
+			path = Bookmarks;
 			sourceTree = "<group>";
 		};
 		35C3B43F17A6339659E94C0D /* Frameworks */ = {
@@ -908,12 +925,15 @@
 			files = (
 				358DA00A24D24B15000790CA /* DiscoverPresenter.swift in Sources */,
 				3507C21024D3269500366D6F /* GistPresenter.swift in Sources */,
+				359730C524D6454400C31149 /* BookmarksViewController.swift in Sources */,
 				35996A7124D4CBE5003A813D /* Bool.swift in Sources */,
+				359730C924D6478200C31149 /* GetAllBookmarksUseCase.swift in Sources */,
 				357B2FE224CFD29700813529 /* GistDigestResponse.swift in Sources */,
 				357B2FE924CFDB8C00813529 /* GistsTargetType.swift in Sources */,
 				3549C29C24CF943800CE94D0 /* DiscoverViewController.swift in Sources */,
 				353EF2B624D4C4570094AD0C /* BookmarkGistUseCase.swift in Sources */,
 				357B2FD424CFC46A00813529 /* GistsRepository.swift in Sources */,
+				359730C724D645B800C31149 /* BookmarksConfigurator.swift in Sources */,
 				3507C22A24D3AD0300366D6F /* ErrorView.swift in Sources */,
 				357B2FD724CFC9B400813529 /* MoyaDataSource.swift in Sources */,
 				3549C2A224CFAAB700CE94D0 /* GistTableViewController.swift in Sources */,

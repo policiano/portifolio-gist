@@ -10,7 +10,7 @@ class EmptyView: BasicPlaceholderView {
 		
 		backgroundColor = UIColor.white
 
-		label.text = "There is nothing to see so far."
+		label.text = "There is nothing here so far."
         label.numberOfLines = 0
         label.textAlignment = .center
 

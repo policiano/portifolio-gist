@@ -17,7 +17,7 @@ extension GistDigest {
             description: description.isEmpty ? nil : description,
             owner: owner,
             files: files,
-            isBookmarked: false
+            bookmarkedAt: nil
         )
     }
 }
