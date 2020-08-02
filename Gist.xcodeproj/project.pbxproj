@@ -72,7 +72,8 @@
 		359730E124D76F2E00C31149 /* BookmarksRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730E024D76F2E00C31149 /* BookmarksRepositorySpy.swift */; };
 		359730E324D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730E224D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift */; };
 		359730E524D771E300C31149 /* GetAllBookmarksUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730E424D771E300C31149 /* GetAllBookmarksUseCaseTests.swift */; };
-		359730E624D773EC00C31149 /* DiscoverPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578EA8A24D273570032F639 /* DiscoverPresenterTests.swift */; };
+		359730E624D773EC00C31149 /* GistsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578EA8A24D273570032F639 /* GistsPresenterTests.swift */; };
+		359730E724D77E2C00C31149 /* GistsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00F24D24BBE000790CA /* GistsViewControllerTests.swift */; };
 		35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */; };
 		35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */; };
 		35996A7124D4CBE5003A813D /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A7024D4CBE5003A813D /* Bool.swift */; };
@@ -131,7 +132,7 @@
 		3549C29E24CFA99D00CE94D0 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		3549C2A124CFAAB700CE94D0 /* GistDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailsTableViewController.swift; sourceTree = "<group>"; };
 		356EAA3824CFB4E100D20FE5 /* GistDigest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GistDigest.swift; path = Gist/Domain/Entities/GistDigest.swift; sourceTree = SOURCE_ROOT; };
-		3578EA8A24D273570032F639 /* DiscoverPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenterTests.swift; sourceTree = "<group>"; };
+		3578EA8A24D273570032F639 /* GistsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsPresenterTests.swift; sourceTree = "<group>"; };
 		3578EA9124D28C5D0032F639 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		357B2FB824CFB77200813529 /* GistDigestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestTests.swift; sourceTree = "<group>"; };
 		357B2FBD24CFB84400813529 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
@@ -154,7 +155,7 @@
 		358DA00524D2412F000790CA /* Dequeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeable.swift; sourceTree = "<group>"; };
 		358DA00924D24B15000790CA /* GistsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsPresenter.swift; sourceTree = "<group>"; };
 		358DA00C24D24B37000790CA /* GistsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsScene.swift; sourceTree = "<group>"; };
-		358DA00F24D24BBE000790CA /* DiscoverTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewControllerTests.swift; sourceTree = "<group>"; };
+		358DA00F24D24BBE000790CA /* GistsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsViewControllerTests.swift; sourceTree = "<group>"; };
 		358DA01224D2561A000790CA /* GistsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsConfigurator.swift; sourceTree = "<group>"; };
 		358DA01624D26CC2000790CA /* DiscoverPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresentationLogicSpy.swift; sourceTree = "<group>"; };
 		358DA01924D26D07000790CA /* GistDigestCellViewModel+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestCellViewModel+Fixture.swift"; sourceTree = "<group>"; };
@@ -644,8 +645,8 @@
 		358DA01424D26C43000790CA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				358DA00F24D24BBE000790CA /* DiscoverTableViewControllerTests.swift */,
-				3578EA8A24D273570032F639 /* DiscoverPresenterTests.swift */,
+				358DA00F24D24BBE000790CA /* GistsViewControllerTests.swift */,
+				3578EA8A24D273570032F639 /* GistsPresenterTests.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1018,6 +1019,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				359730E724D77E2C00C31149 /* GistsViewControllerTests.swift in Sources */,
 				359730E524D771E300C31149 /* GetAllBookmarksUseCaseTests.swift in Sources */,
 				359730DD24D7400F00C31149 /* MoyaGistsRepositoryTests.swift in Sources */,
 				357B2FDC24CFCEB000813529 /* MoyaDataSourceSpy.swift in Sources */,
@@ -1025,7 +1027,7 @@
 				3504A8A524D0D33700202678 /* GistDigestResponse+Fixtures.swift in Sources */,
 				357B2FCE24CFC3E100813529 /* GistDigest+Fixtures.swift in Sources */,
 				359730DE24D76D8600C31149 /* GistDigestResponseMapperTests.swift in Sources */,
-				359730E624D773EC00C31149 /* DiscoverPresenterTests.swift in Sources */,
+				359730E624D773EC00C31149 /* GistsPresenterTests.swift in Sources */,
 				359730E324D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift in Sources */,
 				359730DC24D73F5600C31149 /* GistsTargetTypeTests.swift in Sources */,
 				357B2FC724CFBFDB00813529 /* ErrorDummy.swift in Sources */,

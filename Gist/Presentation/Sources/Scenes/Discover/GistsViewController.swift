@@ -10,7 +10,7 @@ protocol GistsDisplayLogic: AnyObject {
 }
 
 public class GistsViewController: UIViewController, StatefulViewController {
-    private let tableView = PaginatedTableView()
+    let tableView = PaginatedTableView()
     private var viewModels: [GistDigestCell.ViewModel] = []
     private var selectedGist: GistDigestCell.ViewModel?
 
@@ -53,7 +53,7 @@ public class GistsViewController: UIViewController, StatefulViewController {
     }
 
     public func setNavigationBar() {
-        title = L10n.Bookmarks.title
+        title = L10n.GistList.title
 
         let bookmark = UIBarButtonItem(
             title: L10n.Bookmarks.title,

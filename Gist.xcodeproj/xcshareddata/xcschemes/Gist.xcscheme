@@ -53,9 +53,6 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "GistsTableViewControllerTests">
-               </Test>
-               <Test
                   Identifier = "MoyaGistsRepositoryTests/test_onRequest_withAnyResult_shouldUseDependenciesProperly()">
                </Test>
                <Test
