@@ -2,7 +2,7 @@ import Foundation
 
 extension GistDigest {
     convenience init?(response: GistDigestResponse) {
-        let files = response.files.map()
+        let files = (response.files ?? [:]).map()
         guard let id = response.id,
             let createdAt = response.createdAt,
             let owner = Owner(response: response.owner),

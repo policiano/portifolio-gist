@@ -3,7 +3,7 @@ import UIKit
 final class DiscoverConfigurator {
 
     func resolve() -> UIViewController {
-        let bookmarkRepository = FirebaseBookmarksRepository.shared
+        let bookmarkRepository = FirebaseBookmarksRepository()
         let gistsRepository = MoyaGistsRepository(bookmarksRepository: bookmarkRepository)
         let getPublicGists = GetPublicGists(
             repository: gistsRepository

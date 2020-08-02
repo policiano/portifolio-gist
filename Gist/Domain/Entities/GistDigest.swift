@@ -1,6 +1,6 @@
 import Foundation
 
-public class GistDigest {
+public class GistDigest: Codable {
     public let id: String
     public let createdAt: String
     public let description: String?
@@ -26,7 +26,7 @@ public class GistDigest {
 }
 
 extension GistDigest {
-    public struct File {
+    public struct File: Codable {
         public let name: String
         public let type: String
 
@@ -38,7 +38,7 @@ extension GistDigest {
 }
 
 extension GistDigest {
-    public struct Owner {
+    public struct Owner: Codable {
         public let name: String
         public let avatarUrl: URL?
 

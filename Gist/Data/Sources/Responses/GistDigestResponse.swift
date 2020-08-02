@@ -5,7 +5,7 @@ struct GistDigestResponse: Codable {
     let createdAt: String?
     let description: String?
     let owner: Owner?
-    let files: [String: File]
+    let files: [String: File]?
 
     enum Key: String, CodingKey {
         case id
@@ -35,7 +35,7 @@ struct GistDigestResponse: Codable {
         self.createdAt = try? container.decode(String.self, forKey: .createdAt)
         self.description = try? container.decode(String.self, forKey: .description)
         self.owner = try? container.decode(Owner.self, forKey: .owner)
-        self.files = (try? container.decode([String: File].self, forKey: .files)) ?? [:]
+        self.files = try? container.decode([String: File].self, forKey: .files)
     }
 }
 

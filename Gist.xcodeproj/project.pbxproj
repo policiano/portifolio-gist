@@ -63,6 +63,9 @@
 		358DA01324D2561A000790CA /* DiscoverConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01224D2561A000790CA /* DiscoverConfigurator.swift */; };
 		358DA01724D26CC2000790CA /* DiscoverPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01624D26CC2000790CA /* DiscoverPresentationLogicSpy.swift */; };
 		358DA01B24D26D29000790CA /* GistDigestViewViewModel+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA01924D26D07000790CA /* GistDigestViewViewModel+Fixture.swift */; };
+		359730BC24D6172500C31149 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 359730BB24D6172500C31149 /* GoogleService-Info.plist */; };
+		359730BE24D61B6900C31149 /* FirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730BD24D61B6900C31149 /* FirebaseDataSource.swift */; };
+		359730C024D62B1C00C31149 /* GistDigestReponse+Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730BF24D62B1C00C31149 /* GistDigestReponse+Mappers.swift */; };
 		35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */; };
 		35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */; };
 		35996A7124D4CBE5003A813D /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A7024D4CBE5003A813D /* Bool.swift */; };
@@ -149,6 +152,9 @@
 		358DA01224D2561A000790CA /* DiscoverConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverConfigurator.swift; sourceTree = "<group>"; };
 		358DA01624D26CC2000790CA /* DiscoverPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresentationLogicSpy.swift; sourceTree = "<group>"; };
 		358DA01924D26D07000790CA /* GistDigestViewViewModel+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestViewViewModel+Fixture.swift"; sourceTree = "<group>"; };
+		359730BB24D6172500C31149 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		359730BD24D61B6900C31149 /* FirebaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataSource.swift; sourceTree = "<group>"; };
+		359730BF24D62B1C00C31149 /* GistDigestReponse+Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestReponse+Mappers.swift"; sourceTree = "<group>"; };
 		35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A7024D4CBE5003A813D /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
@@ -321,6 +327,7 @@
 		3549C29624CF93D500CE94D0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				359730BB24D6172500C31149 /* GoogleService-Info.plist */,
 				3549C26D24CF900700CE94D0 /* LaunchScreen.storyboard */,
 				3549C27024CF900700CE94D0 /* Info.plist */,
 			);
@@ -504,6 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				357B2FD624CFC9B400813529 /* MoyaDataSource.swift */,
+				359730BD24D61B6900C31149 /* FirebaseDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -579,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				357B2FF224CFF40300813529 /* GistDigest+Mappers.swift */,
+				359730BF24D62B1C00C31149 /* GistDigestReponse+Mappers.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -769,6 +778,7 @@
 			files = (
 				3549C26F24CF900700CE94D0 /* LaunchScreen.storyboard in Resources */,
 				3549C26C24CF900700CE94D0 /* Assets.xcassets in Resources */,
+				359730BC24D6172500C31149 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,8 +921,10 @@
 				358DA00024D23597000790CA /* BaseView.swift in Sources */,
 				358DA00624D2412F000790CA /* Dequeable.swift in Sources */,
 				35F6F74D24D5BC5500A4BA41 /* Weakfiable.swift in Sources */,
+				359730BE24D61B6900C31149 /* FirebaseDataSource.swift in Sources */,
 				35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */,
 				3504A8AB24D100DF00202678 /* StackViewBuilder.swift in Sources */,
+				359730C024D62B1C00C31149 /* GistDigestReponse+Mappers.swift in Sources */,
 				3507C22724D3AD0300366D6F /* EmptyView.swift in Sources */,
 				3507C21524D3392200366D6F /* GistScene.swift in Sources */,
 				356EAA3924CFB4E100D20FE5 /* GistDigest.swift in Sources */,

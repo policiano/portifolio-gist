@@ -1,31 +1,38 @@
 import Foundation
 
 public final class FirebaseBookmarksRepository {
-    static let shared = FirebaseBookmarksRepository()
-    var bookmarks: Set<GistDigest> = []
+    private let database: DatabaseDataSource
 
-    private func addToBookmarks(_ gist: GistDigest) {
-        bookmarks.insert(gist)
+    public init(database: DatabaseDataSource = FirebaseDataSource()) {
+        self.database = database
+    }
+
+    private func addToBookmarks(_ gist: GistDigest) throws {
+        try database.set(gist, forKey: "bookmarks")
     }
 
     private func removeFromBookmarks(_ gist: GistDigest) {
-        bookmarks.remove(gist)
+//        bookmarks.remove(gist)
     }
 }
 
 extension FirebaseBookmarksRepository: BookmarksRepository {
     public func bookmark(gist: GistDigest, completion: @escaping (Result<GistDigest>) -> Void) {
-        if gist.isBookmarked == true {
-            addToBookmarks(gist)
-        } else {
-            removeFromBookmarks(gist)
-        }
+        do {
+            if gist.isBookmarked == true {
+                try addToBookmarks(gist)
+            } else {
+                removeFromBookmarks(gist)
+            }
 
-        completion(.success(gist))
+            completion(.success(gist))
+        } catch {
+            completion(.failure(error))
+        }
     }
 
     public func getBookmarkedGists(completion: @escaping (Result<[GistDigest]>) -> Void) {
-        completion(.success(Array(bookmarks)))
+        database.getAll(forKey: "bookmarks", completion: completion)
     }
 }
 

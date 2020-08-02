@@ -167,7 +167,7 @@ extension DiscoverViewController: PaginatedTableViewDataSource, PaginatedTableVi
 
     public func loadMore(_ pageNumber: Int, _ pageSize: Int, onSuccess: ((Bool) -> Void)?, onError: ((Error) -> Void)?) {
         let delay = pageNumber > 1 ? 1.5 : 0.5
-        DispatchQueue.global().asyncAfter(deadline: .now() + delay) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             self.getDiscoveries()
         }
 
