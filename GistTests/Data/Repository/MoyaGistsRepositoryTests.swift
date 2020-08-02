@@ -91,18 +91,3 @@ final class MoyaGistsRepositoryTests: XCTestCase {
         XCTAssertEqual(actualResult?.value?.count, 0)
     }
 }
-
-final class BookmarksRepositorySpy: BookmarksRepository {
-    func bookmark(gist: GistDigest, completion: @escaping (Result<GistDigest>) -> Void) {
-
-    }
-
-    private(set) var getBookmarkedGistsCalled = true
-    var getBookmarkedGistsResultToBeReturned: Result<[GistDigest]>?
-    func getBookmarkedGists(completion: @escaping (Result<[GistDigest]>) -> Void) {
-        getBookmarkedGistsCalled = true
-        if let result = getBookmarkedGistsResultToBeReturned {
-            completion(result)
-        }
-    }
-}

@@ -69,6 +69,8 @@
 		359730DD24D7400F00C31149 /* MoyaGistsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8A024D0CE6D00202678 /* MoyaGistsRepositoryTests.swift */; };
 		359730DE24D76D8600C31149 /* GistDigestResponseMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A89424D07CA400202678 /* GistDigestResponseMapperTests.swift */; };
 		359730DF24D76E5400C31149 /* GistDigestResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357B2FE424CFD4B700813529 /* GistDigestResponseTests.swift */; };
+		359730E124D76F2E00C31149 /* BookmarksRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730E024D76F2E00C31149 /* BookmarksRepositorySpy.swift */; };
+		359730E324D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730E224D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift */; };
 		35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */; };
 		35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */; };
 		35996A7124D4CBE5003A813D /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A7024D4CBE5003A813D /* Bool.swift */; };
@@ -163,6 +165,8 @@
 		359730CA24D72FED00C31149 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		359730D624D7351700C31149 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		359730D824D7372200C31149 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		359730E024D76F2E00C31149 /* BookmarksRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepositorySpy.swift; sourceTree = "<group>"; };
+		359730E224D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGistsUseCaseTests.swift; sourceTree = "<group>"; };
 		35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A7024D4CBE5003A813D /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
@@ -472,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				357B2FC124CFBD2700813529 /* GetPublicGistsUseCaseTests.swift */,
+				359730E224D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -543,12 +548,12 @@
 		357B2FD924CFCE9000813529 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3504A8A324D0D31F00202678 /* Fixtures */,
 				3504A89F24D0CE0600202678 /* Repository */,
 				3504A89724D07E4200202678 /* Requests */,
 				357B2FE324CFD4A100813529 /* Responses */,
 				357B2FF424D06DB600813529 /* Mappers */,
 				357B2FDA24CFCE9700813529 /* Doubles */,
+				3504A8A324D0D31F00202678 /* Fixtures */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				357B2FDB24CFCEB000813529 /* MoyaDataSourceSpy.swift */,
+				359730E024D76F2E00C31149 /* BookmarksRepositorySpy.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -1014,10 +1020,12 @@
 				3504A8A524D0D33700202678 /* GistDigestResponse+Fixtures.swift in Sources */,
 				357B2FCE24CFC3E100813529 /* GistDigest+Fixtures.swift in Sources */,
 				359730DE24D76D8600C31149 /* GistDigestResponseMapperTests.swift in Sources */,
+				359730E324D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift in Sources */,
 				359730DC24D73F5600C31149 /* GistsTargetTypeTests.swift in Sources */,
 				357B2FC724CFBFDB00813529 /* ErrorDummy.swift in Sources */,
 				358DA01724D26CC2000790CA /* DiscoverPresentationLogicSpy.swift in Sources */,
 				357B2FCA24CFC37600813529 /* GistsRepositorySpy.swift in Sources */,
+				359730E124D76F2E00C31149 /* BookmarksRepositorySpy.swift in Sources */,
 				359730DB24D73EFE00C31149 /* PublicGistsRequestTests.swift in Sources */,
 				359730DF24D76E5400C31149 /* GistDigestResponseTests.swift in Sources */,
 				358DA01B24D26D29000790CA /* GistDigestViewViewModel+Fixture.swift in Sources */,
