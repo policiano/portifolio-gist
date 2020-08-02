@@ -110,6 +110,35 @@ final class GistDigestResponseMapperTests: XCTestCase {
 
         let digestResponse = GistDigestResponse(
             id: nil,
+            createdAt: String.anyValue,
+            description: .anyValue,
+            owner: random() ? ownerResponse : nil,
+            files: random() ? [.anyValue: fileResponse] : [:]
+        )
+
+        let sut = GistDigest(response: digestResponse)
+
+        XCTAssertNil(sut)
+    }
+
+    func test_mapGistDigest_withouCreatedAt_shouldReturnNil() {
+        let avatarUrl: URL? = .anyValue
+
+        let ownerResponse = GistDigestResponse.Owner(
+            login: String.anyValue,
+            avatarUrl: avatarUrl?.absoluteString
+        )
+
+        let fileResponse = GistDigestResponse.File(
+            filename: String.anyValue,
+            type: String.anyValue
+        )
+
+        let random = Bool.random
+
+        let digestResponse = GistDigestResponse(
+            id: String.anyValue,
+            createdAt: nil,
             description: .anyValue,
             owner: random() ? ownerResponse : nil,
             files: random() ? [.anyValue: fileResponse] : [:]
@@ -128,6 +157,7 @@ final class GistDigestResponseMapperTests: XCTestCase {
 
         let digestResponse = GistDigestResponse(
             id: String.anyValue,
+            createdAt: String.anyValue,
             description: .anyValue,
             owner: nil,
             files: [.anyValue: fileResponse]
@@ -148,6 +178,7 @@ final class GistDigestResponseMapperTests: XCTestCase {
 
         let digestResponse = GistDigestResponse(
             id: String.anyValue,
+            createdAt: String.anyValue,
             description: .anyValue,
             owner: ownerResponse,
             files: [:]
@@ -174,6 +205,7 @@ final class GistDigestResponseMapperTests: XCTestCase {
         let fileId = String.anyValue
         let digestResponse = GistDigestResponse(
             id: String.anyValue,
+            createdAt: String.anyValue,
             description: .anyValue,
             owner: ownerResponse,
             files: [fileId: fileResponse]
@@ -186,7 +218,7 @@ final class GistDigestResponseMapperTests: XCTestCase {
         XCTAssertEqual(sut?.description, digestResponse.description)
         XCTAssertEqual(sut?.owner.name, digestResponse.owner?.login)
         XCTAssertEqual(sut?.owner.avatarUrl?.absoluteString, avatarUrl?.absoluteString)
-        XCTAssertEqual(sut?.files.first?.name, digestResponse.files[fileId]?.filename)
-        XCTAssertEqual(sut?.files.first?.type, digestResponse.files[fileId]?.type)
+        XCTAssertEqual(sut?.files.first?.name, digestResponse.files?[fileId]?.filename)
+        XCTAssertEqual(sut?.files.first?.type, digestResponse.files?[fileId]?.type)
     }
 }
