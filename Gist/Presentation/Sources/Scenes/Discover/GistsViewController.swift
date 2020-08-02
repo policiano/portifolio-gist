@@ -53,10 +53,10 @@ public class GistsViewController: UIViewController, StatefulViewController {
     }
 
     public func setNavigationBar() {
-        title = NSLocalizedString("discover", comment: "")
+        title = L10n.Bookmarks.title
 
         let bookmark = UIBarButtonItem(
-            title: "Bookmarks",
+            title: L10n.Bookmarks.title,
             style: .plain,
             target: self,
             action: #selector(routeToBookmarks)
@@ -114,8 +114,13 @@ public class GistsViewController: UIViewController, StatefulViewController {
     }
 
     public func handleErrorWhenContentAvailable(_ error: Error) {
-        let alertController = UIAlertController(title: "Ooops", message: "Something went wrong.", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alertController = UIAlertController(
+            title: L10n.Error.Content.title,
+            message: L10n.Error.Content.message,
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: L10n.General.ok, style: .default, handler: nil)
+        alertController.addAction(action)
 
         // Adapting for iPad
 

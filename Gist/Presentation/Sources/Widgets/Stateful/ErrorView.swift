@@ -33,7 +33,7 @@ class ErrorView: BasicPlaceholderView {
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 6
         button.layer.masksToBounds = true
-        button.setTitle("Tap to reload", for: .normal)
+        button.setTitle(L10n.ErrorState.button, for: .normal)
 
         return button
     }()

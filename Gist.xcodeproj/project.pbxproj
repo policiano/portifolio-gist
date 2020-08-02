@@ -15,7 +15,6 @@
 		3504A89E24D0824B00202678 /* PublicGistsRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A89D24D0824B00202678 /* PublicGistsRequestTests.swift */; };
 		3504A8A224D0D03100202678 /* MoyaGistsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8A024D0CE6D00202678 /* MoyaGistsRepositoryTests.swift */; };
 		3504A8A524D0D33700202678 /* GistDigestResponse+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8A424D0D33700202678 /* GistDigestResponse+Fixtures.swift */; };
-		3504A8A924D0FED200202678 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8A824D0FED200202678 /* CustomViewController.swift */; };
 		3504A8AB24D100DF00202678 /* StackViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504A8AA24D100DF00202678 /* StackViewBuilder.swift */; };
 		3507C20D24D3173D00366D6F /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C20C24D3173D00366D6F /* Array.swift */; };
 		3507C21024D3269500366D6F /* GistDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C20F24D3269500366D6F /* GistDetailsPresenter.swift */; };
@@ -71,6 +70,7 @@
 		359730C924D6478200C31149 /* GetAllBookmarksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730C824D6478200C31149 /* GetAllBookmarksUseCase.swift */; };
 		359730CB24D72FED00C31149 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730CA24D72FED00C31149 /* UITableView.swift */; };
 		359730D724D7351700C31149 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 359730D624D7351700C31149 /* Localizable.strings */; };
+		359730D924D7372200C31149 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730D824D7372200C31149 /* Strings.swift */; };
 		35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */; };
 		35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */; };
 		35996A7124D4CBE5003A813D /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A7024D4CBE5003A813D /* Bool.swift */; };
@@ -103,7 +103,6 @@
 		3504A89D24D0824B00202678 /* PublicGistsRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGistsRequestTests.swift; sourceTree = "<group>"; };
 		3504A8A024D0CE6D00202678 /* MoyaGistsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsRepositoryTests.swift; sourceTree = "<group>"; };
 		3504A8A424D0D33700202678 /* GistDigestResponse+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestResponse+Fixtures.swift"; sourceTree = "<group>"; };
-		3504A8A824D0FED200202678 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		3504A8AA24D100DF00202678 /* StackViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewBuilder.swift; sourceTree = "<group>"; };
 		3507C20C24D3173D00366D6F /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		3507C20F24D3269500366D6F /* GistDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -165,6 +164,7 @@
 		359730C824D6478200C31149 /* GetAllBookmarksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllBookmarksUseCase.swift; sourceTree = "<group>"; };
 		359730CA24D72FED00C31149 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		359730D624D7351700C31149 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		359730D824D7372200C31149 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A7024D4CBE5003A813D /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
@@ -368,9 +368,9 @@
 			isa = PBXGroup;
 			children = (
 				359730C324D6451A00C31149 /* Bookmarks */,
-				3549C29D24CFA97C00CE94D0 /* SplitView */,
 				3549C2A024CFAA9D00CE94D0 /* Details */,
 				3549C29A24CF941700CE94D0 /* Discover */,
+				3549C29D24CFA97C00CE94D0 /* SplitView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -410,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				358D9FFF24D23597000790CA /* BaseView.swift */,
-				3504A8A824D0FED200202678 /* CustomViewController.swift */,
 				358DA00524D2412F000790CA /* Dequeable.swift */,
 				3504A8AA24D100DF00202678 /* StackViewBuilder.swift */,
 				3578EA9124D28C5D0032F639 /* UserError.swift */,
@@ -671,6 +670,7 @@
 		359730D524D7338500C31149 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				359730D824D7372200C31149 /* Strings.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -976,6 +976,7 @@
 				358DA00624D2412F000790CA /* Dequeable.swift in Sources */,
 				35F6F74D24D5BC5500A4BA41 /* Weakfiable.swift in Sources */,
 				359730BE24D61B6900C31149 /* FirebaseDataSource.swift in Sources */,
+				359730D924D7372200C31149 /* Strings.swift in Sources */,
 				35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */,
 				3504A8AB24D100DF00202678 /* StackViewBuilder.swift in Sources */,
 				359730C024D62B1C00C31149 /* GistDigestReponse+Mappers.swift in Sources */,
@@ -985,7 +986,6 @@
 				3507C21924D3645900366D6F /* GetPublicGistsUseCase.swift in Sources */,
 				35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */,
 				35F6F74B24D5B8A600A4BA41 /* String.swift in Sources */,
-				3504A8A924D0FED200202678 /* CustomViewController.swift in Sources */,
 				358DA01324D2561A000790CA /* GistsConfigurator.swift in Sources */,
 				357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */,
 				3507C22824D3AD0300366D6F /* LoadingView.swift in Sources */,

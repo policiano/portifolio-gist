@@ -71,8 +71,7 @@ extension GistDetailsPresenter: GistPresentationLogic {
 extension GistDigest {
     var formmatedCreationDate: String {
         let dateFormatter = DateFormatter()
-        let enUSPosixLocale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.locale = enUSPosixLocale
+
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         dateFormatter.calendar = Calendar(identifier: .gregorian)
 
@@ -85,6 +84,6 @@ extension GistDigest {
             return ""
         }
 
-        return "Created on \(stringDate)"
+        return L10n.GistDetails.creationDate(stringDate)
     }
 }

@@ -50,7 +50,7 @@ final class GistDetailsTableViewController: UITableViewController {
     // MARK: ViewController lifecycle
 
     override func viewDidLoad() {
-        title = "Gist"
+        title = L10n.GistDetails.title
         navigationController?.navigationItem.largeTitleDisplayMode = .never
         setupTableView()
         presenter.getDetails(request: .init())
