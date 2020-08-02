@@ -21,6 +21,7 @@ class ErrorView: BasicPlaceholderView {
         label.textColor = .secondaryLabel
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
 

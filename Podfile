@@ -10,6 +10,8 @@ def presentation_pods
 end
 
 def data_pods
+  pod 'CodableFirebase'
+  pod 'Firebase/Database'
   pod 'Moya', '~> 14.0'
 end
 

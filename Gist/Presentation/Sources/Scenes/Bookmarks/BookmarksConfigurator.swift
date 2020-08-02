@@ -1,6 +1,7 @@
 import UIKit
 
-final class DiscoverConfigurator {
+
+final class BookmarksConfigurator {
 
     func resolve() -> UIViewController {
         let bookmarkRepository = FirebaseBookmarksRepository()
@@ -10,13 +11,16 @@ final class DiscoverConfigurator {
         )
 
         let bookmarkGist = BookmarkGist(repository: bookmarkRepository)
+        let getAllBookmarks = GetAllBookmarks(repository: bookmarkRepository)
 
-        let presenter = DiscoverPresenter(
-            getPublicGists: getPublicGists, bookmarkGist: bookmarkGist
+        let presenter = BookmarksPresenter(
+            getAllBookmarks: getAllBookmarks,
+            getPublicGists: getPublicGists,
+            bookmarkGist: bookmarkGist
         )
-        
+
         let router = DiscoverRouter(dataStore: presenter)
-        let viewController = DiscoverViewController(presenter: presenter, router: router)
+        let viewController = BookmarksViewController(presenter: presenter, router: router)
 
         presenter.display = viewController
         router.viewController = viewController

@@ -2,19 +2,22 @@ import UIKit
 
 protocol GistDisplayLogic: AnyObject {
     func displayDetails(viewModel: Gist.GetDetails.ViewModel)
+    func displayBookmark(viewModel: Gist.Bookmark.ViewModel)
+}
+
+protocol GistTableViewControllerDelegate: AnyObject {
+    func didUpdateGist(at viewController: GistTableViewController)
 }
 
 final class GistTableViewController: UITableViewController {
 
-    private let headerView: GistDigestView = {
-        let header = GistDigestView()
-        header.backgroundColor = .systemBackground
-        return header
-    }()
+    weak var delegate: GistTableViewControllerDelegate?
 
     private var viewModel: ViewModel = .error {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -86,10 +89,14 @@ final class GistTableViewController: UITableViewController {
                 return UITableViewCell()
             }
             gistDigestCell.display(with: header)
+            gistDigestCell.delegate = self
             cell = gistDigestCell
+            return cell
         case .description:
             cell.selectionStyle = .none
             cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.font = .preferredFont(forTextStyle: .body)
+            cell.textLabel?.textColor = .label
         case .files:
             cell.selectionStyle = .default
             cell.accessoryType = .disclosureIndicator
@@ -97,10 +104,10 @@ final class GistTableViewController: UITableViewController {
             let font = UIFont.monospacedSystemFont(ofSize: 14, weight: .semibold)
             let fontMetrics = UIFontMetrics(forTextStyle: .subheadline)
             cell.textLabel?.font = fontMetrics.scaledFont(for: font)
-            cell.textLabel?.adjustsFontForContentSizeCategory = true
             cell.textLabel?.textColor = .systemBlue
         }
 
+        cell.textLabel?.adjustsFontForContentSizeCategory = true
         cell.textLabel?.text = section.rows[indexPath.row].title
 
         return cell
@@ -115,7 +122,20 @@ final class GistTableViewController: UITableViewController {
     }
 }
 
+extension GistTableViewController: GistDigestCellDelegate {
+    func bookmarkDidTap(_ cell: GistDigestCell) {
+        presenter.bookmark(request: .init())
+    }
+}
+
 extension GistTableViewController: GistDisplayLogic {
+    func displayBookmark(viewModel: Gist.Bookmark.ViewModel) {
+        self.viewModel = viewModel
+        if splitViewController?.isCollapsed == false {
+            delegate?.didUpdateGist(at: self)
+        }
+    }
+
     func displayDetails(viewModel: Gist.GetDetails.ViewModel) {
         self.viewModel = viewModel
     }
@@ -124,7 +144,7 @@ extension GistTableViewController: GistDisplayLogic {
 // MARK: ViewModel
 
 extension GistTableViewController {
-    typealias HeaderViewModel = GistDigestView.ViewModel
+    typealias HeaderViewModel = GistDigestCell.ViewModel
 
     struct Section {
         enum Descriptor: String {

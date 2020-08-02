@@ -6,4 +6,10 @@ enum Gist {
 
         typealias ViewModel = GistTableViewController.ViewModel
     }
+
+    enum Bookmark {
+        struct Request { }
+
+        typealias ViewModel = GistTableViewController.ViewModel
+    }
 }

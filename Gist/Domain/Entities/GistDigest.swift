@@ -1,29 +1,44 @@
 import Foundation
 
-public struct GistDigest {
+public class GistDigest: Codable {
     public let id: String
     public let createdAt: String
     public let description: String?
     public let owner: Owner
     public let files: [File]
+    public var bookmarkedAt: Date?
 
     public init(
         id: String,
         createdAt: String,
         description: String?,
         owner: Owner,
-        files: [File]
+        files: [File],
+        bookmarkedAt: Date?
     ) {
         self.id = id
         self.createdAt = createdAt
         self.description = description
         self.owner = owner
         self.files = files
+        self.bookmarkedAt = bookmarkedAt
     }
 }
 
 extension GistDigest {
-    public struct File {
+    var isBookmarked: Bool {
+        get {
+            bookmarkedAt != nil
+        }
+
+        set {
+            bookmarkedAt = newValue == true ? Date() : nil
+        }
+    }
+}
+
+extension GistDigest {
+    public struct File: Codable {
         public let name: String
         public let type: String
 
@@ -35,7 +50,7 @@ extension GistDigest {
 }
 
 extension GistDigest {
-    public struct Owner {
+    public struct Owner: Codable {
         public let name: String
         public let avatarUrl: URL?
 

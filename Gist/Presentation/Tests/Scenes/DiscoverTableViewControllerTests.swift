@@ -14,7 +14,7 @@ final class DiscoverTableViewControllerTests: XCTestCase {
     }
 
     func test_onDisplayDiscoveries_withContent_shouldReloadTheTableView() {
-        let viewModels = (0...5).map { _ in GistDigestView.ViewModel.fixture() }
+        let viewModels = (0...5).map { _ in GistDigestCell.ViewModel.fixture() }
 
         sut.displayDiscoveries(viewModel: .content(viewModels))
 

@@ -2,7 +2,7 @@
 import Gist
 import Foundation
 
-extension GistDigestView.ViewModel {
+extension GistDigestCell.ViewModel {
     static func fixture(
         avatarUrl: URL? = .anyValue,
         ownerName: String = .anyValue,
