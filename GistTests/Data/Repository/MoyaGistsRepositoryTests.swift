@@ -1,10 +1,22 @@
 @testable
 import Gist
+import Combine
 import XCTest
 
 final class MoyaGistsRepositoryTests: XCTestCase {
-    private let spy = MoyaDataSourceSpy<GistsTargetType>()
-    private lazy var sut = MoyaGistsRepository(dataSource: spy)
+    private let moyaSpy = MoyaDataSourceSpy<GistsTargetType>()
+    private lazy var bookmarksSpy: BookmarksRepositorySpy = {
+        let repository = BookmarksRepositorySpy()
+        repository.getBookmarkedGistsResultToBeReturned = .success([bookmarkedGist])
+        return repository
+    }()
+
+    private lazy var sut = MoyaGistsRepository(
+        dataSource: moyaSpy,
+        bookmarksRepository: bookmarksSpy
+    )
+
+    private let bookmarkedGist = GistDigest.fixture()
 
     private typealias ResponseResult = Result<[GistDigestResponse]>
     private typealias DomainResult = Result<[GistDigest]>
@@ -14,12 +26,12 @@ final class MoyaGistsRepositoryTests: XCTestCase {
 
         let failure = ResponseResult.failure(ErrorDummy())
         let success = ResponseResult.success([GistDigestResponse.fixture()])
-        spy.requestResultToBeReturned = Bool.random() ? success : failure
+        moyaSpy.requestResultToBeReturned = Bool.random() ? success : failure
 
         sut.getPublicGists(page: expectedPage) { _ in}
 
-        XCTAssertTrue(spy.requestCalled)
-        let requestPassed = spy.targetPassed as? PublicGistsRequest
+        XCTAssertTrue(moyaSpy.requestCalled)
+        let requestPassed = moyaSpy.targetPassed as? PublicGistsRequest
         XCTAssertNotNil(requestPassed)
         XCTAssertEqual(requestPassed?.page, expectedPage)
     }
@@ -27,7 +39,7 @@ final class MoyaGistsRepositoryTests: XCTestCase {
     func test_onRequest_withError_shouldReturnTheError() {
         let expectedPage = Int.anyValue
         let expectedError = ErrorDummy()
-        spy.requestResultToBeReturned = ResponseResult.failure(expectedError)
+        moyaSpy.requestResultToBeReturned = ResponseResult.failure(expectedError)
 
         var actualResult: DomainResult?
         sut.getPublicGists(page: expectedPage) {
@@ -40,7 +52,8 @@ final class MoyaGistsRepositoryTests: XCTestCase {
 
     func test_onRequest_withWellFormedResponse_shouldMapToDomainModel() {
         let response = GistDigestResponse.fixture(
-            id: String.anyValue,
+            id: bookmarkedGist.id,
+            createdAt: String.anyValue,
             description: .anyValue,
             owner: .fixture(
                 login: String.anyValue,
@@ -50,19 +63,25 @@ final class MoyaGistsRepositoryTests: XCTestCase {
                 .anyValue: .fixture(filename: String.anyValue, type: String.anyValue)
             ]
         )
-        spy.requestResultToBeReturned = ResponseResult.success([response])
+
+        moyaSpy.requestResultToBeReturned = ResponseResult.success([response])
 
         var actualResult: DomainResult?
+        let exp = expectation(description: "get")
+
         sut.getPublicGists(page: Int.anyValue) {
             actualResult = $0
+            exp.fulfill()
         }
 
+        waitForExpectations(timeout: 10, handler: nil)
         XCTAssertEqual(actualResult?.value?.first?.id, response.id)
+        XCTAssertEqual(actualResult?.value?.first?.isBookmarked, true)
     }
 
     func test_onRequest_withMalformedResponse_shouldMapToDomainModel() {
         let response = GistDigestResponse.fixture(id: nil)
-        spy.requestResultToBeReturned = ResponseResult.success([response])
+        moyaSpy.requestResultToBeReturned = ResponseResult.success([response])
 
         var actualResult: DomainResult?
         sut.getPublicGists(page: Int.anyValue) {
@@ -73,4 +92,17 @@ final class MoyaGistsRepositoryTests: XCTestCase {
     }
 }
 
+final class BookmarksRepositorySpy: BookmarksRepository {
+    func bookmark(gist: GistDigest, completion: @escaping (Result<GistDigest>) -> Void) {
 
+    }
+
+    private(set) var getBookmarkedGistsCalled = true
+    var getBookmarkedGistsResultToBeReturned: Result<[GistDigest]>?
+    func getBookmarkedGists(completion: @escaping (Result<[GistDigest]>) -> Void) {
+        getBookmarkedGistsCalled = true
+        if let result = getBookmarkedGistsResultToBeReturned {
+            completion(result)
+        }
+    }
+}

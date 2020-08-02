@@ -27,15 +27,24 @@ final class GistDigestTests: XCTestCase {
 
     func test_gistDigestInit_shouldAssignTheProperValues() {
         let expectedId = String.anyValue
+        let expectedCreatedAt = String.anyValue
         let expectedFileName = String.anyValue
         let expectedFileType = String.anyValue
         let expectedOwnerName = String.anyValue
         let expectedOwnerUrl = Optional<URL>.anyValue
         let expectedDescription = String.anyValue
+        let expectedBookmarkedAt = Date(timeIntervalSince1970: .anyValue)
         let expectedFiles = [GistDigest.File(name: expectedFileName, type: expectedFileType)]
         let owner = GistDigest.Owner(name: expectedOwnerName, avatarUrl: expectedOwnerUrl)
 
-        let sut = GistDigest(id: expectedId, description: expectedDescription, owner: owner, files: expectedFiles)
+        let sut = GistDigest(
+            id: expectedId,
+            createdAt: expectedCreatedAt,
+            description: expectedDescription,
+            owner: owner,
+            files: expectedFiles,
+            bookmarkedAt: expectedBookmarkedAt
+        )
 
         XCTAssertNotNil(sut.files.first)
         XCTAssertEqual(sut.files.count, expectedFiles.count)
@@ -45,5 +54,7 @@ final class GistDigestTests: XCTestCase {
         XCTAssertEqual(sut.owner.avatarUrl, expectedOwnerUrl)
         XCTAssertEqual(sut.description, expectedDescription)
         XCTAssertEqual(sut.id, expectedId)
+        XCTAssertEqual(sut.createdAt, expectedCreatedAt)
+        XCTAssertEqual(sut.bookmarkedAt, expectedBookmarkedAt)
     }
 }

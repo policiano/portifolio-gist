@@ -16,7 +16,6 @@ final class GetPublicGistsUseCaseTests: XCTestCase {
         }
 
         XCTAssertTrue(repositorySpy.getPublicGistsCalled)
-        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 0)
         XCTAssertEqual(actualResult?.error?.asErrorDummy, expectedError)
     }
 
@@ -31,7 +30,6 @@ final class GetPublicGistsUseCaseTests: XCTestCase {
         }
 
         XCTAssertTrue(repositorySpy.getPublicGistsCalled)
-        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 0)
         XCTAssertEqual(actualValues?.count, expectedValues.count)
         XCTAssertEqual(actualValues?.first?.description, gist.description)
         XCTAssertEqual(actualValues?.first?.owner.name, gist.owner.name)
@@ -39,6 +37,29 @@ final class GetPublicGistsUseCaseTests: XCTestCase {
         XCTAssertEqual(actualValues?.first?.files.count, gist.files.count)
         XCTAssertEqual(actualValues?.first?.files.first?.name, gist.files.first?.name)
         XCTAssertEqual(actualValues?.first?.files.first?.type, gist.files.first?.type)
+    }
+
+    func test_onExecute_shouldIncreaseThePageCountWhenSuccess() {
+        repositorySpy.getPublicGistsResultToBeReturned = .success([.fixture()])
+
+        sut.execute { _ in }
+        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 1)
+
+        sut.execute { _ in }
+        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 2)
+
+        repositorySpy.getPublicGistsResultToBeReturned = .failure(ErrorDummy())
+
+        sut.execute { _ in }
+        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 3)
+
+        repositorySpy.getPublicGistsResultToBeReturned = .success([.fixture()])
+
+        sut.execute { _ in }
+        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 3)
+
+        sut.execute { _ in }
+        XCTAssertEqual(repositorySpy.getPublicGistsPagePassed, 4)
     }
 }
 

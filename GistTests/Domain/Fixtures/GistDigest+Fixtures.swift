@@ -22,15 +22,19 @@ extension GistDigest.Owner {
 extension GistDigest {
     public static func fixture(
         id: String = .anyValue,
+        createdAt: String = .anyValue,
         description: String? = .anyValue,
         owner: Owner = .fixture(),
-        files: [File] = []
-    ) -> Self {
+        files: [File] = [],
+        bookmarkedAt: Date? = nil
+    ) -> GistDigest {
         .init(
             id: id,
+            createdAt: createdAt,
             description: description,
             owner: owner,
-            files: files
+            files: files,
+            bookmarkedAt: bookmarkedAt
         )
     }
 }

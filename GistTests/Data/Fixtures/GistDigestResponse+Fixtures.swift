@@ -5,12 +5,14 @@ import Foundation
 extension GistDigestResponse {
     static func fixture(
         id: String? = .anyValue,
+        createdAt: String? = .anyValue,
         description: String? = .anyValue,
         owner: Owner? = .anyValue,
         files: [String: File] = [.anyValue: .anyValue]
     ) -> Self {
         .init(
             id: id,
+            createdAt: createdAt,
             description: description,
             owner: owner,
             files: files
