@@ -26,9 +26,12 @@ extension GistsRouter: GistsRoutingLogic {
         guard let selectedDigest = dataStore.gists[safeIndex: index] else {
             return
         }
-        let delegate = viewController as? GistTableViewControllerDelegate
-        let destinationViewController = GistConfigurator().resolve(with: selectedDigest, delegate: delegate)
-        let navigationController = UINavigationController(rootViewController: destinationViewController)
+        let delegate = viewController as? GistDetailsTableViewControllerDelegate
+        let destination = GistDetailsConfigurator().resolve(
+            with: .init(gist: selectedDigest, delegate: delegate)
+        )
+
+        let navigationController = UINavigationController(rootViewController: destination)
         viewController?.showDetailViewController(navigationController, sender: viewController)
     }
 

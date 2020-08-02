@@ -1,24 +1,24 @@
 import Foundation
 
 protocol GistPresentationLogic {
-    func getDetails(request: Gist.GetDetails.Request)
-    func bookmark(request: Gist.Bookmark.Request)
+    func getDetails(request: GistDetails.GetDetails.Request)
+    func bookmark(request: GistDetails.Bookmark.Request)
 }
 
-final class GistPresenter: NSObject {
+final class GistDetailsPresenter: NSObject {
     private var gist: GistDigest
     private let bookmarkGist: BookmarkGistUseCase
-    weak var display: GistDisplayLogic?
+    weak var display: GistDetailsDisplayLogic?
 
     init(gist: GistDigest, bookmarkGist: BookmarkGistUseCase) {
         self.gist = gist
         self.bookmarkGist = bookmarkGist
     }
 
-    private func map(gist: GistDigest) -> Gist.GetDetails.ViewModel {
+    private func map(gist: GistDigest) -> GistDetails.GetDetails.ViewModel {
         let fileTags = gist.fileTags()
 
-        let header = GistTableViewController.HeaderViewModel(
+        let header = GistDetailsTableViewController.HeaderViewModel(
             id: gist.id,
             avatarUrl: gist.owner.avatarUrl,
             ownerName: gist.owner.name,
@@ -27,7 +27,7 @@ final class GistPresenter: NSObject {
             isBookmarked: gist.isBookmarked
         )
 
-        typealias Section = GistTableViewController.Section
+        typealias Section = GistDetailsTableViewController.Section
         var sections: [Section] = [.init(descriptor: .header, rows: [.init(title: "")])]
 
         if let description = gist.formmatedDescription {
@@ -51,13 +51,13 @@ final class GistPresenter: NSObject {
     }
 }
 
-extension GistPresenter: GistPresentationLogic {
-    func getDetails(request: Gist.GetDetails.Request) {
+extension GistDetailsPresenter: GistPresentationLogic {
+    func getDetails(request: GistDetails.GetDetails.Request) {
         let viewModel = map(gist: gist)
         display?.displayDetails(viewModel: viewModel)
     }
 
-    func bookmark(request: Gist.Bookmark.Request) {
+    func bookmark(request: GistDetails.Bookmark.Request) {
         bookmarkGist.execute(gist: gist, weakfy { (strongSelf, result) in
             guard let updatedGist = result.value else {
                 return

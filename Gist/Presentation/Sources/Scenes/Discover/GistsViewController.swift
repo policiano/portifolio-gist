@@ -9,7 +9,7 @@ protocol GistsDisplayLogic: AnyObject {
     func displayBookmark(viewModel: Gists.Bookmark.ViewModel)
 }
 
-public class GistsTableViewController: UIViewController, StatefulViewController {
+public class GistsViewController: UIViewController, StatefulViewController {
     private let tableView = PaginatedTableView()
     private var viewModels: [GistDigestCell.ViewModel] = []
     private var selectedGist: GistDigestCell.ViewModel?
@@ -53,7 +53,7 @@ public class GistsTableViewController: UIViewController, StatefulViewController 
     }
 
     public func setNavigationBar() {
-        title = "Gists"
+        title = "Discover"
 
         let bookmark = UIBarButtonItem(
             title: "Bookmarks",
@@ -153,7 +153,7 @@ public class GistsTableViewController: UIViewController, StatefulViewController 
 
 // MARK: PaginatedTable
 
-extension GistsTableViewController: PaginatedTableViewDataSource, PaginatedTableViewDelegate {
+extension GistsViewController: PaginatedTableViewDataSource, PaginatedTableViewDelegate {
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { UITableView.automaticDimension }
 
@@ -191,13 +191,13 @@ extension GistsTableViewController: PaginatedTableViewDataSource, PaginatedTable
     }
 }
 
-extension GistsTableViewController: GistTableViewControllerDelegate {
-    func didUpdateGist(at viewController: GistTableViewController) {
+extension GistsViewController: GistDetailsTableViewControllerDelegate {
+    func didUpdateGist(at viewController: GistDetailsTableViewController) {
         checkSelectedGistUpdates()
     }
 }
 
-extension GistsTableViewController: GistDigestCellDelegate {
+extension GistsViewController: GistDigestCellDelegate {
     func bookmarkDidTap(_ cell: GistDigestCell) {
         guard let indexPath = tableView.indexPath(for: cell),
             let gist = viewModels[safeIndex: indexPath.row] else {
@@ -210,7 +210,7 @@ extension GistsTableViewController: GistDigestCellDelegate {
 
 // MARK: Display Logic
 
-extension GistsTableViewController: GistsDisplayLogic {
+extension GistsViewController: GistsDisplayLogic {
     func displayBookmark(viewModel: Gists.Bookmark.ViewModel) {
         updateAndReload(viewModel.bookmarkedGist, at: viewModel.index)
         refreshDetailView(with: viewModel.index)

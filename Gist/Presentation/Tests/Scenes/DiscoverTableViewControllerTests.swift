@@ -4,7 +4,7 @@ import XCTest
 
 final class GistsTableViewControllerTests: XCTestCase {
     private let presenterSpy = GistsPresentationLogicSpy()
-    private lazy var sut = GistsTableViewController(presenter: presenterSpy)
+    private lazy var sut = GistsViewController(presenter: presenterSpy)
 
     func test_onViewDidLoad_shouldCallGetGists() {
         sut.viewDidLoad()

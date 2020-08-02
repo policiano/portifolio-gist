@@ -1,6 +1,5 @@
 import UIKit
 
-
 final class BookmarksConfigurator {
 
     func resolve() -> UIViewController {

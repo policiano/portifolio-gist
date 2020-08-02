@@ -16,7 +16,7 @@ final class GistsConfigurator {
         )
         
         let router = GistsRouter(dataStore: presenter)
-        let viewController = GistsTableViewController(presenter: presenter, router: router)
+        let viewController = GistsViewController(presenter: presenter, router: router)
 
         presenter.display = viewController
         router.viewController = viewController

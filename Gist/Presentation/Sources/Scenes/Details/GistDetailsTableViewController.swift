@@ -1,17 +1,17 @@
 import UIKit
 
-protocol GistDisplayLogic: AnyObject {
-    func displayDetails(viewModel: Gist.GetDetails.ViewModel)
-    func displayBookmark(viewModel: Gist.Bookmark.ViewModel)
+protocol GistDetailsDisplayLogic: AnyObject {
+    func displayDetails(viewModel: GistDetails.GetDetails.ViewModel)
+    func displayBookmark(viewModel: GistDetails.Bookmark.ViewModel)
 }
 
-protocol GistTableViewControllerDelegate: AnyObject {
-    func didUpdateGist(at viewController: GistTableViewController)
+protocol GistDetailsTableViewControllerDelegate: AnyObject {
+    func didUpdateGist(at viewController: GistDetailsTableViewController)
 }
 
-final class GistTableViewController: UITableViewController {
+final class GistDetailsTableViewController: UITableViewController {
 
-    weak var delegate: GistTableViewControllerDelegate?
+    weak var delegate: GistDetailsTableViewControllerDelegate?
 
     private var viewModel: ViewModel = .error {
         didSet {
@@ -122,28 +122,28 @@ final class GistTableViewController: UITableViewController {
     }
 }
 
-extension GistTableViewController: GistDigestCellDelegate {
+extension GistDetailsTableViewController: GistDigestCellDelegate {
     func bookmarkDidTap(_ cell: GistDigestCell) {
         presenter.bookmark(request: .init())
     }
 }
 
-extension GistTableViewController: GistDisplayLogic {
-    func displayBookmark(viewModel: Gist.Bookmark.ViewModel) {
+extension GistDetailsTableViewController: GistDetailsDisplayLogic {
+    func displayBookmark(viewModel: GistDetails.Bookmark.ViewModel) {
         self.viewModel = viewModel
         if splitViewController?.isCollapsed == false {
             delegate?.didUpdateGist(at: self)
         }
     }
 
-    func displayDetails(viewModel: Gist.GetDetails.ViewModel) {
+    func displayDetails(viewModel: GistDetails.GetDetails.ViewModel) {
         self.viewModel = viewModel
     }
 }
 
 // MARK: ViewModel
 
-extension GistTableViewController {
+extension GistDetailsTableViewController {
     typealias HeaderViewModel = GistDigestCell.ViewModel
 
     struct Section {
