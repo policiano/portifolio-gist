@@ -33,17 +33,18 @@ public extension Dequeable where Self: UITableViewHeaderFooterView {
 }
 
 public extension Dequeable where Self: UITableViewCell {
-    static func dequeued(fromTableView tableView: UITableView, atIndexPath indexPath: IndexPath? = nil) -> Self? {
-        var cell: Self?
+    static func dequeued(fromTableView tableView: UITableView, atIndexPath indexPath: IndexPath? = nil, configure: ((Self) -> Void)? = nil) -> UITableViewCell {
+
+        let cell: UITableViewCell
         if let path = indexPath {
-            cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: path) as? Self
+            cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: path)
         } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? Self
+            cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell()
+        }
+        if let typedCell = cell as? Self {
+            configure?(typedCell)
         }
 
-        if cell == .none {
-            print("Could not dequeue cell for identifier \(self.identifier)")
-        }
         return cell
     }
 }

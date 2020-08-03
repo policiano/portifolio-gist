@@ -11,13 +11,16 @@ extension GistDigest {
         }
         let description = response.description ?? ""
 
+        let htmlString = "<script src=\"https://gist.github.com/\(owner.name)/\(id).js\"></script>"
+
         self.init(
             id: id,
             createdAt: createdAt,
             description: description.isEmpty ? nil : description,
             owner: owner,
             files: files,
-            bookmarkedAt: nil
+            bookmarkedAt: nil,
+            snippetPath: htmlString
         )
     }
 }

@@ -1,4 +1,5 @@
 import Foundation
+import Device
 
 protocol GistPresentationLogic {
     func getDetails(request: GistDetails.GetDetails.Request)
@@ -28,17 +29,24 @@ final class GistDetailsPresenter: NSObject {
         )
 
         typealias Section = GistDetailsTableViewController.Section
-        var sections: [Section] = [.init(descriptor: .header, rows: [.init(title: "")])]
+        var sections: [Section] = [.init(descriptor: .header, rows: [.init(title: "", path: "")])]
 
         if let description = gist.formmatedDescription {
-            let section = Section(descriptor: .description, rows: [.init(title: description)])
+            let section = Section(descriptor: .description, rows: [.init(title: description, path: "")])
             sections.append(section)
         }
 
-        let files = gist.files.map { Section.Row(title: $0.name) }
 
-        if files.isEmpty == false {
-            let section = Section(descriptor: .files, rows: files)
+        let files: [Section.Row] = gist.files.map {
+            let path =  "<script src=\"https://gist.github.com/\(gist.id).js?file=\($0.name)\"></script>"
+            return .init(title: $0.name, path: path)
+        }
+        let rows: [Section.Row] = Device.isIpad
+            ? [.init(title: gist.snippetPath, path: "")]
+            : files
+
+        if rows.isEmpty == false {
+            let section = Section(descriptor: .files, rows: rows)
             sections.append(section)
         }
 
@@ -85,5 +93,14 @@ extension GistDigest {
         }
 
         return L10n.GistDetails.creationDate(stringDate)
+    }
+}
+
+extension Device {
+    static var isIpad: Bool {
+        if Device.isSimulator() {
+            return Device.size() > .screen6_5Inch
+        }
+        return Device.isPad()
     }
 }

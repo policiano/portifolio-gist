@@ -7,6 +7,7 @@ public class GistDigest: Codable {
     public let owner: Owner
     public let files: [File]
     public var bookmarkedAt: Date?
+    public let snippetPath: String
 
     public init(
         id: String,
@@ -14,7 +15,8 @@ public class GistDigest: Codable {
         description: String?,
         owner: Owner,
         files: [File],
-        bookmarkedAt: Date?
+        bookmarkedAt: Date?,
+        snippetPath: String
     ) {
         self.id = id
         self.createdAt = createdAt
@@ -22,6 +24,7 @@ public class GistDigest: Codable {
         self.owner = owner
         self.files = files
         self.bookmarkedAt = bookmarkedAt
+        self.snippetPath = snippetPath
     }
 }
 

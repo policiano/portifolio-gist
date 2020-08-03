@@ -1,4 +1,6 @@
+import Device
 import UIKit
+import WebKit
 
 protocol GistDetailsDisplayLogic: AnyObject {
     func displayDetails(viewModel: GistDetails.GetDetails.ViewModel)
@@ -12,6 +14,7 @@ protocol GistDetailsTableViewControllerDelegate: AnyObject {
 final class GistDetailsTableViewController: UITableViewController {
 
     weak var delegate: GistDetailsTableViewControllerDelegate?
+    private var webviewHeight: CGFloat = 0.0
 
     private var viewModel: ViewModel = .error {
         didSet {
@@ -53,6 +56,9 @@ final class GistDetailsTableViewController: UITableViewController {
         title = L10n.GistDetails.title
         navigationController?.navigationItem.largeTitleDisplayMode = .never
         setupTableView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         presenter.getDetails(request: .init())
     }
 
@@ -60,6 +66,8 @@ final class GistDetailsTableViewController: UITableViewController {
 
     private func setupTableView() {
         tableView.register(GistDigestCell.self, forCellReuseIdentifier: GistDigestCell.identifier)
+        tableView.register(SnippetsCell.self, forCellReuseIdentifier: SnippetsCell.identifier)
+
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.identifier)
         tableView.estimatedRowHeight = 92
         tableView.rowHeight = UITableView.automaticDimension
@@ -76,41 +84,46 @@ final class GistDetailsTableViewController: UITableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard var cell = UITableViewCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) else {
-            return UITableViewCell()
-        }
 
         let section = sections[indexPath.section]
-
+        let text = section.rows[indexPath.row].title
         switch section.descriptor {
         case .header:
-            guard let gistDigestCell = GistDigestCell.dequeued(fromTableView: tableView, atIndexPath: indexPath),
-                let header = header else {
+            guard let header = header else {
                 return UITableViewCell()
             }
-            gistDigestCell.display(with: header)
-            gistDigestCell.delegate = self
-            cell = gistDigestCell
-            return cell
+            return GistDigestCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) {
+                $0.display(with: header)
+                $0.delegate = self
+            }
         case .description:
-            cell.selectionStyle = .none
-            cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.font = .preferredFont(forTextStyle: .body)
-            cell.textLabel?.textColor = .label
+            return UITableViewCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) {
+                $0.selectionStyle = .none
+                $0.textLabel?.numberOfLines = 0
+                $0.textLabel?.font = .preferredFont(forTextStyle: .body)
+                $0.textLabel?.textColor = .label
+                $0.textLabel?.adjustsFontForContentSizeCategory = true
+                $0.textLabel?.text = text
+            }
         case .files:
-            cell.selectionStyle = .default
-            cell.accessoryType = .disclosureIndicator
+            if Device.isIpad {
+                return SnippetsCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) {
+                    $0.displayWith(snippetPath: text, height: self.webviewHeight)
+                    $0.delegate = self
+                }
+            }
 
-            let font = UIFont.monospacedSystemFont(ofSize: 14, weight: .semibold)
-            let fontMetrics = UIFontMetrics(forTextStyle: .subheadline)
-            cell.textLabel?.font = fontMetrics.scaledFont(for: font)
-            cell.textLabel?.textColor = .systemBlue
+            return UITableViewCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) {
+                let fontMetrics = UIFontMetrics(forTextStyle: .subheadline)
+                let font = UIFont.monospacedSystemFont(ofSize: 14, weight: .semibold)
+
+                $0.selectionStyle = .default
+                $0.accessoryType = .disclosureIndicator
+                $0.textLabel?.font = fontMetrics.scaledFont(for: font)
+                $0.textLabel?.textColor = .systemBlue
+                $0.textLabel?.text = text
+            }
         }
-
-        cell.textLabel?.adjustsFontForContentSizeCategory = true
-        cell.textLabel?.text = section.rows[indexPath.row].title
-
-        return cell
     }
 
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -119,6 +132,20 @@ final class GistDetailsTableViewController: UITableViewController {
             return nil
         }
         return descriptor.rawValue
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let descriptor = sections[indexPath.section].descriptor
+        if descriptor == .files {
+            return Device.isIpad ? webviewHeight : 45
+        }
+        return UITableView.automaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let path = sections[indexPath.section].rows[indexPath.row].path
+        let snippetViewController = SnippetViewController(snippetPath: path)
+        navigationController?.pushViewController(snippetViewController, animated: true)
     }
 }
 
@@ -141,6 +168,23 @@ extension GistDetailsTableViewController: GistDetailsDisplayLogic {
     }
 }
 
+extension GistDetailsTableViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if webviewHeight != 0.0 {
+            return
+        }
+
+        webView.evaluateJavaScript("document.readyState") { (complete, _) in
+            guard complete != nil else { return }
+
+            webView.evaluateJavaScript("document.body.scrollHeight") { (height, _) in
+                self.webviewHeight = height as? CGFloat ?? 0
+                self.tableView.reloadRows(at: [.init(row: 0, section: 2)], with: .none)
+            }
+        }
+    }
+}
+
 // MARK: ViewModel
 
 extension GistDetailsTableViewController {
@@ -155,6 +199,7 @@ extension GistDetailsTableViewController {
 
         struct Row {
             let title: String
+            let path: String
         }
 
         let descriptor: Descriptor
