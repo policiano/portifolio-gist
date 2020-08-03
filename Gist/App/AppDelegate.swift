@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         FirebaseApp.configure()
-//        Database.database().isPersistenceEnabled = true
         
         let splitViewController = SplitViewController()
 

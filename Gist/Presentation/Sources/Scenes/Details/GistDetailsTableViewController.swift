@@ -179,7 +179,10 @@ extension GistDetailsTableViewController: WKNavigationDelegate {
 
             webView.evaluateJavaScript("document.body.scrollHeight") { (height, _) in
                 self.webviewHeight = height as? CGFloat ?? 0
-                self.tableView.reloadRows(at: [.init(row: 0, section: 2)], with: .none)
+                guard let section = self.sections.enumerated().first(where: { $1.descriptor == .files })?.offset else {
+                    return
+                }
+                self.tableView.reloadRows(at: [.init(row: 0, section: section)], with: .none)
             }
         }
     }
