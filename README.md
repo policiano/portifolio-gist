@@ -19,7 +19,7 @@ It supports multple orientations!
 
 ![iPhone-gif](https://user-images.githubusercontent.com/2760956/89153148-bd5c8c80-d53a-11ea-88f1-e64d405d60b8.gif)
 
-## Dinamic Text
+## Dynamic Text
 
 Ready for low vision sight
 
