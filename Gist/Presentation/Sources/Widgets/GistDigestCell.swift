@@ -17,9 +17,7 @@ final class GistDigestCell: UITableViewCell {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        nil
-    }
+    required init?(coder: NSCoder) { nil }
 
     private let tagList = TagListView()
 

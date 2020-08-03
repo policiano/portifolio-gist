@@ -169,15 +169,11 @@ extension GistsViewController: PaginatedTableViewDataSource, PaginatedTableViewD
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = GistDigestCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) else {
-            return UITableViewCell()
+        return GistDigestCell.dequeued(fromTableView: tableView, atIndexPath: indexPath) {
+            let viewModel = self.viewModels[indexPath.row]
+            $0.display(with: viewModel)
+            $0.delegate = self
         }
-
-        let viewModel = viewModels[indexPath.row]
-        cell.display(with: viewModel)
-        cell.delegate = self
-
-        return cell
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

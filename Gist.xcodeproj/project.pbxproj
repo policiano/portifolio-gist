@@ -74,6 +74,9 @@
 		359730E524D771E300C31149 /* GetAllBookmarksUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730E424D771E300C31149 /* GetAllBookmarksUseCaseTests.swift */; };
 		359730E624D773EC00C31149 /* GistsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578EA8A24D273570032F639 /* GistsPresenterTests.swift */; };
 		359730E724D77E2C00C31149 /* GistsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DA00F24D24BBE000790CA /* GistsViewControllerTests.swift */; };
+		359730EC24D7A0F100C31149 /* SnnipetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730EB24D7A0F100C31149 /* SnnipetsCell.swift */; };
+		359730EE24D7B0D900C31149 /* snippet.css in Sources */ = {isa = PBXBuildFile; fileRef = 359730ED24D7B0D900C31149 /* snippet.css */; };
+		359730F124D7BCE500C31149 /* SnippetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359730F024D7BCE500C31149 /* SnippetViewController.swift */; };
 		35996A6D24D4C6E0003A813D /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */; };
 		35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */; };
 		35996A7124D4CBE5003A813D /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35996A7024D4CBE5003A813D /* Bool.swift */; };
@@ -171,6 +174,9 @@
 		359730E024D76F2E00C31149 /* BookmarksRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepositorySpy.swift; sourceTree = "<group>"; };
 		359730E224D76FEB00C31149 /* BookmarkGistsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGistsUseCaseTests.swift; sourceTree = "<group>"; };
 		359730E424D771E300C31149 /* GetAllBookmarksUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllBookmarksUseCaseTests.swift; sourceTree = "<group>"; };
+		359730EB24D7A0F100C31149 /* SnnipetsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnnipetsCell.swift; sourceTree = "<group>"; };
+		359730ED24D7B0D900C31149 /* snippet.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = snippet.css; sourceTree = "<group>"; };
+		359730F024D7BCE500C31149 /* SnippetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetViewController.swift; sourceTree = "<group>"; };
 		35996A6C24D4C6E0003A813D /* BookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A6E24D4C8A5003A813D /* FirebaseBookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBookmarksRepository.swift; sourceTree = "<group>"; };
 		35996A7024D4CBE5003A813D /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
@@ -355,6 +361,7 @@
 			children = (
 				359730D624D7351700C31149 /* Localizable.strings */,
 				3549C26B24CF900700CE94D0 /* Assets.xcassets */,
+				359730ED24D7B0D900C31149 /* snippet.css */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -373,6 +380,7 @@
 		3549C29924CF940E00CE94D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				359730EF24D7BCD200C31149 /* Snippets */,
 				359730C324D6451A00C31149 /* Bookmarks */,
 				3549C2A024CFAA9D00CE94D0 /* Details */,
 				3549C29A24CF941700CE94D0 /* Discover */,
@@ -628,6 +636,7 @@
 			children = (
 				3507C21A24D3ACA100366D6F /* Stateful */,
 				358DA00124D23717000790CA /* GistDigestCell.swift */,
+				359730EB24D7A0F100C31149 /* SnnipetsCell.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -682,6 +691,14 @@
 				359730D824D7372200C31149 /* Strings.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		359730EF24D7BCD200C31149 /* Snippets */ = {
+			isa = PBXGroup;
+			children = (
+				359730F024D7BCE500C31149 /* SnippetViewController.swift */,
+			);
+			path = Snippets;
 			sourceTree = "<group>";
 		};
 		35C3B43F17A6339659E94C0D /* Frameworks */ = {
@@ -986,6 +1003,7 @@
 				35F6F74D24D5BC5500A4BA41 /* Weakfiable.swift in Sources */,
 				359730BE24D61B6900C31149 /* FirebaseDataSource.swift in Sources */,
 				359730D924D7372200C31149 /* Strings.swift in Sources */,
+				359730F124D7BCE500C31149 /* SnippetViewController.swift in Sources */,
 				35996A6F24D4C8A5003A813D /* FirebaseBookmarksRepository.swift in Sources */,
 				3504A8AB24D100DF00202678 /* StackViewBuilder.swift in Sources */,
 				359730C024D62B1C00C31149 /* GistDigestReponse+Mappers.swift in Sources */,
@@ -997,7 +1015,9 @@
 				35F6F74B24D5B8A600A4BA41 /* String.swift in Sources */,
 				358DA01324D2561A000790CA /* GistsConfigurator.swift in Sources */,
 				357B2FEB24CFDD3E00813529 /* PublicGistsRequest.swift in Sources */,
+				359730EE24D7B0D900C31149 /* snippet.css in Sources */,
 				3507C22824D3AD0300366D6F /* LoadingView.swift in Sources */,
+				359730EC24D7A0F100C31149 /* SnnipetsCell.swift in Sources */,
 				3549C29F24CFA99D00CE94D0 /* SplitViewController.swift in Sources */,
 				3578EA9224D28C5D0032F639 /* UserError.swift in Sources */,
 				3507C20D24D3173D00366D6F /* Array.swift in Sources */,

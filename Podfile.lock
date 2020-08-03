@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.2.1)
   - Anchorage (4.4.0)
   - CodableFirebase (0.2.1)
+  - Device (3.2.1)
   - Firebase/CoreOnly (6.27.1):
     - FirebaseCore (= 6.8.1)
   - Firebase/Database (6.27.1):
@@ -49,6 +50,7 @@ PODS:
 DEPENDENCIES:
   - Anchorage
   - CodableFirebase
+  - Device (~> 3.2.1)
   - Firebase/Database
   - Kingfisher (~> 5.0)
   - Moya (~> 14.0)
@@ -62,6 +64,7 @@ SPEC REPOS:
     - Alamofire
     - Anchorage
     - CodableFirebase
+    - Device
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -83,6 +86,7 @@ SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   Anchorage: d7f02c4f9425b537053237aab11ae97e59b55f36
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
+  Device: 0738862dd8a30856b4bd9e21cb9b728873d21392
   Firebase: 919186c8e119dd9372a45fd1dd17a8a942bc1892
   FirebaseCore: 8cd4f8ea22075e0ee582849b1cf79d8816506085
   FirebaseCoreDiagnostics: 4505e4d4009b1d93f605088ee7d7764d5f0d1c84
@@ -100,6 +104,6 @@ SPEC CHECKSUMS:
   SwiftGen: 62e69d127507be1538d4263e137b2290cd6ab272
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: c34e7cdadfbafb6287a3de56ebd20b88f6310eb0
+PODFILE CHECKSUM: 53ac737ee59d5cfa14235e03a717b412549c1277
 
 COCOAPODS: 1.9.3

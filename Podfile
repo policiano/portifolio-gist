@@ -3,6 +3,7 @@
 
 def presentation_pods
   pod 'Anchorage'
+  pod "Device", '~> 3.2.1'
   pod 'Kingfisher', '~> 5.0'
   pod 'TagListView', '~> 1.0'
   pod 'PaginatedTableView'
