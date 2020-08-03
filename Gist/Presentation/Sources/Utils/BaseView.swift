@@ -9,7 +9,5 @@ public class BaseView: UIView {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
-    func setup() {
-
-    }
+    func setup() { }
 }

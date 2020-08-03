@@ -43,6 +43,7 @@ PODS:
   - PaginatedTableView (1.0.1)
   - PromisesObjC (1.2.9)
   - StatefulViewController (3.0)
+  - SwiftGen (6.2.1)
   - TagListView (1.4.0)
 
 DEPENDENCIES:
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - Moya (~> 14.0)
   - PaginatedTableView
   - StatefulViewController (~> 3.0)
+  - SwiftGen (~> 6.0)
   - TagListView (~> 1.0)
 
 SPEC REPOS:
@@ -74,6 +76,7 @@ SPEC REPOS:
     - PaginatedTableView
     - PromisesObjC
     - StatefulViewController
+    - SwiftGen
     - TagListView
 
 SPEC CHECKSUMS:
@@ -94,8 +97,9 @@ SPEC CHECKSUMS:
   PaginatedTableView: 294d9831d5ddf5c0dcfbb4a281d4fcfb8d12f55a
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   StatefulViewController: 4803bf900d44de26074344998e10e041113b5931
+  SwiftGen: 62e69d127507be1538d4263e137b2290cd6ab272
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: 0e0b91cbee5e37e06e2d07844ad1151c5226ccee
+PODFILE CHECKSUM: c34e7cdadfbafb6287a3de56ebd20b88f6310eb0
 
 COCOAPODS: 1.9.3

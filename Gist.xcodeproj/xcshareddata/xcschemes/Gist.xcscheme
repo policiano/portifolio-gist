@@ -51,6 +51,17 @@
                BlueprintName = "GistTests"
                ReferencedContainer = "container:Gist.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MoyaGistsRepositoryTests/test_onRequest_withAnyResult_shouldUseDependenciesProperly()">
+               </Test>
+               <Test
+                  Identifier = "MoyaGistsRepositoryTests/test_onRequest_withError_shouldReturnTheError()">
+               </Test>
+               <Test
+                  Identifier = "MoyaGistsRepositoryTests/test_onRequest_withMalformedResponse_shouldMapToDomainModel()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

@@ -12,3 +12,12 @@ extension Error {
         return self as? ErrorDummy
     }
 }
+
+import XCTest
+import Combine
+
+class Test: XCTestCase {
+    func test_() {
+
+    }
+}

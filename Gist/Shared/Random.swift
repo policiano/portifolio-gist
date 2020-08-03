@@ -11,6 +11,12 @@ extension Optional: Random where Wrapped: Random{
     }
 }
 
+extension Bool: Random {
+    public static var anyValue: Bool {
+        Bool.random()
+    }
+}
+
 extension Double: Random {
     public static var anyValue: Self {
         Double.random(in: -10 ..< 10)

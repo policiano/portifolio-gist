@@ -3,19 +3,19 @@ import Moya
 
 struct ErrorHandler {
     static func userError(from error: Error? = nil) -> UserError {
-        var title: String = "Ops! Something went wrong"
-        var message: String = "Looks like we are having some internal errors. Try again later"
+        var title: String = L10n.Error.Generic.title
+        var message: String = L10n.Error.Generic.message
 
         guard let error = error else {
-            title = "Nothing found"
-            message = "There is nothing here so far."
+            title = L10n.Error.Empty.title
+            message = L10n.Error.Empty.message
 
             return .init(title: title, message: message)
         }
 
         if case .underlying = (error as? MoyaError) {
-            title = "No internet connection"
-            message = "Check your connection and try again."
+            title = L10n.Error.Connection.title
+            message = L10n.Error.Connection.message
 
             return .init(title: title, message: message)
         }

@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-public final class MoyaGistsRepository {
+public final class MoyaGistsRepository: NSObject {
     private let dataSource: MoyaDataSource<GistsTargetType>
     private let bookmarksRepository: BookmarksRepository
     private var isFetchInProgress = false
@@ -22,6 +22,22 @@ public final class MoyaGistsRepository {
             return $0
         }
     }
+
+    private func requestGists(page: Int, _ completion: @escaping (Result<[GistDigest]>) -> Void) {
+        let request = PublicGistsRequest(page: page)
+
+        self.dataSource.request(request, completion: weakfy { (strongSelf, result: Result<[GistDigestResponse]>) in
+            strongSelf.isFetchInProgress = false
+
+            switch result {
+            case .success(let responseList):
+                let gists = responseList.compactMap(GistDigest.init)
+                completion(.success(gists))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        })
+    }
 }
 
 extension MoyaGistsRepository: GistsRepository {
@@ -33,35 +49,31 @@ extension MoyaGistsRepository: GistsRepository {
 
         isFetchInProgress = true
 
-        let bookmarksFuture = Future<[GistDigest], Error>() { promise in
-            self.bookmarksRepository.getBookmarkedGists {
+        let bookmarksFuture = Future<[GistDigest], Error>(weakfy { strongSelf, promise in
+            strongSelf.bookmarksRepository.getBookmarkedGists {
                 promise(.success($0.value ?? []))
             }
-        }
+        })
 
-        let gistPageFuture = Future<[GistDigest], Error>() { promise in
-            let request = PublicGistsRequest(page: page)
-            self.dataSource.request(request) { (result: Result<[GistDigestResponse]>) in
-                self.isFetchInProgress = false
+        let gistPageFuture = Future<[GistDigest], Error>(weakfy { strongSelf, promise in
 
-                switch result {
-                case .success(let responseList):
-                    let gists = responseList.compactMap(GistDigest.init)
-                    promise(.success(gists))
-                case .failure(let error):
-                    promise(.failure(error))
-                }
+            strongSelf.requestGists(page: page) {
+                promise($0)
             }
-        }
+        })
 
         cancellable = gistPageFuture.zip(bookmarksFuture)
             .map(bookmarkIfNeeded)
-            .sink(receiveCompletion: { (request) in
+            .sink(receiveCompletion: weakfy { strongSelf, request in
+                strongSelf.isFetchInProgress = false
+
                 if case .failure(let error) = request {
                     completion(.failure(error))
                 }
-            }) {
-                completion(.success($0))
-            }
+            }, receiveValue: weakfy { (strongSelf, gists) in
+                strongSelf.isFetchInProgress = false
+
+                completion(.success(gists))
+            })
     }
 }

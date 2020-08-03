@@ -1,0 +1,32 @@
+// General
+
+"general.ok" = "Ok";
+
+// Dicover Scene
+
+"gistList.title" = "Discover";
+
+// Details Scene
+
+"gistDetails.title" = "Gist";
+"gistDetails.creationDate" = "Created on %@";
+
+// Bookmarks Scene
+
+"bookmarks.title" = "Bookmarks";
+
+// Stateful Views
+
+"emptyState.message" = "There is nothing here so far.";
+"errorState.button" = "Tap to reload";
+
+// User errors
+
+"error.generic.title" = "Ops! Something went wrong";
+"error.generic.message" = "Looks like we are having some internal errors. Try again later";
+"error.empty.title" = "Nothing found";
+"error.empty.message" = "There is nothing here so far.";
+"error.connection.title" = "No internet connection";
+"error.connection.message" = "Check your connection and try again.";
+"error.content.title" = "Ooops";
+"error.content.message" = "Something went wrong.";
