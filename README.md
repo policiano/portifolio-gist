@@ -1,4 +1,29 @@
-# Gist [WIP]
+# Gist
+
+A simple Gist app using the Clean Architecture.
+
+![iPad-gif](https://user-images.githubusercontent.com/2760956/89153164-c2214080-d53a-11ea-8f00-73b8c401449d.gif)
+
+## Features
+
+- List the latest public gists
+- Search and bookmark them
+- See more details of the gist and its snippets
+- Access you bookmarks offline
+
+## Universal app
+
+It supports multple orientations!
+
+### Dark mode ready
+
+![iPhone-gif](https://user-images.githubusercontent.com/2760956/89153148-bd5c8c80-d53a-11ea-88f1-e64d405d60b8.gif)
+
+## Dinamic Text
+
+Ready for low vision sight
+
+![DynamicText-gif](https://user-images.githubusercontent.com/2760956/89153169-c3eb0400-d53a-11ea-9084-ec33de2dea85.gif)
 
 ## Specs
 
@@ -15,5 +40,3 @@ pod install
 ``` 
 
 > Note: You should have the [CocoaPods](https://cocoapods.org/) gem installed
-
-A more detailed README will be released soon...
