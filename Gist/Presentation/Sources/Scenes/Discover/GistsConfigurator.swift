@@ -14,7 +14,7 @@ final class GistsConfigurator {
         let presenter = GistsPresenter(
             getPublicGists: getPublicGists, bookmarkGist: bookmarkGist
         )
-        
+
         let router = GistsRouter(dataStore: presenter)
         let viewController = GistsViewController(presenter: presenter, router: router)
 

@@ -1,7 +1,7 @@
 import UIKit
 
 protocol GistsRoutingLogic {
-    func routeToDigest(forIndex index: Int)
+    func routeToDigest(_ gist: GistDigestCell.ViewModel)
     func routeToBookmarks() 
 }
 
@@ -22,8 +22,8 @@ final class GistsRouter: GistsDataPassing {
 
 extension GistsRouter: GistsRoutingLogic {
 
-    func routeToDigest(forIndex index: Int) {
-        guard let selectedDigest = dataStore.gists[safeIndex: index] else {
+    func routeToDigest(_ gist: GistDigestCell.ViewModel) {
+        guard let selectedDigest = dataStore.gists.first(where: { $0.id == gist.id }) else {
             return
         }
         let delegate = viewController as? GistDetailsTableViewControllerDelegate

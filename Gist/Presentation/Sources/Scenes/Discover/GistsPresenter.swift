@@ -80,15 +80,12 @@ extension GistsPresenter: GistsPresentationLogic {
             return
         }
 
-        let index = request.index
-
         bookmarkGist.execute(gist: bookmarkedGist, weakfy { (strongSelf, result) in
             guard let updatedGist = result.value else {
                 return
             }
 
             let viewModel = Gists.Bookmark.ViewModel(
-                index: index,
                 bookmarkedGist: self.mapGist(updatedGist)
             )
             self.display?.displayBookmark(viewModel: viewModel)
