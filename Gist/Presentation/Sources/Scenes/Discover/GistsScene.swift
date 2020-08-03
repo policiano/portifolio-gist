@@ -33,12 +33,10 @@ enum Gists {
 
     enum Bookmark {
         struct Request {
-            let index: IndexPath
             let gist: GistDigestCell.ViewModel
         }
 
         struct ViewModel {
-            let index: IndexPath
             let bookmarkedGist: GistDigestCell.ViewModel
         }
     }

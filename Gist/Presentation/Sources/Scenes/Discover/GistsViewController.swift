@@ -11,8 +11,21 @@ protocol GistsDisplayLogic: AnyObject {
 
 public class GistsViewController: UIViewController, StatefulViewController {
     let tableView = PaginatedTableView()
-    private var viewModels: [GistDigestCell.ViewModel] = []
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var allGists: [GistDigestCell.ViewModel] = []
+    private var filteredGists: [GistDigestCell.ViewModel] = []
     private var selectedGist: GistDigestCell.ViewModel?
+
+    private var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+
+    private var viewModels: [GistDigestCell.ViewModel] {
+        if isFiltering {
+            return filteredGists
+        }
+        return allGists
+    }
 
     // MARK: Pagination
 
@@ -47,9 +60,19 @@ public class GistsViewController: UIViewController, StatefulViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        setSearchController()
         setupStateful()
 
         tableView.loadData(refresh: true)
+    }
+
+    public func setSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Users"
+
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 
     public func setNavigationBar() {
@@ -78,6 +101,10 @@ public class GistsViewController: UIViewController, StatefulViewController {
 
         setupInitialViewState()
         startLoading()
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        searchController.isActive = false
     }
 
     // MARK: Setup
@@ -134,14 +161,19 @@ public class GistsViewController: UIViewController, StatefulViewController {
     }
 
     private func updateAndReload(_ gist: GistDigestCell.ViewModel, at index: IndexPath) {
-        viewModels[index.row] = gist
+        if isFiltering {
+            filteredGists[index.row] = gist
+        } else {
+            allGists[index.row] = gist
+        }
+
         selectedGist = gist
         tableView.reloadRows(at: [index], with: .fade)
     }
 
     private func refreshDetailView(with index: IndexPath) {
-        if splitViewController?.isCollapsed == false {
-            router.routeToDigest(forIndex: index.row)
+        if splitViewController?.isCollapsed == false, let gist = viewModels[safeIndex: index.row] {
+            router.routeToDigest(gist)
         }
     }
 
@@ -153,6 +185,29 @@ public class GistsViewController: UIViewController, StatefulViewController {
 
     private func checkSelectedGistUpdates() {
          presenter.checkSelectedGistUpdates(request: .init(selectedGist: selectedGist))
+    }
+
+    func filterContentForSearchText(_ searchText: String) {
+        filteredGists = allGists.filter { $0.ownerName.lowercased().contains(searchText.lowercased()) }
+        startLoading()
+        tableView.reloadData()
+        endLoading(animated: true, error: nil, completion: nil)
+    }
+
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
+
+    func getIndexOf(gist: GistDigestCell.ViewModel) -> IndexPath? {
+        let offset = viewModels.enumerated().first {
+            $1.id == gist.id
+            }?.offset
+
+        guard let row = offset else {
+            return nil
+        }
+
+        return IndexPath(row: row, section: 0)
     }
 }
 
@@ -178,7 +233,9 @@ extension GistsViewController: PaginatedTableViewDataSource, PaginatedTableViewD
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedGist = viewModels[safeIndex: indexPath.row]
-        router.routeToDigest(forIndex: indexPath.row)
+        if let gist = selectedGist {
+            router.routeToDigest(gist)
+        }
     }
 
     public func loadMore(_ pageNumber: Int, _ pageSize: Int, onSuccess: ((Bool) -> Void)?, onError: ((Error) -> Void)?) {
@@ -205,26 +262,45 @@ extension GistsViewController: GistDigestCellDelegate {
                 return
         }
 
-        presenter.bookmark(request: .init(index: indexPath, gist: gist))
+        presenter.bookmark(request: .init(gist: gist))
+    }
+}
+
+// MARK: Search
+
+extension GistsViewController: UISearchResultsUpdating {
+    public func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        guard let text = searchBar.text else {
+            return
+        }
+        filterContentForSearchText(text)
     }
 }
 
 // MARK: Display Logic
 
 extension GistsViewController: GistsDisplayLogic {
+
     func displayBookmark(viewModel: Gists.Bookmark.ViewModel) {
-        updateAndReload(viewModel.bookmarkedGist, at: viewModel.index)
-        refreshDetailView(with: viewModel.index)
+        let gist = viewModel.bookmarkedGist
+        guard let indexPath = getIndexOf(gist: gist) else { return }
+        
+        updateAndReload(gist, at: indexPath)
+        refreshDetailView(with: indexPath)
     }
 
     func updateSelectedGist(viewModel: Gists.CheckUpdates.ViewModel) {
-        updateAndReload(viewModel.selectedGist, at: viewModel.index)
+        let gist = viewModel.selectedGist
+        guard let indexPath = getIndexOf(gist: gist) else { return }
+
+        updateAndReload(viewModel.selectedGist, at: indexPath)
     }
 
     func displayGists(viewModel: Gists.GetGists.ViewModel) {
         switch viewModel {
         case .content(let list, let hasMoreDataAvailable):
-            viewModels = list
+            allGists = list
             onSuccess?(hasMoreDataAvailable)
             endLoading(error: nil, completion: nil)
         case .failure(let userError):
