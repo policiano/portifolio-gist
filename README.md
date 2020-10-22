@@ -11,6 +11,20 @@ A simple Gist app using the Clean Architecture.
 - See more details of the gist and its snippets
 - Access you bookmarks offline
 
+## Non-functional features
+
+- Clean Architecture
+- MVP
+- Unit Tests using TDD 
+- Exploring Cupertino Design
+- Dynamic Text
+- Size Classes/ Universal Apps
+- Dynamic Theme (Native Dark Mode)
+- Webview Javascript/HTML injection 
+- HTTP requests
+- Error Handling
+- Localization
+
 ## Universal app
 
 It supports multple orientations!
