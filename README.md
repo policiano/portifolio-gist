@@ -9,7 +9,7 @@ A simple Gist app using the Clean Architecture.
 - List the latest public gists
 - Search and bookmark them
 - See more details of the gist and its snippets
-- Access you bookmarks offline
+- Access your bookmarks offline
 
 ## Non-functional features
 
