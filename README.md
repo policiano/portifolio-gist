@@ -15,15 +15,17 @@ A simple Gist app using the Clean Architecture.
 
 - Clean Architecture
 - MVP
-- Unit Tests using TDD 
+- Unit Tests using TDD
 - Exploring Cupertino Design
 - Dynamic Text
 - Size Classes/ Universal Apps
 - Dynamic Theme (Native Dark Mode)
-- Webview Javascript/HTML injection 
+- Webview Javascript/HTML injection
+- Local Persistence
 - HTTP requests
 - Error Handling
 - Localization
+- Combine
 
 ## Universal app
 
