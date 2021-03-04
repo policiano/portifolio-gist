@@ -37,7 +37,7 @@ It supports multple orientations!
 
 ## Dynamic Text
 
-Ready for low vision sight
+Ready for people with low sight
 
 ![DynamicText-gif](https://user-images.githubusercontent.com/2760956/89153169-c3eb0400-d53a-11ea-9084-ec33de2dea85.gif)
 
