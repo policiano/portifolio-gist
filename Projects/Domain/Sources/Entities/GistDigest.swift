@@ -29,7 +29,7 @@ public class GistDigest: Codable {
 }
 
 extension GistDigest {
-    var isBookmarked: Bool {
+    public var isBookmarked: Bool {
         get {
             bookmarkedAt != nil
         }

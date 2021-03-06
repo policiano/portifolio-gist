@@ -3,26 +3,28 @@ import ProjectDescription
 extension Project {
 
     public static func app(name: String, platform: Platform, dependencies: [TargetDependency] = []) -> Project {
-        return self.project(name: name, product: .app, platform: platform, dependencies: dependencies, infoPlist: [
+        return self.project(name: name, product: .app, platform: platform, packages: [], dependencies: dependencies, infoPlist: [
             "CFBundleShortVersionString": "1.0",
             "CFBundleVersion": "1"
         ])
     }
 
-    public static func framework(name: String, platform: Platform = .iOS, dependencies: [TargetDependency] = [], testDependencies: [TargetDependency] = []) -> Project {
-        return self.project(name: name, product: .framework, platform: platform, dependencies: dependencies, testDependencies: testDependencies)
+    public static func framework(name: String, platform: Platform = .iOS, packages: [Package] = [], dependencies: [TargetDependency] = [], testDependencies: [TargetDependency] = []) -> Project {
+        return self.project(name: name, product: .framework, platform: platform, packages: packages, dependencies: dependencies, testDependencies: testDependencies)
     }
 
     public static func project(
         name: String,
         product: Product,
         platform: Platform,
+        packages: [Package],
         dependencies: [TargetDependency] = [],
         infoPlist: [String: InfoPlist.Value] = [:],
         testDependencies: [TargetDependency] = []
     ) -> Project {
         return Project(
             name: name,
+            packages: packages,
             targets: [
                 Target(
                     name: name,

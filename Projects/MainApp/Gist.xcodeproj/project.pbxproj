@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		191321C12C07213F67DFECAA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00587BDE87D7F86CF4E8DA16 /* XCTest.framework */; };
+		26131784FD06AC6956F887BF /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 443E607A8A7C556FEA984D77 /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34C03B0E33BBF6083F48B0F7 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66267C7EF474B0945E71872E /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37AB3F5C372A87E6AB19971F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8918FF0A6D9492E10E008F10 /* Info.plist */; };
 		683C7C2F0FE3CCCE36F5ED84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 674314C966AFE0846838B0A2 /* LaunchScreen.storyboard */; };
@@ -21,6 +22,7 @@
 		DCAB3DD55D93BCD1BA42E4F2 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66267C7EF474B0945E71872E /* Domain.framework */; };
 		E1B91542D33969F060A8DEF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CC578F39F5BC3CFB365CF /* AppDelegate.swift */; };
 		E9751A3AAAC69D19EFF02232 /* Bundle+GistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350ABF0611C7513F6D6F560E /* Bundle+GistTests.swift */; };
+		FCDB64CB01C93F3911D92514 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443E607A8A7C556FEA984D77 /* Repository.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				34C03B0E33BBF6083F48B0F7 /* Domain.framework in Embed Frameworks */,
+				26131784FD06AC6956F887BF /* Repository.framework in Embed Frameworks */,
 				D1E2FCB4D6984D3EC8A7E444 /* Utils.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -64,6 +67,7 @@
 		31CAA93B7FA944333474B32E /* Bundle+Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Gist.swift"; sourceTree = "<group>"; };
 		350ABF0611C7513F6D6F560E /* Bundle+GistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+GistTests.swift"; sourceTree = "<group>"; };
 		3CC1F06BE2DD718B4AC4CA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		443E607A8A7C556FEA984D77 /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66267C7EF474B0945E71872E /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CF8CEEA00EB1AEC60704EC /* MainAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppTests.swift; sourceTree = "<group>"; };
 		8918FF0A6D9492E10E008F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCAB3DD55D93BCD1BA42E4F2 /* Domain.framework in Frameworks */,
+				FCDB64CB01C93F3911D92514 /* Repository.framework in Frameworks */,
 				9161C04011FCCF6C81D02F11 /* Utils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +194,7 @@
 				66267C7EF474B0945E71872E /* Domain.framework */,
 				20FC46BD83BD872918517FB2 /* Gist.app */,
 				CDB4CB6FCC79BCC4E22FF17E /* GistTests.xctest */,
+				443E607A8A7C556FEA984D77 /* Repository.framework */,
 				AC0981BF4C38704515694831 /* Utils.framework */,
 			);
 			name = Products;

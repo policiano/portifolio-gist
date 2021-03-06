@@ -28,6 +28,16 @@ final class \(nameAttribute)Tests: XCTestCase {
 }
 """
 
+let testUtilsContent = """
+import Foundation
+
+public final class \(nameAttribute)Dummy {
+
+    public init() { }
+
+}
+"""
+
 let template = Template(
     description: "Framework template",
     attributes: [
@@ -37,6 +47,7 @@ let template = Template(
     files: [
         .string(path: "\(nameAttribute)/Sources/\(nameAttribute).swift", contents: exampleContents),
         .string(path: "\(nameAttribute)/Tests/\(nameAttribute)Tests.swift", contents: testContents),
+        .string(path: "\(nameAttribute)/Tests/Utils/\(nameAttribute)Dummy.swift", contents: testUtilsContent),
         .file(path: "\(nameAttribute)/Project.swift", templatePath: "project.stencil"),
     ]
 )

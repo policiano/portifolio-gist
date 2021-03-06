@@ -11,6 +11,9 @@
          location = "group:MainApp/Gist.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:Repository/Repository.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Utils/Utils.xcodeproj">
       </FileRef>
    </Group>
