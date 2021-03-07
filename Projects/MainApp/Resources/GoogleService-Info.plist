@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>539834019404-ctikm2hbn8a4ptfm7m4ic2tl9mugfsmb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.539834019404-ctikm2hbn8a4ptfm7m4ic2tl9mugfsmb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB3ccZyB9blVL9wlgAIb2gwBff5Qyew-yg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>539834019404</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>br.com.policiano.Gist</string>
+	<key>PROJECT_ID</key>
+	<string>gists-4e8fa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gists-4e8fa.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:539834019404:ios:ee48056550c50f43018ee9</string>
+	<key>DATABASE_URL</key>
+	<string>https://gists-4e8fa.firebaseio.com</string>
+</dict>
+</plist>
