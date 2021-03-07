@@ -12,31 +12,31 @@
 		0BFE2F6CE791CC18BFAB58B5 /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8182236AAA9809985E1D0B /* CodableFirebase */; };
 		17C8D524B24E1840B0B877EC /* DomainTestUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2878BB1A59955DFC6FDEB5AF /* DomainTestUtils.framework */; };
 		2C57ABBCD23F294631982830 /* MoyaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709331EBE864F80FE7E8AE0 /* MoyaDataSource.swift */; };
-		353E041025F4401B00B9C0BF /* MoyaGistsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E040825F4401B00B9C0BF /* MoyaGistsRepositoryTests.swift */; };
-		353E041125F4401B00B9C0BF /* GistsTargetTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E040A25F4401B00B9C0BF /* GistsTargetTypeTests.swift */; };
-		353E041225F4401B00B9C0BF /* PublicGistsRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E040B25F4401B00B9C0BF /* PublicGistsRequestTests.swift */; };
-		353E041325F4401B00B9C0BF /* GistDigestResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E040D25F4401B00B9C0BF /* GistDigestResponseTests.swift */; };
-		353E041425F4401B00B9C0BF /* GistDigestResponseMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E040F25F4401B00B9C0BF /* GistDigestResponseMapperTests.swift */; };
-		353E041A25F4403100B9C0BF /* MoyaDataSourceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E041625F4403000B9C0BF /* MoyaDataSourceSpy.swift */; };
-		353E041B25F4403100B9C0BF /* MoyaDataSourceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E041625F4403000B9C0BF /* MoyaDataSourceSpy.swift */; };
-		353E041C25F4403100B9C0BF /* BookmarksRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E041725F4403000B9C0BF /* BookmarksRepositorySpy.swift */; };
-		353E041D25F4403100B9C0BF /* BookmarksRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E041725F4403000B9C0BF /* BookmarksRepositorySpy.swift */; };
-		353E041E25F4403100B9C0BF /* GistDigestResponse+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E041925F4403100B9C0BF /* GistDigestResponse+Fixtures.swift */; };
-		353E041F25F4403100B9C0BF /* GistDigestResponse+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E041925F4403100B9C0BF /* GistDigestResponse+Fixtures.swift */; };
+		32D78910ED4BFE722E9A2A58 /* GistsTargetTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6DDB50437E00379AA3BB6 /* GistsTargetTypeTests.swift */; };
+		3BC2BB82E77F686E93263DAE /* PublicGistsRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A99D22905F1FECADAA14B5 /* PublicGistsRequestTests.swift */; };
+		3C0BBE8D6B4DF7C353B880C5 /* GistDigestResponseMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111BA735A38F6EB596E309D /* GistDigestResponseMapperTests.swift */; };
 		3D508A96EEC778DB188B909F /* FirebaseBookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3B1CEA8275BADC44C0238F /* FirebaseBookmarksRepository.swift */; };
 		5525D12BC58F2C5AA01E1C82 /* Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A51664422F0E86EAC1CF44 /* Utils.framework */; };
 		636BCA2DCC677D311904BB62 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D39D8FFA6B36EC82B3C778 /* Repository.framework */; };
 		67E28A865EF1E253234AC5D0 /* MoyaGistsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DEC57CCAEBF97C05A28776 /* MoyaGistsRepository.swift */; };
 		6A511DA11247ED71A57A0658 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B4FADB55656C61286023A28A /* FirebaseDatabase */; };
+		6A7A5829DA8C8E36BCEC1A52 /* MoyaDataSourceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907D41514F21AD44CEE5E20D /* MoyaDataSourceSpy.swift */; };
 		6C19850AD1BE657A3391154F /* GistsTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F8A3C5D849CE28FECCAD30 /* GistsTargetType.swift */; };
+		6D79E349F86DD88743F5AE65 /* GistDigestResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C0CCF356C621979959D8A /* GistDigestResponseTests.swift */; };
 		72F96108D4CB99881AD97A64 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 715E585B41FB65BDF56DDBCE /* Moya */; };
+		795758CD79D9537403B985BD /* BookmarksRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D5AB1A25C276253D34D9 /* BookmarksRepositorySpy.swift */; };
 		8CBB4B4C88645F03E1B4F79F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B350A2972AA46C2249C278 /* XCTest.framework */; };
+		9C91A8C591C6C273E955BCAC /* GistDigestResponse+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DA4065AC4A6055109030D /* GistDigestResponse+Fixtures.swift */; };
+		A1622352C5FD850D837574A9 /* MoyaGistsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDED47D3CB00245DD4387EE /* MoyaGistsRepositoryTests.swift */; };
 		A245D11D870C6D5694A77A5D /* GistDigestReponse+Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CF5A5723463FBA680482E4 /* GistDigestReponse+Mappers.swift */; };
 		C2EE7E41667DC7004258A336 /* GistDigest+Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3A90CD37D8C7437E503C3 /* GistDigest+Mappers.swift */; };
+		CBC9AACA1612FECCEB4733A3 /* GistDigestResponse+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DA4065AC4A6055109030D /* GistDigestResponse+Fixtures.swift */; };
 		CF3E0A6F70FA5140B749C3CA /* FirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCAA7F7CD08E00C4E7D0DCF /* FirebaseDataSource.swift */; };
+		D39B6479655EAD9D1203ABB2 /* MoyaDataSourceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907D41514F21AD44CEE5E20D /* MoyaDataSourceSpy.swift */; };
 		D4643C42E5009783840BFC91 /* UtilsTestUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB09F2394D097B81B38CEC /* UtilsTestUtils.framework */; };
 		E3437D8804FB751CD8FCEE82 /* GistDigestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1B8D65461D5D5E9731B23 /* GistDigestResponse.swift */; };
 		EFE6DADF83DEE9E7242AFDD4 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFE550790A55315F6BAC7CE /* Domain.framework */; };
+		F40DCCAA6E476E8D56E983FB /* BookmarksRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D5AB1A25C276253D34D9 /* BookmarksRepositorySpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,16 +93,10 @@
 		02B350A2972AA46C2249C278 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		03D39D8FFA6B36EC82B3C778 /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07715FAEE18624800FF41930 /* RepositoryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = RepositoryTests.plist; sourceTree = "<group>"; };
+		11C1D5AB1A25C276253D34D9 /* BookmarksRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepositorySpy.swift; sourceTree = "<group>"; };
 		18618E5B5CE8E0BEE5F43988 /* RepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E3DA4065AC4A6055109030D /* GistDigestResponse+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestResponse+Fixtures.swift"; sourceTree = "<group>"; };
 		2878BB1A59955DFC6FDEB5AF /* DomainTestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainTestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		353E040825F4401B00B9C0BF /* MoyaGistsRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaGistsRepositoryTests.swift; sourceTree = "<group>"; };
-		353E040A25F4401B00B9C0BF /* GistsTargetTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistsTargetTypeTests.swift; sourceTree = "<group>"; };
-		353E040B25F4401B00B9C0BF /* PublicGistsRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicGistsRequestTests.swift; sourceTree = "<group>"; };
-		353E040D25F4401B00B9C0BF /* GistDigestResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistDigestResponseTests.swift; sourceTree = "<group>"; };
-		353E040F25F4401B00B9C0BF /* GistDigestResponseMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistDigestResponseMapperTests.swift; sourceTree = "<group>"; };
-		353E041625F4403000B9C0BF /* MoyaDataSourceSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaDataSourceSpy.swift; sourceTree = "<group>"; };
-		353E041725F4403000B9C0BF /* BookmarksRepositorySpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksRepositorySpy.swift; sourceTree = "<group>"; };
-		353E041925F4403100B9C0BF /* GistDigestResponse+Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GistDigestResponse+Fixtures.swift"; sourceTree = "<group>"; };
 		394AE36E4AF5950DBB23E5B4 /* Repository.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Repository.plist; sourceTree = "<group>"; };
 		3AFE550790A55315F6BAC7CE /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCAA7F7CD08E00C4E7D0DCF /* FirebaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataSource.swift; sourceTree = "<group>"; };
@@ -110,14 +104,20 @@
 		61483526265C315E72AF1CC3 /* RepositoryTestUtils.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = RepositoryTestUtils.plist; sourceTree = "<group>"; };
 		61A51664422F0E86EAC1CF44 /* Utils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7709331EBE864F80FE7E8AE0 /* MoyaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaDataSource.swift; sourceTree = "<group>"; };
+		8111BA735A38F6EB596E309D /* GistDigestResponseMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestResponseMapperTests.swift; sourceTree = "<group>"; };
+		907D41514F21AD44CEE5E20D /* MoyaDataSourceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaDataSourceSpy.swift; sourceTree = "<group>"; };
 		96CB09F2394D097B81B38CEC /* UtilsTestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UtilsTestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3B1CEA8275BADC44C0238F /* FirebaseBookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBookmarksRepository.swift; sourceTree = "<group>"; };
+		9C3C0CCF356C621979959D8A /* GistDigestResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestResponseTests.swift; sourceTree = "<group>"; };
 		9D56303EF68BD4BC8C7CC8D6 /* PublicGistsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGistsRequest.swift; sourceTree = "<group>"; };
+		9DE6DDB50437E00379AA3BB6 /* GistsTargetTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsTargetTypeTests.swift; sourceTree = "<group>"; };
 		B6DEC57CCAEBF97C05A28776 /* MoyaGistsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsRepository.swift; sourceTree = "<group>"; };
 		C3A1B8D65461D5D5E9731B23 /* GistDigestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestResponse.swift; sourceTree = "<group>"; };
+		CEDED47D3CB00245DD4387EE /* MoyaGistsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsRepositoryTests.swift; sourceTree = "<group>"; };
 		DC5F29E0B0E2E2D5565C9954 /* RepositoryTestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RepositoryTestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CF5A5723463FBA680482E4 /* GistDigestReponse+Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigestReponse+Mappers.swift"; sourceTree = "<group>"; };
 		E2C3A90CD37D8C7437E503C3 /* GistDigest+Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GistDigest+Mappers.swift"; sourceTree = "<group>"; };
+		E5A99D22905F1FECADAA14B5 /* PublicGistsRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGistsRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,65 +167,15 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		353E040625F4400400B9C0BF /* Sources */ = {
+		30C43E8EA9B6C79EA149DB1D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				353E040E25F4401B00B9C0BF /* Mappers */,
-				353E040725F4401B00B9C0BF /* Repository */,
-				353E040925F4401B00B9C0BF /* Requests */,
-				353E040C25F4401B00B9C0BF /* Responses */,
+				4FF2EC581537E556A3D4FB08 /* Mappers */,
+				FB6A5CBAB46B02F07E2F111D /* Repository */,
+				EB9E3444AF1203F9230FF95E /* Requests */,
+				667B20AE5E17F1600B224511 /* Responses */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		353E040725F4401B00B9C0BF /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				353E040825F4401B00B9C0BF /* MoyaGistsRepositoryTests.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		353E040925F4401B00B9C0BF /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-				353E040A25F4401B00B9C0BF /* GistsTargetTypeTests.swift */,
-				353E040B25F4401B00B9C0BF /* PublicGistsRequestTests.swift */,
-			);
-			path = Requests;
-			sourceTree = "<group>";
-		};
-		353E040C25F4401B00B9C0BF /* Responses */ = {
-			isa = PBXGroup;
-			children = (
-				353E040D25F4401B00B9C0BF /* GistDigestResponseTests.swift */,
-			);
-			path = Responses;
-			sourceTree = "<group>";
-		};
-		353E040E25F4401B00B9C0BF /* Mappers */ = {
-			isa = PBXGroup;
-			children = (
-				353E040F25F4401B00B9C0BF /* GistDigestResponseMapperTests.swift */,
-			);
-			path = Mappers;
-			sourceTree = "<group>";
-		};
-		353E041525F4403000B9C0BF /* Doubles */ = {
-			isa = PBXGroup;
-			children = (
-				353E041625F4403000B9C0BF /* MoyaDataSourceSpy.swift */,
-				353E041725F4403000B9C0BF /* BookmarksRepositorySpy.swift */,
-			);
-			path = Doubles;
-			sourceTree = "<group>";
-		};
-		353E041825F4403100B9C0BF /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				353E041925F4403100B9C0BF /* GistDigestResponse+Fixtures.swift */,
-			);
-			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		3D50E32BC6A565CC2542A901 /* Requests */ = {
@@ -255,6 +205,14 @@
 			name = Project;
 			sourceTree = "<group>";
 		};
+		4FF2EC581537E556A3D4FB08 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				8111BA735A38F6EB596E309D /* GistDigestResponseMapperTests.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
 		5DD9E0D03C122068948E3C8D = {
 			isa = PBXGroup;
 			children = (
@@ -264,11 +222,36 @@
 			);
 			sourceTree = "<group>";
 		};
+		667B20AE5E17F1600B224511 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				9C3C0CCF356C621979959D8A /* GistDigestResponseTests.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		7165D278FEF9A6B96231D570 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				1E3DA4065AC4A6055109030D /* GistDigestResponse+Fixtures.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		72D595A23A1D82E69899B695 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				11C1D5AB1A25C276253D34D9 /* BookmarksRepositorySpy.swift */,
+				907D41514F21AD44CEE5E20D /* MoyaDataSourceSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
 		79C87D6927606F1B41E319BA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				353E041525F4403000B9C0BF /* Doubles */,
-				353E041825F4403100B9C0BF /* Fixtures */,
+				72D595A23A1D82E69899B695 /* Doubles */,
+				7165D278FEF9A6B96231D570 /* Fixtures */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -315,7 +298,7 @@
 		BAA56FDAD1849ABCE3AF5D5B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				353E040625F4400400B9C0BF /* Sources */,
+				30C43E8EA9B6C79EA149DB1D /* Sources */,
 				79C87D6927606F1B41E319BA /* Utils */,
 			);
 			path = Tests;
@@ -340,6 +323,15 @@
 			path = InfoPlists;
 			sourceTree = "<group>";
 		};
+		EB9E3444AF1203F9230FF95E /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				9DE6DDB50437E00379AA3BB6 /* GistsTargetTypeTests.swift */,
+				E5A99D22905F1FECADAA14B5 /* PublicGistsRequestTests.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		F216BAD4F4FA24CB51E09987 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +339,14 @@
 				E1CF5A5723463FBA680482E4 /* GistDigestReponse+Mappers.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		FB6A5CBAB46B02F07E2F111D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CEDED47D3CB00245DD4387EE /* MoyaGistsRepositoryTests.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +422,8 @@
 		D776D4FCF51BF7CA8714C709 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = DAEAABCA4F1BDA57B6C50343 /* Build configuration list for PBXProject "Repository" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -522,9 +524,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				353E041F25F4403100B9C0BF /* GistDigestResponse+Fixtures.swift in Sources */,
-				353E041D25F4403100B9C0BF /* BookmarksRepositorySpy.swift in Sources */,
-				353E041B25F4403100B9C0BF /* MoyaDataSourceSpy.swift in Sources */,
+				795758CD79D9537403B985BD /* BookmarksRepositorySpy.swift in Sources */,
+				D39B6479655EAD9D1203ABB2 /* MoyaDataSourceSpy.swift in Sources */,
+				9C91A8C591C6C273E955BCAC /* GistDigestResponse+Fixtures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,14 +550,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				353E041425F4401B00B9C0BF /* GistDigestResponseMapperTests.swift in Sources */,
-				353E041E25F4403100B9C0BF /* GistDigestResponse+Fixtures.swift in Sources */,
-				353E041325F4401B00B9C0BF /* GistDigestResponseTests.swift in Sources */,
-				353E041A25F4403100B9C0BF /* MoyaDataSourceSpy.swift in Sources */,
-				353E041025F4401B00B9C0BF /* MoyaGistsRepositoryTests.swift in Sources */,
-				353E041C25F4403100B9C0BF /* BookmarksRepositorySpy.swift in Sources */,
-				353E041225F4401B00B9C0BF /* PublicGistsRequestTests.swift in Sources */,
-				353E041125F4401B00B9C0BF /* GistsTargetTypeTests.swift in Sources */,
+				3C0BBE8D6B4DF7C353B880C5 /* GistDigestResponseMapperTests.swift in Sources */,
+				A1622352C5FD850D837574A9 /* MoyaGistsRepositoryTests.swift in Sources */,
+				32D78910ED4BFE722E9A2A58 /* GistsTargetTypeTests.swift in Sources */,
+				3BC2BB82E77F686E93263DAE /* PublicGistsRequestTests.swift in Sources */,
+				6D79E349F86DD88743F5AE65 /* GistDigestResponseTests.swift in Sources */,
+				F40DCCAA6E476E8D56E983FB /* BookmarksRepositorySpy.swift in Sources */,
+				6A7A5829DA8C8E36BCEC1A52 /* MoyaDataSourceSpy.swift in Sources */,
+				CBC9AACA1612FECCEB4733A3 /* GistDigestResponse+Fixtures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

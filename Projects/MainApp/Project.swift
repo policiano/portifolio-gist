@@ -15,6 +15,7 @@ let project = Project(
             resources: ["Resources/**"],
             dependencies: [
                 .project(target: "Domain", path: .relativeToManifest("../Domain")),
+                .project(target: "Presentation", path: .relativeToManifest("../Presentation")),
                 .project(target: "Repository", path: .relativeToManifest("../Repository")),
                 .project(target: "Utils", path: .relativeToManifest("../Utils"))
             ]

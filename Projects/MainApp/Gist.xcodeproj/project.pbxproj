@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09FA02024B8A1D66708D889B /* Assets+Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC32F5469E48A1444F03DE0 /* Assets+Gist.swift */; };
 		191321C12C07213F67DFECAA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00587BDE87D7F86CF4E8DA16 /* XCTest.framework */; };
 		26131784FD06AC6956F887BF /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 443E607A8A7C556FEA984D77 /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2DFD5DDA7C8B632F4A70ED64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FF8F1A8E2148FA6F782F486 /* Assets.xcassets */; };
 		34C03B0E33BBF6083F48B0F7 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66267C7EF474B0945E71872E /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37AB3F5C372A87E6AB19971F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8918FF0A6D9492E10E008F10 /* Info.plist */; };
 		683C7C2F0FE3CCCE36F5ED84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 674314C966AFE0846838B0A2 /* LaunchScreen.storyboard */; };
 		78714D45379C4424FB4202D2 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8804D1763E9EC57F6F739C /* Info.swift */; };
 		87F49EE52276D7EACB25B4F3 /* Bundle+Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CAA93B7FA944333474B32E /* Bundle+Gist.swift */; };
+		8967EE9EAAF7FA6CE4795B0C /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B85A318BE671F4DFD7E9C13 /* Presentation.framework */; };
 		9161C04011FCCF6C81D02F11 /* Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0981BF4C38704515694831 /* Utils.framework */; };
 		9C0A8A661AB8EBB74A9100D7 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8804D1763E9EC57F6F739C /* Info.swift */; };
 		9D806BE9F155CBB1DA3D9CDE /* MainAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CF8CEEA00EB1AEC60704EC /* MainAppTests.swift */; };
@@ -21,6 +24,7 @@
 		D1E2FCB4D6984D3EC8A7E444 /* Utils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC0981BF4C38704515694831 /* Utils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCAB3DD55D93BCD1BA42E4F2 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66267C7EF474B0945E71872E /* Domain.framework */; };
 		E1B91542D33969F060A8DEF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CC578F39F5BC3CFB365CF /* AppDelegate.swift */; };
+		E2F00B5E616D748E2630715E /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B85A318BE671F4DFD7E9C13 /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9751A3AAAC69D19EFF02232 /* Bundle+GistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350ABF0611C7513F6D6F560E /* Bundle+GistTests.swift */; };
 		FCDB64CB01C93F3911D92514 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443E607A8A7C556FEA984D77 /* Repository.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +57,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				34C03B0E33BBF6083F48B0F7 /* Domain.framework in Embed Frameworks */,
+				E2F00B5E616D748E2630715E /* Presentation.framework in Embed Frameworks */,
 				26131784FD06AC6956F887BF /* Repository.framework in Embed Frameworks */,
 				D1E2FCB4D6984D3EC8A7E444 /* Utils.framework in Embed Frameworks */,
 			);
@@ -68,9 +73,12 @@
 		350ABF0611C7513F6D6F560E /* Bundle+GistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+GistTests.swift"; sourceTree = "<group>"; };
 		3CC1F06BE2DD718B4AC4CA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		443E607A8A7C556FEA984D77 /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FC32F5469E48A1444F03DE0 /* Assets+Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets+Gist.swift"; sourceTree = "<group>"; };
+		4FF8F1A8E2148FA6F782F486 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66267C7EF474B0945E71872E /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CF8CEEA00EB1AEC60704EC /* MainAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppTests.swift; sourceTree = "<group>"; };
 		8918FF0A6D9492E10E008F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9B85A318BE671F4DFD7E9C13 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8CC578F39F5BC3CFB365CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC0981BF4C38704515694831 /* Utils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB4CB6FCC79BCC4E22FF17E /* GistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCAB3DD55D93BCD1BA42E4F2 /* Domain.framework in Frameworks */,
+				8967EE9EAAF7FA6CE4795B0C /* Presentation.framework in Frameworks */,
 				FCDB64CB01C93F3911D92514 /* Repository.framework in Frameworks */,
 				9161C04011FCCF6C81D02F11 /* Utils.framework in Frameworks */,
 			);
@@ -163,6 +172,7 @@
 		D1C543D459DE665D58952290 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4FC32F5469E48A1444F03DE0 /* Assets+Gist.swift */,
 				31CAA93B7FA944333474B32E /* Bundle+Gist.swift */,
 				350ABF0611C7513F6D6F560E /* Bundle+GistTests.swift */,
 				EF8804D1763E9EC57F6F739C /* Info.swift */,
@@ -174,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				674314C966AFE0846838B0A2 /* LaunchScreen.storyboard */,
+				4FF8F1A8E2148FA6F782F486 /* Assets.xcassets */,
 				8918FF0A6D9492E10E008F10 /* Info.plist */,
 			);
 			path = Resources;
@@ -194,6 +205,7 @@
 				66267C7EF474B0945E71872E /* Domain.framework */,
 				20FC46BD83BD872918517FB2 /* Gist.app */,
 				CDB4CB6FCC79BCC4E22FF17E /* GistTests.xctest */,
+				9B85A318BE671F4DFD7E9C13 /* Presentation.framework */,
 				443E607A8A7C556FEA984D77 /* Repository.framework */,
 				AC0981BF4C38704515694831 /* Utils.framework */,
 			);
@@ -287,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DFD5DDA7C8B632F4A70ED64 /* Assets.xcassets in Resources */,
 				683C7C2F0FE3CCCE36F5ED84 /* LaunchScreen.storyboard in Resources */,
 				37AB3F5C372A87E6AB19971F /* Info.plist in Resources */,
 			);
@@ -340,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09FA02024B8A1D66708D889B /* Assets+Gist.swift in Sources */,
 				87F49EE52276D7EACB25B4F3 /* Bundle+Gist.swift in Sources */,
 				9C0A8A661AB8EBB74A9100D7 /* Info.swift in Sources */,
 				E1B91542D33969F060A8DEF0 /* AppDelegate.swift in Sources */,

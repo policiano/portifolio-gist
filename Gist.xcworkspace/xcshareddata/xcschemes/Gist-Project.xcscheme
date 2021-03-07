@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A3CF454D42DB81B7D461821E"
-               BuildableName = "Gist.app"
-               BlueprintName = "Gist"
-               ReferencedContainer = "container:Projects/MainApp/Gist.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
                BuildableName = "Utils.framework"
                BlueprintName = "Utils"
@@ -84,6 +70,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A3CF454D42DB81B7D461821E"
+               BuildableName = "Gist.app"
+               BlueprintName = "Gist"
+               ReferencedContainer = "container:Projects/MainApp/Gist.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "C538ACB2975E6B55AFA02B19"
                BuildableName = "Domain.framework"
                BlueprintName = "Domain"
@@ -104,6 +104,34 @@
                ReferencedContainer = "container:Projects/Domain/Domain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F31459B2DA9E5BB7B7E73E2"
+               BuildableName = "Presentation.framework"
+               BlueprintName = "Presentation"
+               ReferencedContainer = "container:Projects/Presentation/Presentation.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B17CB0CC0C27C8AB777BDAF6"
+               BuildableName = "PresentationTestUtils.framework"
+               BlueprintName = "PresentationTestUtils"
+               ReferencedContainer = "container:Projects/Presentation/Presentation.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -112,16 +140,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B6A067376AF5F0A6CAB71D90"
-               BuildableName = "GistTests.xctest"
-               BlueprintName = "GistTests"
-               ReferencedContainer = "container:Projects/MainApp/Gist.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -146,10 +164,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B6A067376AF5F0A6CAB71D90"
+               BuildableName = "GistTests.xctest"
+               BlueprintName = "GistTests"
+               ReferencedContainer = "container:Projects/MainApp/Gist.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "7FBD2F22544C231784C1A4D5"
                BuildableName = "DomainTests.xctest"
                BlueprintName = "DomainTests"
                ReferencedContainer = "container:Projects/Domain/Domain.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4F649FDB9C5521442A78DE10"
+               BuildableName = "PresentationTests.xctest"
+               BlueprintName = "PresentationTests"
+               ReferencedContainer = "container:Projects/Presentation/Presentation.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -164,16 +202,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A3CF454D42DB81B7D461821E"
-            BuildableName = "Gist.app"
-            BlueprintName = "Gist"
-            ReferencedContainer = "container:Projects/MainApp/Gist.xcodeproj">
+            BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
+            BuildableName = "Utils.framework"
+            BlueprintName = "Utils"
+            ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -181,16 +218,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A3CF454D42DB81B7D461821E"
-            BuildableName = "Gist.app"
-            BlueprintName = "Gist"
-            ReferencedContainer = "container:Projects/MainApp/Gist.xcodeproj">
+            BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
+            BuildableName = "Utils.framework"
+            BlueprintName = "Utils"
+            ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

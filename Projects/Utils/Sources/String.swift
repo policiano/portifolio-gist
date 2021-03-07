@@ -1,7 +1,7 @@
 import Foundation
 
 extension String {
-    var valueOrNil: String? {
+    public var valueOrNil: String? {
         if self.isEmpty {
             return nil
         }

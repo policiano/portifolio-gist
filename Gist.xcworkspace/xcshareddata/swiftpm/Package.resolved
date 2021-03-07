@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "Anchorage",
+        "repositoryURL": "https://github.com/Rightpoint/Anchorage.git",
+        "state": {
+          "branch": null,
+          "revision": "23a6dd0ccf9529d2750d8679a2e74a161cff2f16",
+          "version": "4.5.0"
+        }
+      },
+      {
         "package": "BoringSSL-GRPC",
         "repositoryURL": "https://github.com/firebase/boringssl-SwiftPM.git",
         "state": {
@@ -89,6 +98,15 @@
           "branch": null,
           "revision": "91ed3d188eb95705fef3c249453b81f32dc557d1",
           "version": "1.5.0"
+        }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "state": {
+          "branch": null,
+          "revision": "2a10bf41da75599a9f8e872dbd44fe0155a2e00c",
+          "version": "5.15.8"
         }
       },
       {
@@ -215,6 +233,15 @@
           "branch": null,
           "revision": "a6014fe94c3dbff0ad500e8da4f251a5d336530b",
           "version": "5.1.0-beta.1"
+        }
+      },
+      {
+        "package": "TagListView",
+        "repositoryURL": "https://github.com/ElaWorkshop/TagListView.git",
+        "state": {
+          "branch": null,
+          "revision": "b30b61826736f4d9ec04aef5df891f3914423f16",
+          "version": "1.4.1"
         }
       },
       {

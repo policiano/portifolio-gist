@@ -11,7 +11,7 @@ extension Array {
 }
 
 extension Array where Element: Hashable {
-    var uniques: Array {
+    public var uniques: Array {
         var buffer = Array()
         var added = Set<Element>()
         for elem in self {
