@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,8 @@
 		26131784FD06AC6956F887BF /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 443E607A8A7C556FEA984D77 /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DFD5DDA7C8B632F4A70ED64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FF8F1A8E2148FA6F782F486 /* Assets.xcassets */; };
 		34C03B0E33BBF6083F48B0F7 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66267C7EF474B0945E71872E /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		37AB3F5C372A87E6AB19971F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8918FF0A6D9492E10E008F10 /* Info.plist */; };
+		5E35E4819688C459FE87DED4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E8DDC243EFE18977130F154 /* GoogleService-Info.plist */; };
+		638B40FFC21467B77A75C44E /* GoogleServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62A03580741CE958B094CA /* GoogleServiceInfo.swift */; };
 		683C7C2F0FE3CCCE36F5ED84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 674314C966AFE0846838B0A2 /* LaunchScreen.storyboard */; };
 		78714D45379C4424FB4202D2 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8804D1763E9EC57F6F739C /* Info.swift */; };
 		87F49EE52276D7EACB25B4F3 /* Bundle+Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CAA93B7FA944333474B32E /* Bundle+Gist.swift */; };
@@ -73,6 +74,7 @@
 		350ABF0611C7513F6D6F560E /* Bundle+GistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+GistTests.swift"; sourceTree = "<group>"; };
 		3CC1F06BE2DD718B4AC4CA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		443E607A8A7C556FEA984D77 /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E8DDC243EFE18977130F154 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FC32F5469E48A1444F03DE0 /* Assets+Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets+Gist.swift"; sourceTree = "<group>"; };
 		4FF8F1A8E2148FA6F782F486 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66267C7EF474B0945E71872E /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 		AC0981BF4C38704515694831 /* Utils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB4CB6FCC79BCC4E22FF17E /* GistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D945892F12C31B53E5F00E63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB62A03580741CE958B094CA /* GoogleServiceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleServiceInfo.swift; sourceTree = "<group>"; };
 		EF8804D1763E9EC57F6F739C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +178,7 @@
 				4FC32F5469E48A1444F03DE0 /* Assets+Gist.swift */,
 				31CAA93B7FA944333474B32E /* Bundle+Gist.swift */,
 				350ABF0611C7513F6D6F560E /* Bundle+GistTests.swift */,
+				DB62A03580741CE958B094CA /* GoogleServiceInfo.swift */,
 				EF8804D1763E9EC57F6F739C /* Info.swift */,
 			);
 			path = Sources;
@@ -185,6 +189,7 @@
 			children = (
 				674314C966AFE0846838B0A2 /* LaunchScreen.storyboard */,
 				4FF8F1A8E2148FA6F782F486 /* Assets.xcassets */,
+				4E8DDC243EFE18977130F154 /* GoogleService-Info.plist */,
 				8918FF0A6D9492E10E008F10 /* Info.plist */,
 			);
 			path = Resources;
@@ -301,7 +306,7 @@
 			files = (
 				2DFD5DDA7C8B632F4A70ED64 /* Assets.xcassets in Resources */,
 				683C7C2F0FE3CCCE36F5ED84 /* LaunchScreen.storyboard in Resources */,
-				37AB3F5C372A87E6AB19971F /* Info.plist in Resources */,
+				5E35E4819688C459FE87DED4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +360,7 @@
 			files = (
 				09FA02024B8A1D66708D889B /* Assets+Gist.swift in Sources */,
 				87F49EE52276D7EACB25B4F3 /* Bundle+Gist.swift in Sources */,
+				638B40FFC21467B77A75C44E /* GoogleServiceInfo.swift in Sources */,
 				9C0A8A661AB8EBB74A9100D7 /* Info.swift in Sources */,
 				E1B91542D33969F060A8DEF0 /* AppDelegate.swift in Sources */,
 			);

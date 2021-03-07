@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Domain
-//import Firebase
+import Presentation
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,17 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
         
-//        let splitViewController = SplitViewController()
+        let splitViewController = SplitViewController()
 
-//        window?.rootViewController = splitViewController
-        let vc = UIViewController()
-        vc.view.backgroundColor = .blue
-        window?.rootViewController = vc
+        window?.rootViewController = splitViewController
+
         window?.makeKeyAndVisible()
-
-        Domain()
         
         return true
     }

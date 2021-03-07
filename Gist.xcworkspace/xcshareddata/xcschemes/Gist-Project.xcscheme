@@ -42,10 +42,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
-               BuildableName = "Utils.framework"
-               BlueprintName = "Utils"
-               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
+               BlueprintIdentifier = "1D2AB1734E89DD04E08514BF"
+               BuildableName = "Repository.framework"
+               BlueprintName = "Repository"
+               ReferencedContainer = "container:Projects/Repository/Repository.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -56,10 +56,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1EFF68A3AD79AD0DCD9B4E90"
-               BuildableName = "UtilsTestUtils.framework"
-               BlueprintName = "UtilsTestUtils"
-               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
+               BlueprintIdentifier = "DE3DDFC12CFFB84E5DCEA232"
+               BuildableName = "RepositoryTestUtils.framework"
+               BlueprintName = "RepositoryTestUtils"
+               ReferencedContainer = "container:Projects/Repository/Repository.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -84,10 +84,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D2AB1734E89DD04E08514BF"
-               BuildableName = "Repository.framework"
-               BlueprintName = "Repository"
-               ReferencedContainer = "container:Projects/Repository/Repository.xcodeproj">
+               BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
+               BuildableName = "Utils.framework"
+               BlueprintName = "Utils"
+               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -98,10 +98,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE3DDFC12CFFB84E5DCEA232"
-               BuildableName = "RepositoryTestUtils.framework"
-               BlueprintName = "RepositoryTestUtils"
-               ReferencedContainer = "container:Projects/Repository/Repository.xcodeproj">
+               BlueprintIdentifier = "1EFF68A3AD79AD0DCD9B4E90"
+               BuildableName = "UtilsTestUtils.framework"
+               BlueprintName = "UtilsTestUtils"
+               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -154,10 +154,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DCB1A88ED933140A011EC01"
-               BuildableName = "UtilsTests.xctest"
-               BlueprintName = "UtilsTests"
-               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
+               BlueprintIdentifier = "E227DA11F88E56EFAEBAD447"
+               BuildableName = "RepositoryTests.xctest"
+               BlueprintName = "RepositoryTests"
+               ReferencedContainer = "container:Projects/Repository/Repository.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -174,10 +174,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E227DA11F88E56EFAEBAD447"
-               BuildableName = "RepositoryTests.xctest"
-               BlueprintName = "RepositoryTests"
-               ReferencedContainer = "container:Projects/Repository/Repository.xcodeproj">
+               BlueprintIdentifier = "1DCB1A88ED933140A011EC01"
+               BuildableName = "UtilsTests.xctest"
+               BlueprintName = "UtilsTests"
+               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference

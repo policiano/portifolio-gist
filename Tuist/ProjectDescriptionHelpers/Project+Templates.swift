@@ -3,7 +3,7 @@ import ProjectDescription
 extension Project {
 
     private static func bundleIdWith(name: String) -> String {
-        "io.tuist.\(name)"
+        "br.com.policiano.\(name)"
     }
 
     public static func app(

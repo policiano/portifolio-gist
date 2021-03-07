@@ -593,7 +593,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.RepositoryTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.RepositoryTests;
 				PRODUCT_NAME = RepositoryTests;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -620,7 +620,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.RepositoryTestUtils;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.RepositoryTestUtils;
 				PRODUCT_NAME = RepositoryTestUtils;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -649,7 +649,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.RepositoryTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.RepositoryTests;
 				PRODUCT_NAME = RepositoryTests;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -677,7 +677,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.Repository;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.Repository;
 				PRODUCT_NAME = Repository;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -813,7 +813,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.RepositoryTestUtils;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.RepositoryTestUtils;
 				PRODUCT_NAME = RepositoryTestUtils;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -843,7 +843,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.Repository;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.Repository;
 				PRODUCT_NAME = Repository;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

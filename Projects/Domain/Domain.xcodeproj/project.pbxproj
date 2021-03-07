@@ -535,7 +535,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.DomainTestUtils;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.DomainTestUtils;
 				PRODUCT_NAME = DomainTestUtils;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -563,7 +563,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.DomainTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.DomainTests;
 				PRODUCT_NAME = DomainTests;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -639,7 +639,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.DomainTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.DomainTests;
 				PRODUCT_NAME = DomainTests;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -666,7 +666,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.Domain;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.Domain;
 				PRODUCT_NAME = Domain;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -752,7 +752,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.DomainTestUtils;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.DomainTestUtils;
 				PRODUCT_NAME = DomainTestUtils;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -783,7 +783,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.Domain;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.policiano.Domain;
 				PRODUCT_NAME = Domain;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
