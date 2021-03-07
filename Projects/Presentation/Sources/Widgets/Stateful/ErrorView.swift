@@ -1,6 +1,5 @@
 import Anchorage
 import UIKit
-import StatefulViewController
 
 class ErrorView: BasicPlaceholderView {
 

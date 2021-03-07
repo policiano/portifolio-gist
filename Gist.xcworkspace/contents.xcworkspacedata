@@ -20,7 +20,4 @@
          location = "group:Utils/Utils.xcodeproj">
       </FileRef>
    </Group>
-   <FileRef
-      location = "group:Projects/Presentation/Pods/Pods.xcodeproj">
-   </FileRef>
 </Workspace>

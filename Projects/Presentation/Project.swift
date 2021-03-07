@@ -15,7 +15,6 @@ let project = Project.framework(
         .package(product: "Anchorage"),
         .package(product: "Kingfisher"),
         .package(product: "TagListView"),
-        .cocoapods(path: ".")
     ],
     testDependencies: [
         .project(target: "DomainTestUtils", path: .relativeToManifest("../Domain")),

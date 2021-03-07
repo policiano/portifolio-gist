@@ -1,7 +1,5 @@
 import Anchorage
 import UIKit
-import PaginatedTableView
-import StatefulViewController
 
 protocol GistsDisplayLogic: AnyObject {
     func displayGists(viewModel: Gists.GetGists.ViewModel)

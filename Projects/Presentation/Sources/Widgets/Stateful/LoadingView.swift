@@ -1,5 +1,4 @@
 import Anchorage
-import StatefulViewController
 import UIKit
 
 final class LoadingView: BasicPlaceholderView, StatefulPlaceholderView {

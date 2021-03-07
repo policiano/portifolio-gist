@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol BookmarkGistUseCase {
-    func execute(gist: GistDigest, _ completion: @escaping (Swift.Result<GistDigest, Never>) -> Void)
+    func execute(gist: GistDigest, _ completion: @escaping (Result<GistDigest, Never>) -> Void)
 }
 
 public final class BookmarkGist {
@@ -13,7 +13,7 @@ public final class BookmarkGist {
 }
 
 extension BookmarkGist: BookmarkGistUseCase {
-    public func execute(gist: GistDigest, _ completion: @escaping (Swift.Result<GistDigest, Never>) -> Void) {
+    public func execute(gist: GistDigest, _ completion: @escaping (Result<GistDigest, Never>) -> Void) {
         gist.isBookmarked.toggle()
 
         repository.bookmark(gist: gist) {

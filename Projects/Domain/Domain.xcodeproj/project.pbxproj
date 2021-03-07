@@ -13,6 +13,7 @@
 		31524FAC712B6C04D31D2CC7 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD49F277B86481D3D105FAC8 /* Domain.framework */; };
 		3A5A99D7C2DD042D8CC26B73 /* GistDigest+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B2E0ED2FCE14CABFF0829A /* GistDigest+Fixtures.swift */; };
 		4F7742A2040B5304AD95B1B2 /* GistsRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871212EC0D4A2B97F077B13 /* GistsRepositorySpy.swift */; };
+		664FE1E62576F97C3661F12F /* BookmarkGistUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DCE984D593035F03FF5DC3 /* BookmarkGistUseCaseSpy.swift */; };
 		6AD89D43007D1B5E02790124 /* GetAllBookmarksUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39F565ECBA4F2A2A274FA1 /* GetAllBookmarksUseCaseTests.swift */; };
 		729B1345E89DDEAEE059A2DF /* GistDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002E58E6E6D6EFDF9D9EB777 /* GistDigest.swift */; };
 		745CA275CE3DE257175B0B27 /* BookmarksRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C552403ED95EC4FA9D77BCE9 /* BookmarksRepositorySpy.swift */; };
@@ -23,10 +24,13 @@
 		B5EA22A23EE0BA37DA84C3F0 /* GetPublicGistsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BB647D5CC80C49E7403D39 /* GetPublicGistsUseCaseTests.swift */; };
 		BDDA6EDEB39BF4D725BFC0E5 /* BookmarksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BBFA7768539EB13A3DEE77 /* BookmarksRepository.swift */; };
 		C2976EFC2D36BBF3ADF02E8D /* Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF26600D785488411556090 /* Utils.framework */; };
+		C45A88E0411E910B7742E280 /* GetPublicGistsUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF429A756C4D65BF55BD6D0 /* GetPublicGistsUseCaseSpy.swift */; };
 		C7DC240B67D600604B7EDA9C /* GistDigest+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B2E0ED2FCE14CABFF0829A /* GistDigest+Fixtures.swift */; };
+		D3CFFEF1E852214C0462B60D /* GetPublicGistsUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF429A756C4D65BF55BD6D0 /* GetPublicGistsUseCaseSpy.swift */; };
 		D4C2FD2BC0781B58591AA274 /* GistDigestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A94F116DD0F07780D304F8E /* GistDigestTests.swift */; };
 		D98B2271D0AF35978B032435 /* GistsRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871212EC0D4A2B97F077B13 /* GistsRepositorySpy.swift */; };
 		EA587A92A5855CD22A768352 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD49F277B86481D3D105FAC8 /* Domain.framework */; };
+		F482829596EC7DE98406689E /* BookmarkGistUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DCE984D593035F03FF5DC3 /* BookmarkGistUseCaseSpy.swift */; };
 		FC300EC9630AD9BA332BDBDB /* GetAllBookmarksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB35091A7BBC92E28D9E82 /* GetAllBookmarksUseCase.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +91,7 @@
 		29BB647D5CC80C49E7403D39 /* GetPublicGistsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPublicGistsUseCaseTests.swift; sourceTree = "<group>"; };
 		2E19D1DAD89F1C73B2370A85 /* BookmarkGistsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGistsUseCaseTests.swift; sourceTree = "<group>"; };
 		2F2831DAE4A3A6EFEDCFFB97 /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DCE984D593035F03FF5DC3 /* BookmarkGistUseCaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGistUseCaseSpy.swift; sourceTree = "<group>"; };
 		39BBFA7768539EB13A3DEE77 /* BookmarksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepository.swift; sourceTree = "<group>"; };
 		4628BDAFC773D5F896B39768 /* Domain.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Domain.plist; sourceTree = "<group>"; };
 		4C39F565ECBA4F2A2A274FA1 /* GetAllBookmarksUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllBookmarksUseCaseTests.swift; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 		58BB35091A7BBC92E28D9E82 /* GetAllBookmarksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllBookmarksUseCase.swift; sourceTree = "<group>"; };
 		7A94F116DD0F07780D304F8E /* GistDigestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDigestTests.swift; sourceTree = "<group>"; };
 		88491FD57EB0785EBDA4C5E8 /* UtilsTestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UtilsTestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF429A756C4D65BF55BD6D0 /* GetPublicGistsUseCaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPublicGistsUseCaseSpy.swift; sourceTree = "<group>"; };
 		A8B4537830F9ED14F0828BAF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BC0B34CE961011F714879AC5 /* GistsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsRepository.swift; sourceTree = "<group>"; };
 		C552403ED95EC4FA9D77BCE9 /* BookmarksRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRepositorySpy.swift; sourceTree = "<group>"; };
@@ -225,7 +231,9 @@
 		8FCB17EEAE5B236D28BF42E3 /* Doubles */ = {
 			isa = PBXGroup;
 			children = (
+				32DCE984D593035F03FF5DC3 /* BookmarkGistUseCaseSpy.swift */,
 				C552403ED95EC4FA9D77BCE9 /* BookmarksRepositorySpy.swift */,
+				8DF429A756C4D65BF55BD6D0 /* GetPublicGistsUseCaseSpy.swift */,
 				F871212EC0D4A2B97F077B13 /* GistsRepositorySpy.swift */,
 			);
 			path = Doubles;
@@ -473,7 +481,9 @@
 				79AD6E56AF8A470FE28C7885 /* BookmarkGistsUseCaseTests.swift in Sources */,
 				6AD89D43007D1B5E02790124 /* GetAllBookmarksUseCaseTests.swift in Sources */,
 				B5EA22A23EE0BA37DA84C3F0 /* GetPublicGistsUseCaseTests.swift in Sources */,
+				F482829596EC7DE98406689E /* BookmarkGistUseCaseSpy.swift in Sources */,
 				0805E268FE77B4B20D220D0C /* BookmarksRepositorySpy.swift in Sources */,
+				C45A88E0411E910B7742E280 /* GetPublicGistsUseCaseSpy.swift in Sources */,
 				4F7742A2040B5304AD95B1B2 /* GistsRepositorySpy.swift in Sources */,
 				3A5A99D7C2DD042D8CC26B73 /* GistDigest+Fixtures.swift in Sources */,
 			);
@@ -483,7 +493,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664FE1E62576F97C3661F12F /* BookmarkGistUseCaseSpy.swift in Sources */,
 				745CA275CE3DE257175B0B27 /* BookmarksRepositorySpy.swift in Sources */,
+				D3CFFEF1E852214C0462B60D /* GetPublicGistsUseCaseSpy.swift in Sources */,
 				D98B2271D0AF35978B032435 /* GistsRepositorySpy.swift in Sources */,
 				C7DC240B67D600604B7EDA9C /* GistDigest+Fixtures.swift in Sources */,
 			);

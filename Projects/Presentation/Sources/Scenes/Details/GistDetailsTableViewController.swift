@@ -1,4 +1,3 @@
-import Device
 import UIKit
 import WebKit
 
