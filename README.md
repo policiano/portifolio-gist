@@ -1,6 +1,9 @@
-[![Tuist badge](https://img.shields.io/badge/Powered%20by-Tuist-blue)](https://tuist.io)
-
 # Gist
+
+[![Swift 5.0](https://img.shields.io/badge/Swift-5.3-orange.svg?style=flat)](https://swift.org)
+![Platform iOS](https://img.shields.io/badge/platform-iOS%2014-inactive)
+![Xcode](https://img.shields.io/badge/IDE-Xcode%2012.3-blue)
+[![Tuist badge](https://img.shields.io/badge/Powered%20by-Tuist-blue)](https://tuist.io)
 
 A simple Gist app using the Clean Architecture.
 
@@ -44,18 +47,36 @@ Ready for people with low sight
 
 ![DynamicText-gif](https://user-images.githubusercontent.com/2760956/89153169-c3eb0400-d53a-11ea-9084-ec33de2dea85.gif)
 
-## Specs
-
-- XCode 11.6
-- Target: iOS 13.6
-- Cocoapods: 1.9.3
 
 ## Instalation
 
 1. Clone or download the repository
-2. Go to the root folder and install the dependencies with the following command:
-```bash
-pod install
-``` 
+3. Go to repository folder:
+```
+cd Gist
+```
+4. Execute the setup script:
+```
+make initial_setup
+```
 
-> Note: You should have the [CocoaPods](https://cocoapods.org/) gem installed
+**Or...**
+
+1. Clone or download the repository
+2. Install Tuist tool:
+```bash
+bash <(curl -Ls https://install.tuist.io)
+```
+3. Go to repository folder
+4. Set the environment up
+```bash
+tuist up
+```
+5. Generate the workspace
+```bash
+tuist clean && tuist generate
+```
+6. And open the project
+```
+open Gist.xcworkspace
+```
