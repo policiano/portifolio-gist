@@ -1,3 +1,5 @@
+[![Tuist badge](https://img.shields.io/badge/Powered%20by-Tuist-blue)](https://tuist.io)
+
 # Gist
 
 A simple Gist app using the Clean Architecture.
@@ -14,6 +16,7 @@ A simple Gist app using the Clean Architecture.
 ## Non-functional features
 
 - Clean Architecture
+- Modular projects with Tuist
 - MVP
 - Unit Tests using TDD
 - Exploring Cupertino Design
