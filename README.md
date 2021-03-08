@@ -85,4 +85,4 @@ open Gist.xcworkspace
 ![Screen Shot 2021-03-08 at 10 21 13](https://user-images.githubusercontent.com/2760956/110327243-7c5cb700-7ff8-11eb-81e5-fd43c4cce456.png)
 
 
-> I'm trying to solving it 😞. But we should do this workarround for now
+> I'm trying to solve that 😞. But we should do this workarround for now
