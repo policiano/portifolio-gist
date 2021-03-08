@@ -80,3 +80,9 @@ tuist clean && tuist generate
 ```
 open Gist.xcworkspace
 ```
+7. Delete the unneeded `Info.plist` from **Copy Bundle Resources** of **Gist** project:
+
+![Screen Shot 2021-03-08 at 10 21 13](https://user-images.githubusercontent.com/2760956/110327243-7c5cb700-7ff8-11eb-81e5-fd43c4cce456.png)
+
+
+> I'm trying to solving it 😞. But we should do this workarround for now
