@@ -57,7 +57,7 @@ cd Gist
 ```
 4. Execute the setup script:
 ```
-make initial_setup
+make project
 ```
 
 **Or...**
