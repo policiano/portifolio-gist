@@ -20,6 +20,7 @@ A simple Gist app using the Clean Architecture.
 
 - Clean Architecture
 - Modular projects with Tuist
+- Swift Package Manager
 - MVP
 - Unit Tests using TDD
 - Exploring Cupertino Design
