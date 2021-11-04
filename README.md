@@ -49,7 +49,7 @@ Ready for people with low sight
 ![DynamicText-gif](https://user-images.githubusercontent.com/2760956/89153169-c3eb0400-d53a-11ea-9084-ec33de2dea85.gif)
 
 
-## Instalation
+## Installation
 
 1. Clone or download the repository
 3. Go to repository folder:
